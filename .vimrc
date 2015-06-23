@@ -1,13 +1,15 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 Bundle 'gmarik/vundle'
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Bundle 'klen/python-mode'
 Bundle 'kien/ctrlp.vim'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-repeat'
 Bundle 'plasticboy/vim-markdown.git'
 " HTML
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -17,8 +19,14 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'sickill/vim-monokai'
 Bundle 'Valloric/YouCompleteMe'
 
-syntax on
+" Try list:
+" Bundle 'sirver/UltiSnips'
+" Bundle 'scrooloose/nerdtree'
+
+call vundle#end()
+
 filetype indent plugin on
+syntax on
 
 let mapleader=" "
 noremap <Leader><Leader> :noh<CR>
@@ -39,7 +47,8 @@ set hlsearch
 set nonumber
 
 " Powerline configuration
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
+let g:Powerline_symbols = 'fancy'
+set guifont=Inconsolata\ for\ Powerline\ 9
 set laststatus=2
 
 " Python mode

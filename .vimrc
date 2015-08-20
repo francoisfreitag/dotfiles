@@ -14,6 +14,8 @@ Bundle 'plasticboy/vim-markdown.git'
 " HTML
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'pangloss/vim-javascript'
+Bundle 'chase/vim-ansible-yaml'
+Bundle 'Glench/Vim-Jinja2-Syntax'
 Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'sickill/vim-monokai'
@@ -21,7 +23,7 @@ Bundle 'Valloric/YouCompleteMe'
 
 " Try list:
 " Bundle 'sirver/UltiSnips'
-" Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdtree'
 
 call vundle#end()
 
@@ -52,7 +54,7 @@ set guifont=Inconsolata\ for\ Powerline\ 9
 set laststatus=2
 
 " Python mode
-let g:pymode_options = 1
+let g:pymode_options = 0
 let g:pymode_options_max_line_length = 119
 let g:pymode_options_colorcolumn = 1
 let g:pymode_rope = 0
@@ -70,5 +72,12 @@ map <c-p> :CtrlPCurWD<CR>
 " Map search tags to CTRL+M
 map <c-m> :CtrlPTag<CR>
 
+" NerdTree
+map <F2> :NERDTreeToggle<CR>
+
 " Remove all trailing spaces
 autocmd BufWritePre * :%s/\s\+$//e
+
+" Filetype specific settings
+autocmd bufreadpre *.rst setlocal textwidth=79
+autocmd bufreadpre COMMIT_EDITMSG setlocal textwidth=72

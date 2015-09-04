@@ -62,6 +62,7 @@ let g:pymode_lint = 1
 let g:pymode_lint_on_fly = 0
 let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe']
 let g:pymode_lint_ignore = "E128"
+let g:pymode_doc = 0
 
 " CTRL+P
 " Always search in current directory

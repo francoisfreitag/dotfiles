@@ -5,7 +5,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Bundle 'gmarik/vundle'
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Bundle 'bling/vim-airline'
 Bundle 'klen/python-mode'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-surround'
@@ -48,10 +48,9 @@ set wrap
 set hlsearch
 set nonumber
 
-" Powerline configuration
-let g:Powerline_symbols = 'fancy'
-set guifont=Inconsolata\ for\ Powerline\ 9
-set laststatus=2
+" Airline
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
 
 " Python mode
 let g:pymode_options = 0

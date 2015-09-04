@@ -73,6 +73,17 @@ map <c-m> :CtrlPTag<CR>
 " NerdTree
 map <F2> :NERDTreeToggle<CR>
 
+" Custom shortcuts
+
+" Leader
+let mapleader=" "
+noremap <Leader><Leader> :noh<CR>
+noremap <Leader>g :Gvdiff<CR>
+
+" FN keys
+noremap <F5> :tabp<CR>
+noremap <F6> :tabn<CR>
+
 " Remove all trailing spaces
 autocmd BufWritePre * :%s/\s\+$//e
 

@@ -4,35 +4,33 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Bundle 'gmarik/vundle'
-Bundle 'bling/vim-airline'
-Bundle 'klen/python-mode'
-Bundle 'kien/ctrlp.vim'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-repeat'
-Bundle 'plasticboy/vim-markdown.git'
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'bling/vim-airline'
+Plugin 'klen/python-mode'
+Plugin 'jmcantrell/vim-virtualenv'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+Plugin 'plasticboy/vim-markdown.git'
 " HTML
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'pangloss/vim-javascript'
-Bundle 'chase/vim-ansible-yaml'
-Bundle 'Glench/Vim-Jinja2-Syntax'
-Bundle 'tpope/vim-fugitive'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'sickill/vim-monokai'
-Bundle 'Valloric/YouCompleteMe'
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plugin 'pangloss/vim-javascript'
+Plugin 'chase/vim-ansible-yaml'
+Plugin 'Glench/Vim-Jinja2-Syntax'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/nerdtree'
+" Themes
+Plugin 'sickill/vim-monokai'
 
 " Try list:
-" Bundle 'sirver/UltiSnips'
-Bundle 'scrooloose/nerdtree'
+" Plugin 'sirver/UltiSnips'
 
 call vundle#end()
 
 filetype indent plugin on
 syntax on
-
-let mapleader=" "
-noremap <Leader><Leader> :noh<CR>
-noremap <Leader>g :Gvdiff<CR>
 
 colors monokai
 

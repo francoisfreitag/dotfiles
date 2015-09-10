@@ -86,6 +86,9 @@ noremap <Leader>d Oimport ipdb; ipdb.set_trace()<Esc>
 noremap <F5> :tabp<CR>
 noremap <F6> :tabn<CR>
 
+" Ignore python compiled files
+set wildignore+=*.pyc
+
 " Remove all trailing spaces
 autocmd BufWritePre * :%s/\s\+$//e
 

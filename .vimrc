@@ -80,6 +80,7 @@ map <F3> :NERDTreeFind<CR>
 let mapleader=" "
 noremap <Leader><Leader> :noh<CR>
 noremap <Leader>g :Gvdiff<CR>
+noremap <Leader>d Oimport ipdb; ipdb.set_trace()<Esc>
 
 " FN keys
 noremap <F5> :tabp<CR>

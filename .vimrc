@@ -94,7 +94,7 @@ noremap <F6> :tabn<CR>
 set wildignore+=*.pyc
 
 " Remove all trailing spaces
-autocmd BufWritePre * :%s/\s\+$//e
+autocmd BufWritePre * :%s/\v\s+$//e
 
 " Filetype specific settings
 autocmd bufreadpre *.rst setlocal textwidth=79

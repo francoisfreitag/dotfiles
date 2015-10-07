@@ -9,6 +9,7 @@ Plugin 'bling/vim-airline'
 Plugin 'klen/python-mode'
 Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'kien/ctrlp.vim'
+Plugin 'mileszs/ack.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'plasticboy/vim-markdown.git'
@@ -73,6 +74,9 @@ map <c-m> :CtrlPTag<CR>
 " NerdTree
 map <F2> :NERDTreeToggle<CR>
 map <F3> :NERDTreeFind<CR>
+
+" Make ack.vim use the_silver_searcher
+let g:ackprg = 'ag --vimgrep'
 
 " Custom shortcuts
 

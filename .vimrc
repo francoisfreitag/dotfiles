@@ -44,6 +44,13 @@ set wrap
 set hlsearch
 set nonumber
 
+" Always display status line
+set laststatus=2
+
+cmap w!! w !sudo tee % >/dev/null
+
+" Disable mouse
+set mouse=
 " Airline
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'

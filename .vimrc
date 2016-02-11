@@ -63,9 +63,12 @@ noremap <Leader>g :Gvdiff<CR>
 noremap <F5> :tabp<CR>
 noremap <F6> :tabn<CR>
 
+" Plugins configuration
+
 " Airline
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#whitespace#enabled = 0
 
 " Python mode
 let g:pymode_options = 0
@@ -74,14 +77,15 @@ let g:pymode_options_colorcolumn = 1
 let g:pymode_rope = 0
 let g:pymode_rope_autoimport = 0
 let g:pymode_rope_lookup_project = 0
-let g:pymode_doc = 1
+let g:pymode_doc = 0
 let g:pymode_lint = 1
 let g:pymode_lint_on_fly = 0
 let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe']
-let g:pymode_lint_ignore = "E128"
 let g:pymode_doc = 0
 
 " CTRL+P
+let g:ctrlp_lazy_update = 1
+let g:ctrlp_match_window = 'min:1,max:50,results:50'
 " Always search in current directory
 nnoremap <c-p> :CtrlPCurWD<CR>
 " Tags
@@ -90,6 +94,8 @@ nnoremap <c-l> :CtrlPTag<CR>
 nnoremap <c-b> :CtrlPBuffer<CR>
 
 " NerdTree
+let g:NERDTreeIgnore=['\.pyc']
+
 map <F2> :NERDTreeToggle<CR>
 map <F3> :NERDTreeFind<CR>
 

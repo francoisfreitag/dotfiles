@@ -7,17 +7,11 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'bling/vim-airline'
 Plugin 'klen/python-mode'
-Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-Plugin 'plasticboy/vim-markdown.git'
 " HTML
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-Plugin 'pangloss/vim-javascript'
 Plugin 'chase/vim-ansible-yaml'
-Plugin 'Glench/Vim-Jinja2-Syntax'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Valloric/YouCompleteMe'

@@ -51,6 +51,18 @@ cmap w!! w !sudo tee % >/dev/null
 
 " Disable mouse
 set mouse=
+
+" Custom shortcuts
+
+" Leader
+let mapleader=" "
+noremap <Leader><Leader> :noh<CR>
+noremap <Leader>g :Gvdiff<CR>
+
+" FN keys
+noremap <F5> :tabp<CR>
+noremap <F6> :tabn<CR>
+
 " Airline
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
@@ -71,9 +83,11 @@ let g:pymode_doc = 0
 
 " CTRL+P
 " Always search in current directory
-map <c-p> :CtrlPCurWD<CR>
-" Map search tags to CTRL+M
-map <c-m> :CtrlPTag<CR>
+nnoremap <c-p> :CtrlPCurWD<CR>
+" Tags
+nnoremap <c-l> :CtrlPTag<CR>
+" Buffers
+nnoremap <c-b> :CtrlPBuffer<CR>
 
 " NerdTree
 map <F2> :NERDTreeToggle<CR>
@@ -81,18 +95,7 @@ map <F3> :NERDTreeFind<CR>
 
 " Make ack.vim use the_silver_searcher
 let g:ackprg = 'ag --vimgrep'
-
-" Custom shortcuts
-
-" Leader
-let mapleader=" "
-noremap <Leader><Leader> :noh<CR>
-noremap <Leader>g :Gvdiff<CR>
-noremap <Leader>d Oimport ipdb; ipdb.set_trace()<Esc>
-
-" FN keys
-noremap <F5> :tabp<CR>
-noremap <F6> :tabn<CR>
+nnoremap <Leader>a :Ack <cword><CR>
 
 " Ignore python compiled files
 set wildignore+=*.pyc

@@ -1,0 +1,45 @@
+[user]
+  name = François Freitag
+  email = francois.freitag@polyconseil.fr
+
+[color]
+  ui = auto
+
+[alias]
+  st = status
+  ci = commit
+  br = branch
+  co = checkout
+  df = diff
+  dc = diff --cached
+  lg = log -p
+  pr = pull --rebase
+  p = push
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+  latest=for-each-ref --sort=-taggerdate --format='%(refname:short)' --count=1
+  polypush=git-polypush
+  ctags = !.git/hooks/ctags
+
+[commit]
+  message = ~/.git_templates/commit_message.txt
+  template = /home/ffreitag/.git_templates/commit_message.txt
+
+[core]
+	excludesfile = ~/.gitignore_global
+
+[url "git@github.com:Polyconseil/"]
+  insteadOf = poly:
+
+[diff]
+  tool = vimdiff
+
+[merge]
+  tool = vimdiff
+
+[init]
+  templatedir = ~/.git_templates
+[credential]
+  helper = /usr/lib/git-core/git-credential-gnome-keyring
+[push]
+  default = simple

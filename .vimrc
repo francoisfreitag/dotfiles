@@ -27,7 +27,10 @@ call vundle#end()
 filetype indent plugin on
 syntax on
 
-colors monokai
+colorscheme default
+
+" Fix fold colors
+highlight Folded ctermbg=Black
 
 set ai
 set tabstop=4

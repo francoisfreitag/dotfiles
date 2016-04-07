@@ -22,7 +22,7 @@
 
 [commit]
   message = ~/.git_templates/commit_message.txt
-  template = /home/ffreitag/.git_templates/commit_message.txt
+  template = ~/.git_templates/commit_message.txt
 
 [core]
 	excludesfile = ~/.gitignore_global

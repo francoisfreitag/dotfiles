@@ -137,4 +137,4 @@ autocmd bufreadpre *.rst setlocal textwidth=79 spell spelllang=en
 autocmd bufreadpre *.js setlocal sts=2 sw=2
 autocmd bufreadpre *.txt setlocal textwidth=79
 autocmd bufreadpre *.yml,*.yaml setlocal nowrap sts=2 sw=2
-autocmd bufreadpre COMMIT_EDITMSG setlocal textwidth=72 spell spelllang=en
+autocmd bufreadpre COMMIT_EDITMSG setlocal textwidth=72 spell spelllang=en syntax=markdown

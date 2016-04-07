@@ -21,7 +21,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/nerdtree'
 " Themes
-Plugin 'sickill/vim-monokai'
+Plugin 'nanotech/jellybeans.vim'
 
 " Try list:
 " Plugin 'sirver/UltiSnips'
@@ -31,7 +31,7 @@ call vundle#end()
 filetype indent plugin on
 syntax on
 
-colorscheme delek
+colorscheme jellybeans
 
 " Fix fold colors
 highlight Folded ctermbg=Black

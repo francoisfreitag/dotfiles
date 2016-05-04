@@ -20,6 +20,7 @@ Plugin 'Glench/Vim-Jinja2-Syntax'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/nerdtree'
+Plugin 'fatih/vim-go'
 " Themes
 Plugin 'nanotech/jellybeans.vim'
 

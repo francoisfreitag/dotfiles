@@ -124,6 +124,7 @@ let g:syntastic_html_tidy_exec = 'tidy5'
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_args = "--config node_modules/blease-js/.eslintrc"
 let g:syntastic_python_checkers = ['flake8', 'mccabe', 'pylint']
+let g:syntastic_ansible_checkers = ['ansible_lint']
 
 " Ansible
 let g:ansible_options = {'ignore_blank_lines': 0}

@@ -31,14 +31,16 @@
   insteadOf = poly:
 
 [diff]
-  tool = vimdiff
+  tool = nvim -d
 
 [merge]
-  tool = vimdiff
+  tool = nvim -d
 
 [init]
   templatedir = ~/.git_templates
+
 [credential]
   helper = /usr/lib/git-core/git-credential-gnome-keyring
+
 [push]
   default = simple

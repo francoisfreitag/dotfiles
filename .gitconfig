@@ -29,8 +29,8 @@
 [diff]
   tool = nvim -d
 
-[merge]
-  tool = nvim -d
+[mergetool]
+  path = nvim
 
 [init]
   templatedir = ~/.git_templates

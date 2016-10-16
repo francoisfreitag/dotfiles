@@ -64,10 +64,6 @@ noremap <Leader><Leader> :noh<CR>
 noremap <Leader>g :Gvdiff<CR>
 noremap <Leader>o :copen<cr>
 
-" FN keys
-noremap <F5> :tabp<CR>
-noremap <F6> :tabn<CR>
-
 " Plugins configuration
 " ~~~~~~~~~~~~~~~~~~~~~
 

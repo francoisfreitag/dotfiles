@@ -1,6 +1,6 @@
 [user]
   name = François Freitag
-  email = francois.freitag@polyconseil.fr
+  email = mail@franek.fr
 
 [color]
   ui = auto
@@ -17,7 +17,6 @@
   lol = log --graph --decorate --pretty=oneline --abbrev-commit
   lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
   latest=for-each-ref --sort=-taggerdate --format='%(refname:short)' --count=1
-  polypush=git-polypush
   ctags = !.git/hooks/ctags
 
 [commit]
@@ -26,9 +25,6 @@
 
 [core]
 	excludesfile = ~/.gitignore_global
-
-[url "git@github.com:Polyconseil/"]
-  insteadOf = poly:
 
 [diff]
   tool = nvim -d

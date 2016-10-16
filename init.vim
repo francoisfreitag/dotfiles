@@ -34,9 +34,6 @@ syntax on
 
 colorscheme jellybeans
 
-" Fix fold colors
-highlight Folded ctermbg=Black
-
 set ai
 set tabstop=4
 set expandtab

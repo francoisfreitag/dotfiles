@@ -1,10 +1,14 @@
 export EDITOR=/usr/bin/nvim
-export PATH=$HOME/bin/:$HOME/.npm-packages/bin:$PATH
-alias pyma='python manage.py'
 alias vim=nvim
-source /usr/bin/virtualenvwrapper.sh
+
+alias pyma='python manage.py'
+
+export PATH=$HOME/bin/:$HOME/.npm-packages/bin:$PATH
+
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/dev/
+source /usr/bin/virtualenvwrapper.sh
+
 # Setup antigen
 source /usr/share/zsh/scripts/antigen/antigen.zsh
 

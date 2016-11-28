@@ -148,7 +148,7 @@ set wildignore+=*.pyc
 autocmd BufWritePre * :%s/\v\s+$//e
 
 " Filetype specific settings
-autocmd bufreadpre *.rst setlocal textwidth=79 spell spelllang=en
+autocmd bufreadpre *.rst,*.md,*.txt setlocal textwidth=79 spell spelllang=en
 autocmd bufreadpre *.js,*.json,*.css setlocal sts=2 sw=2
 autocmd bufreadpre *.txt setlocal textwidth=79
 autocmd bufreadpre *.yml,*.yaml setlocal nowrap sts=2 sw=2

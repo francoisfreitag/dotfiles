@@ -14,6 +14,7 @@ Plugin 'godlygeek/tabular' " Required for vim-markdown
 Plugin 'plasticboy/vim-markdown.git'
 Plugin 'pangloss/vim-javascript'
 Plugin 'vim-syntastic/syntastic'
+Plugin 'vim-scripts/matchit.zip'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'chase/vim-ansible-yaml'
 Plugin 'Glench/Vim-Jinja2-Syntax'
@@ -21,8 +22,14 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'fatih/vim-go'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'mhinz/vim-startify'
+Plugin 'dhruvasagar/vim-table-mode'
 " Themes
 Plugin 'nanotech/jellybeans.vim'
+Plugin 'jonathanfilip/vim-lucius'
+Plugin 'joshdick/onedark.vim'
+Plugin 'notpratheek/vim-luna'
 
 " Try list:
 " Plugin 'sirver/UltiSnips'
@@ -104,6 +111,9 @@ map <F3> :NERDTreeFind<cr>
 let g:ackprg = 'ag --vimgrep'
 nnoremap <Leader>a :Ack <cword><cr>
 
+" Startify
+let g:startify_custom_header = []
+
 " Syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -121,6 +131,10 @@ let g:syntastic_ansible_checkers = ['ansible_lint']
 
 " Ansible
 let g:ansible_options = {'ignore_blank_lines': 0}
+
+" Table mode
+let g:table_mode_corner_corner="+"
+let g:table_mode_header_fillchar="="
 
 " Ignore python compiled files
 set wildignore+=*.pyc

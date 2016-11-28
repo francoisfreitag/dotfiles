@@ -102,10 +102,9 @@ let g:ctrlp_lazy_update = 1
 let g:ctrlp_match_window = 'min:1,max:50,results:50'
 " Always search in current directory
 nnoremap <c-p> :CtrlPCurWD<cr>
-" Tags
 nnoremap <c-l> :CtrlPTag<cr>
-" Buffers
 nnoremap <c-b> :CtrlPBuffer<cr>
+nnoremap <Leader>m :CtrlPMRUFiles<cr>
 
 " NerdTree
 let g:NERDTreeIgnore=['\.pyc']

@@ -1,7 +1,5 @@
 export EDITOR=/usr/bin/nvim
 export PATH=$HOME/bin/:$HOME/.npm-packages/bin:$PATH
-# Should fix SSH keyring problems...
-export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
 alias pyma='python manage.py'
 alias vim=nvim
 source /usr/bin/virtualenvwrapper.sh

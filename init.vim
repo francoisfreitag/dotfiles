@@ -39,7 +39,12 @@ call vundle#end()
 filetype indent plugin on
 syntax on
 
-colorscheme jellybeans
+if $TERM == 'xterm'
+    colorscheme jellybeans
+else
+    set termguicolors
+    colorscheme onedark
+endif
 
 set ai
 set tabstop=4

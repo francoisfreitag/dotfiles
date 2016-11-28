@@ -6,7 +6,7 @@ source /usr/bin/virtualenvwrapper.sh
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/dev/
 # Setup antigen
-source $HOME/Documents/dot_files/antigen/antigen.zsh
+source /usr/share/zsh/scripts/antigen/antigen.zsh
 
 antigen bundle Tarrasch/zsh-autoenv
 antigen bundle pip

@@ -13,7 +13,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'godlygeek/tabular' " Required for vim-markdown
 Plugin 'plasticboy/vim-markdown.git'
 Plugin 'pangloss/vim-javascript'
-Plugin 'scrooloose/syntastic'
+Plugin 'vim-syntastic/syntastic'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'chase/vim-ansible-yaml'
 Plugin 'Glench/Vim-Jinja2-Syntax'

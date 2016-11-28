@@ -75,6 +75,7 @@ let mapleader=" "
 noremap <Leader><Leader> :noh<CR>
 noremap <Leader>g :Gvdiff<CR>
 noremap <Leader>o :copen<cr>
+nnoremap Q <nop>
 
 " Plugins configuration
 " ~~~~~~~~~~~~~~~~~~~~~

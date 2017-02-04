@@ -12,7 +12,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'godlygeek/tabular' " Required for vim-markdown
 Plugin 'plasticboy/vim-markdown.git'
 Plugin 'pangloss/vim-javascript'
-Plugin 'vim-syntastic/syntastic'
+Plugin 'neomake/neomake'
 Plugin 'vim-scripts/matchit.zip'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'tmhedberg/SimpylFold'
@@ -105,25 +105,21 @@ map <F3> :NERDTreeFind<cr>
 
 " Make ack.vim use the_silver_searcher
 let g:ackprg = 'ag --vimgrep'
-nnoremap <Leader>a :Ack <cword><cr>
+nnoremap <Leader>a :Ack -w <cword><cr>
 
 " Startify
 let g:startify_custom_header = []
 
-" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_html_tidy_exec = 'tidy5'
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exec = "node_modules/eslint/bin/eslint.js"
-let g:syntastic_python_checkers = ['flake8', 'mccabe', 'pylint']
-let g:syntastic_ansible_checkers = ['ansible_lint']
+let g:neomake_javascript_enabled_makers = ['jshint']
+let g:neomake_open_list = 2  " Open list but preserve current cursor location
+let g:neomake_list_height = 3
+let g:neomake_xsd_xmllint_maker = {
+            \ 'exe': 'xmllint',
+            \ 'args': ['--noout'],
+            \ }
+" This will need a nice error format
+let g:neomake_xsd_enabled_makers = ['xmllint']
+" let g:neomake_ansible_enabled_makers = ['lint']
 
 " Ansible
 let g:ansible_options = {'ignore_blank_lines': 0}
@@ -137,10 +133,12 @@ set wildignore+=*.pyc
 
 " Remove all trailing spaces
 autocmd BufWritePre * :%s/\v\s+$//e
+autocmd BufWritePost * Neomake
 
 " Filetype specific settings
-autocmd bufreadpre *.rst,*.md,*.txt setlocal textwidth=79 spell spelllang=en
-autocmd bufreadpre *.js,*.json,*.css setlocal sts=2 sw=2
-autocmd bufreadpre *.txt setlocal textwidth=79
-autocmd bufreadpre *.yml,*.yaml setlocal nowrap sts=2 sw=2
-autocmd bufreadpre COMMIT_EDITMSG setlocal textwidth=72 spell spelllang=en syntax=markdown
+autocmd BufReadPre *.rst,*.md,*.txt setlocal textwidth=79 spell spelllang=en
+autocmd BufReadPre *.html,*.js,*.json,*.css setlocal sts=2 sw=2
+autocmd BufReadPre *.txt setlocal textwidth=79
+autocmd BufReadPre *.yml,*.yaml setlocal nowrap sts=2 sw=2
+autocmd BufReadPre COMMIT_EDITMSG setlocal textwidth=72 spell spelllang=en
+autocmd BufRead * Neomake

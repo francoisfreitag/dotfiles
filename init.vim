@@ -6,7 +6,6 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'bling/vim-airline'
-Plugin 'klen/python-mode'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'tpope/vim-surround'
@@ -16,6 +15,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'vim-scripts/matchit.zip'
 Plugin 'digitaltoad/vim-jade'
+Plugin 'tmhedberg/SimpylFold'
 Plugin 'chase/vim-ansible-yaml'
 Plugin 'Glench/Vim-Jinja2-Syntax'
 Plugin 'tpope/vim-fugitive'
@@ -75,6 +75,7 @@ let mapleader=" "
 noremap <Leader><Leader> :noh<CR>
 noremap <Leader>g :Gvdiff<CR>
 noremap <Leader>o :copen<cr>
+noremap <Leader>b Oimport pdb; pdb.set_trace()<ESC>
 nnoremap Q <nop>
 
 " Plugins configuration
@@ -83,19 +84,9 @@ nnoremap Q <nop>
 " Airline
 let g:airline#extensions#whitespace#enabled = 0
 
-" Python mode
-let g:pymode_options = 0
-let g:pymode_options_max_line_length = 119
-let g:pymode_options_colorcolumn = 1
-let g:pymode_rope = 0
-let g:pymode_rope_autoimport = 0
-let g:pymode_rope_lookup_project = 0
-let g:pymode_doc = 1
-let g:pymode_lint = 0
-let g:pymode_lint_on_fly = 0
-let g:pymode_lint_on_write = 0
-let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'pep257', 'mccabe', 'pylint']
-let g:pymode_doc = 0
+" Python
+let g:SimpylFold_fold_import = 0
+
 
 " CTRL+P
 let g:ctrlp_lazy_update = 1

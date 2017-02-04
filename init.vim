@@ -94,6 +94,9 @@ nnoremap <c-l> :CtrlPTag<cr>
 nnoremap <c-b> :CtrlPBuffer<cr>
 nnoremap <Leader>m :CtrlPMRUFiles<cr>
 
+" Markdown
+let g:vim_markdown_folding_disabled = 1
+
 " NerdTree
 let g:NERDTreeIgnore=['\.pyc']
 

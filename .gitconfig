@@ -39,8 +39,16 @@
   helper = /usr/lib/git-core/git-credential-gnome-keyring
 
 [push]
-  default = simple
+  default = current
+
 [mergetool "fugitive"]
 	cmd = vim -f -c \"Gdiff\" \"$MERGED\"
+
 [merge]
 	tool = fugitive
+
+[stash]
+	showPatch = true
+
+[rebase]
+	autoSquash = true

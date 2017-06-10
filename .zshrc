@@ -1,7 +1,7 @@
+export SAVEHIST=100000000
 export EDITOR=/usr/bin/nvim
+set -o vi
 alias vim=nvim
-
-alias pyma='python manage.py'
 
 export PATH=$HOME/bin/:$HOME/.npm-packages/bin:$PATH
 
@@ -10,7 +10,7 @@ export PROJECT_HOME=$HOME/dev/
 source /usr/bin/virtualenvwrapper.sh
 
 # Setup antigen
-source /usr/share/zsh/scripts/antigen/antigen.zsh
+source /usr/share/zsh/share/antigen.zsh
 
 antigen bundle Tarrasch/zsh-autoenv
 antigen bundle pip

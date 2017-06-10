@@ -1,3 +1,5 @@
 *migration*
 tags
-*.min.js
+*min.js
+*static2*
+_build

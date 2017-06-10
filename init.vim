@@ -8,29 +8,30 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'bling/vim-airline'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
-Plugin 'tpope/vim-surround'
 Plugin 'godlygeek/tabular' " Required for vim-markdown
 Plugin 'plasticboy/vim-markdown.git'
 Plugin 'pangloss/vim-javascript'
 Plugin 'neomake/neomake'
 Plugin 'vim-scripts/matchit.zip'
-Plugin 'digitaltoad/vim-jade'
+Plugin 'mitsuhiko/vim-python-combined'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'chase/vim-ansible-yaml'
 Plugin 'Glench/Vim-Jinja2-Syntax'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rhubarb'
 Plugin 'tommcdo/vim-fubitive'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-unimpaired'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/nerdtree'
-Plugin 'fatih/vim-go'
-Plugin 'sheerun/vim-polyglot'
-Plugin 'mhinz/vim-startify'
 Plugin 'dhruvasagar/vim-table-mode'
 " Themes
 Plugin 'nanotech/jellybeans.vim'
-Plugin 'jonathanfilip/vim-lucius'
 Plugin 'joshdick/onedark.vim'
 Plugin 'notpratheek/vim-luna'
+Plugin 'frankier/neovim-colors-solarized-truecolor-only'
 
 " Try list:
 " Plugin 'sirver/UltiSnips'
@@ -40,20 +41,27 @@ call vundle#end()
 filetype indent plugin on
 syntax on
 
-set termguicolors
-colorscheme onedark
+if has('nvim')
+    set termguicolors
+endif
+set background=dark
+colorscheme solarized
+highlight String guifg=#CCA590
 
 set ai
 set tabstop=4
 set expandtab
 set shiftwidth=4
 set softtabstop=4
+set nojoinspaces
 
 set modeline
-set textwidth=119
+set textwidth=79
 set wrap
-set hlsearch
+set incsearch
+set nohlsearch
 set nonumber
+set history=2000
 
 " Always display status line
 set laststatus=2
@@ -61,8 +69,9 @@ set laststatus=2
 " Handy 'save as root'
 cmap w!! w !sudo tee % >/dev/null
 
-" Disable mouse
 set mouse=
+
+set diffopt=vertical
 
 " Custom shortcuts
 " ~~~~~~~~~~~~~~~~
@@ -74,12 +83,16 @@ noremap <Leader>g :Gvdiff<CR>
 noremap <Leader>o :copen<cr>
 noremap <Leader>b Oimport pdb; pdb.set_trace()<ESC>
 nnoremap Q <nop>
+" Expand %% to current file's work directory
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
 
 " Plugins configuration
 " ~~~~~~~~~~~~~~~~~~~~~
 
 " Airline
 let g:airline#extensions#whitespace#enabled = 0
+let g:airline_theme='onedark'
 
 " Python
 let g:SimpylFold_fold_import = 0
@@ -95,7 +108,8 @@ nnoremap <c-b> :CtrlPBuffer<cr>
 nnoremap <Leader>m :CtrlPMRUFiles<cr>
 
 " Markdown
-let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_folding_disabled = 0
+let g:vim_markdown_folding_level = 4
 
 " NerdTree
 let g:NERDTreeIgnore=['\.pyc']
@@ -110,7 +124,14 @@ nnoremap <Leader>a :Ack -w <cword><cr>
 " Startify
 let g:startify_custom_header = []
 
-let g:neomake_javascript_enabled_makers = ['jshint']
+" Simpylfold
+let g:SimpylFold_docstring_preview = 1
+
+" Neomake
+" let g:neomake_javascript_enabled_makers = ['jshint']
+let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_javascript_eslint_maker_args = ['--config', '--format', '--compact', '--ext', '.js,.jsx']
+
 let g:neomake_open_list = 2  " Open list but preserve current cursor location
 let g:neomake_list_height = 3
 let g:neomake_xsd_xmllint_maker = {
@@ -119,7 +140,6 @@ let g:neomake_xsd_xmllint_maker = {
             \ }
 " This will need a nice error format
 let g:neomake_xsd_enabled_makers = ['xmllint']
-" let g:neomake_ansible_enabled_makers = ['lint']
 
 " Ansible
 let g:ansible_options = {'ignore_blank_lines': 0}
@@ -133,12 +153,14 @@ set wildignore+=*.pyc
 
 " Remove all trailing spaces
 autocmd BufWritePre * :%s/\v\s+$//e
+autocmd BufWritePost *.py :silent !isort "%"
 autocmd BufWritePost * Neomake
 
 " Filetype specific settings
-autocmd BufReadPre *.rst,*.md,*.txt setlocal textwidth=79 spell spelllang=en
-autocmd BufReadPre *.html,*.js,*.json,*.css setlocal sts=2 sw=2
-autocmd BufReadPre *.txt setlocal textwidth=79
-autocmd BufReadPre *.yml,*.yaml setlocal nowrap sts=2 sw=2
+autocmd BufReadPre *.md,*.rst,*.txt setlocal textwidth=79 spell spelllang=en suffixesadd=.rst
+autocmd BufRead *.txt setlocal syntax=rst
+autocmd BufReadPre *.html setlocal spell spelllang=en sts=2 sw=2
+autocmd BufReadPre *.js,*.json,*.s?css setlocal sts=2 sw=2
+autocmd BufReadPre *.yml,*.yaml setlocal sts=2 sw=2
 autocmd BufReadPre COMMIT_EDITMSG setlocal textwidth=72 spell spelllang=en
 autocmd BufRead * Neomake

@@ -23,3 +23,8 @@ function virtualenv_prompt () {
     REPLY=${VIRTUAL_ENV+(${VIRTUAL_ENV:t}) }
 }
 zstyle ':prompt:grml:left:setup' items rc venv change-root user at host path vcs percent
+
+# Start tmux
+if [ -z "$TMUX" ]; then
+    tmux
+fi

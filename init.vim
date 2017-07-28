@@ -12,8 +12,10 @@ Plugin 'godlygeek/tabular' " Required for vim-markdown
 Plugin 'plasticboy/vim-markdown.git'
 Plugin 'pangloss/vim-javascript'
 Plugin 'neomake/neomake'
+Plugin 'editorconfig/editorconfig-vim'
 Plugin 'vim-scripts/matchit.zip'
 Plugin 'mitsuhiko/vim-python-combined'
+Plugin 'michaeljsmith/vim-indent-object'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'chase/vim-ansible-yaml'
 Plugin 'Glench/Vim-Jinja2-Syntax'
@@ -62,6 +64,7 @@ set incsearch
 set nohlsearch
 set nonumber
 set history=2000
+set hidden
 
 " Always display status line
 set laststatus=2

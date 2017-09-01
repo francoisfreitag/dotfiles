@@ -24,13 +24,17 @@
   template = ~/.git_templates/commit_message.txt
 
 [core]
-	excludesfile = ~/.gitignore_global
+  excludesfile = ~/.gitignore_global
 
 [diff]
-  tool = nvim -d
+  tool = vimdiff
 
-[mergetool]
-  path = nvim
+[merge]
+  tool = vimdiff
+  conflictstyle = diff3
+
+[mergetool "vimdiff"]
+  cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 
 [init]
   templatedir = ~/.git_templates
@@ -41,14 +45,8 @@
 [push]
   default = current
 
-[mergetool "fugitive"]
-	cmd = vim -f -c \"Gdiff\" \"$MERGED\"
-
-[merge]
-	tool = fugitive
-
 [stash]
-	showPatch = true
+  showPatch = true
 
 [rebase]
-	autoSquash = true
+  autoSquash = true

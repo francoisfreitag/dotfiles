@@ -1,4 +1,6 @@
-the_silver_searcher
 antigen
+git
 neovim
+the_silver_searcher
+tmux
 zsh-syntax-highlighting

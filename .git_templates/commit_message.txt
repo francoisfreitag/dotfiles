@@ -1,6 +1,5 @@
 
-[#1234 state:qa]
+
 Reviewed-by:
 
-# Update changelog
-# Make translations & migrations
+[#1234 state:qa]

@@ -28,3 +28,5 @@ zstyle ':prompt:grml:left:setup' items rc venv change-root path vcs percent
 if [ -z "$TMUX" ]; then
     tmux
 fi
+
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

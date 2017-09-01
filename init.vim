@@ -100,6 +100,8 @@ let g:SimpylFold_fold_import = 0
 
 " CTRL+P
 let g:ctrlp_lazy_update = 1
+let g:ctrlp_max_files = 0
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|node_modules|htmlcov|static|vendor)$'
 let g:ctrlp_match_window = 'min:1,max:50,results:50'
 " Always search in current directory
 nnoremap <c-p> :CtrlPCurWD<cr>

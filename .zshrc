@@ -22,7 +22,7 @@ grml_theme_add_token venv -f virtualenv_prompt '%F{magenta}' '%f'
 function virtualenv_prompt () {
     REPLY=${VIRTUAL_ENV+(${VIRTUAL_ENV:t}) }
 }
-zstyle ':prompt:grml:left:setup' items rc venv change-root user at host path vcs percent
+zstyle ':prompt:grml:left:setup' items rc venv change-root path vcs percent
 
 # Start tmux
 if [ -z "$TMUX" ]; then

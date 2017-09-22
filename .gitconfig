@@ -1,53 +1,53 @@
 [user]
-  name = François Freitag
-  email = mail+github@franek.fr
+    name = François Freitag
+    email = mail+github@franek.fr
 
 [color]
-  ui = auto
+    ui = auto
 
 [alias]
-  st = status
-  ci = commit
-  br = branch
-  co = checkout
-  df = diff
-  dc = diff --cached
-  lg = log -p
-  pr = pull --rebase
-  lol = log --graph --decorate --pretty=oneline --abbrev-commit
-  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
-  latest=for-each-ref --sort=-taggerdate --format='%(refname:short)' --count=1
-  rev = log -p master..HEAD --reverse
-  ctags = !.git/hooks/ctags
+    st = status
+    ci = commit
+    br = branch
+    co = checkout
+    df = diff
+    dc = diff --cached
+    lg = log -p
+    pr = pull --rebase
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    latest = for-each-ref --sort=-taggerdate --format='%(refname:short)' --count=1
+    rev = log -p master..HEAD --reverse
+    ctags = !.git/hooks/ctags
 
 [commit]
-  message = ~/.git_templates/commit_message.txt
-  template = ~/.git_templates/commit_message.txt
+    message = ~/.git_templates/commit_message.txt
+    template = ~/.git_templates/commit_message.txt
 
 [core]
-  excludesfile = ~/.gitignore_global
+    excludesfile = ~/.gitignore_global
 
 [diff]
-  tool = vimdiff
+    tool = vimdiff
 
 [merge]
-  tool = vimdiff
-  conflictstyle = diff3
+    tool = vimdiff
+    conflictstyle = diff3
 
 [mergetool "vimdiff"]
-  cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+    cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 
 [init]
-  templatedir = ~/.git_templates
+    templatedir = ~/.git_templates
 
 [credential]
-  helper = /usr/lib/git-core/git-credential-gnome-keyring
+    helper = /usr/lib/git-core/git-credential-gnome-keyring
 
 [push]
-  default = current
+    default = current
 
 [stash]
-  showPatch = true
+    showPatch = true
 
 [rebase]
-  autoSquash = true
+    autoSquash = true

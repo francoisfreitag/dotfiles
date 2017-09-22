@@ -12,7 +12,6 @@ source /usr/bin/virtualenvwrapper.sh
 source /usr/share/zsh/share/antigen.zsh
 
 antigen bundle Tarrasch/zsh-autoenv
-antigen bundle pip
 antigen apply
 
 # Display active virtualenv

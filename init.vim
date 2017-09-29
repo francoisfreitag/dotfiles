@@ -62,6 +62,7 @@ set nohlsearch
 set nonumber
 set history=2000
 set hidden
+set undofile
 
 " Always display status line
 set laststatus=2

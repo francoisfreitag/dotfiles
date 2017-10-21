@@ -2,7 +2,7 @@ export SAVEHIST=100000000
 export EDITOR=/usr/bin/nvim
 alias vim=nvim
 
-export PATH=$HOME/bin/:$HOME/.npm-packages/bin:$PATH
+export PATH="$HOME/bin/:$HOME/.npm-packages/bin:$PATH"
 
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/dev/

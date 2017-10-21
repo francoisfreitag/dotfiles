@@ -2,7 +2,8 @@ set nocompatible
 
 call plug#begin()
 Plug 'bling/vim-airline'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'neomake/neomake'
@@ -93,16 +94,11 @@ let g:airline_theme='onedark'
 let g:SimpylFold_fold_import = 0
 
 
-" CTRL+P
-let g:ctrlp_lazy_update = 1
-let g:ctrlp_max_files = 0
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|node_modules|htmlcov|static|vendor)$'
-let g:ctrlp_match_window = 'min:1,max:50,results:50'
-" Always search in current directory
-nnoremap <c-p> :CtrlPCurWD<cr>
-nnoremap <c-l> :CtrlPTag<cr>
-nnoremap <c-b> :CtrlPBuffer<cr>
-nnoremap <Leader>m :CtrlPMRUFiles<cr>
+" FZF
+nnoremap <c-p> :Files!<cr>
+nnoremap <c-l> :Tags!<cr>
+nnoremap <c-b> :Buffers!<cr>
+nnoremap <Leader>m :History!<cr>
 
 " Markdown
 let g:vim_markdown_folding_disabled = 0

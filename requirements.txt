@@ -1,4 +1,5 @@
 antigen
+fzf
 git
 neovim
 the_silver_searcher

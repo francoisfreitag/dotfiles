@@ -1,44 +1,38 @@
 set nocompatible
-filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'bling/vim-airline'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'mileszs/ack.vim'
-Plugin 'godlygeek/tabular' " Required for vim-markdown
-Plugin 'plasticboy/vim-markdown.git'
-Plugin 'pangloss/vim-javascript'
-Plugin 'neomake/neomake'
-Plugin 'vim-scripts/matchit.zip'
-Plugin 'mitsuhiko/vim-python-combined'
-Plugin 'tmhedberg/SimpylFold'
-Plugin 'chase/vim-ansible-yaml'
-Plugin 'Glench/Vim-Jinja2-Syntax'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-rhubarb'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'scrooloose/nerdtree'
-Plugin 'dhruvasagar/vim-table-mode'
+call plug#begin()
+Plug 'bling/vim-airline'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'mileszs/ack.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'neomake/neomake'
+Plug 'vim-scripts/matchit.zip'
+Plug 'mitsuhiko/vim-python-combined'
+Plug 'tmhedberg/SimpylFold'
+Plug 'chase/vim-ansible-yaml'
+Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'airblade/vim-gitgutter'
+Plug 'scrooloose/nerdtree'
+Plug 'dhruvasagar/vim-table-mode'
 " Themes
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'joshdick/onedark.vim'
-Plugin 'notpratheek/vim-luna'
-Plugin 'frankier/neovim-colors-solarized-truecolor-only'
+Plug 'nanotech/jellybeans.vim'
+Plug 'joshdick/onedark.vim'
+Plug 'notpratheek/vim-luna'
+Plug 'frankier/neovim-colors-solarized-truecolor-only'
 
 " Try list:
-" Plugin 'sirver/UltiSnips'
+" Plug 'sirver/UltiSnips'
+call plug#end()
 
-call vundle#end()
-
-filetype indent plugin on
-syntax on
+" Already performed by Plug
+" filetype indent plugin on
+" syntax on
 
 if has('nvim')
     set termguicolors

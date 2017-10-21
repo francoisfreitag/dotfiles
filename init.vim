@@ -112,7 +112,9 @@ map <F3> :NERDTreeFind<cr>
 
 " Make ack.vim use the_silver_searcher
 let g:ackprg = 'ag --vimgrep'
-nnoremap <Leader>a :Ack -w <cword><cr>
+" Don't jump to the first result
+cnoreabbrev Ack Ack!
+nnoremap <Leader>a :Ack! -w <cword><cr>
 
 " Startify
 let g:startify_custom_header = []

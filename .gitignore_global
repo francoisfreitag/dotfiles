@@ -1,4 +1,5 @@
 .autoenv.zsh
 .autoenv_leave.zsh
 Session.vim
-tags
+# Only ignore root tags file
+/tags

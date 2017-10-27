@@ -130,6 +130,13 @@ let g:neomake_xsd_xmllint_maker = {
             \ }
 " This will need a nice error format
 let g:neomake_xsd_enabled_makers = ['xmllint']
+let g:neomake_python_isort_maker = {
+    \ 'exe': 'isort',
+    \ 'args': ['-c'],
+    \ 'errorformat': '%tRROR: %f %m',
+    \ }
+
+let g:neomake_python_enabled_makers = ['python', 'pyflakes', 'pylint', 'isort']
 
 " Ansible
 let g:ansible_options = {'ignore_blank_lines': 0}

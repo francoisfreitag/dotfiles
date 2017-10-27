@@ -101,8 +101,7 @@ nnoremap <c-b> :Buffers!<cr>
 nnoremap <Leader>m :History!<cr>
 
 " Markdown
-let g:vim_markdown_folding_disabled = 0
-let g:vim_markdown_folding_level = 4
+let g:vim_markdown_folding_disabled = 1
 
 " NerdTree
 let g:NERDTreeIgnore=['\.pyc']

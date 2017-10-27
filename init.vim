@@ -115,14 +115,10 @@ let g:ackprg = 'ag --vimgrep'
 cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack! -w <cword><cr>
 
-" Startify
-let g:startify_custom_header = []
-
 " Simpylfold
 let g:SimpylFold_docstring_preview = 1
 
 " Neomake
-" let g:neomake_javascript_enabled_makers = ['jshint']
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_javascript_eslint_maker_args = ['--config', '--format', '--compact', '--ext', '.js,.jsx']
 

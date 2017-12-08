@@ -1,5 +1,3 @@
 
 
-Reviewed-by:
-
 [#1234 state:qa]

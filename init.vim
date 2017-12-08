@@ -60,6 +60,8 @@ set history=2000
 set hidden
 set undofile
 
+set path+=src,src/legacy
+
 " Always display status line
 set laststatus=2
 

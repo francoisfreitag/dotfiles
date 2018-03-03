@@ -2,6 +2,7 @@ set nocompatible
 
 call plug#begin()
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
@@ -91,7 +92,7 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 " Airline
 let g:airline#extensions#whitespace#enabled = 0
-let g:airline_theme='onedark'
+let g:airline_theme='solarized'
 
 " Python
 let g:SimpylFold_fold_import = 0

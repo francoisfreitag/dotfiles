@@ -36,9 +36,7 @@ call plug#end()
 " filetype indent plugin on
 " syntax on
 
-if has('nvim')
-    set termguicolors
-endif
+set termguicolors
 set background=dark
 colorscheme solarized
 highlight String guifg=#CCA590

@@ -39,7 +39,6 @@ call plug#end()
 set termguicolors
 set background=dark
 colorscheme solarized
-highlight String guifg=#CCA590
 
 set ai
 set tabstop=4

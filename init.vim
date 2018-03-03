@@ -160,6 +160,6 @@ autocmd BufRead *.txt setlocal syntax=rst
 autocmd BufReadPre *.html setlocal spell spelllang=en sts=2 sw=2 tw=0
 autocmd BufReadPre *.js,*.json,*.s?css setlocal sts=4 sw=4
 autocmd BufReadPre *.yml,*.yaml setlocal sts=2 sw=2
-autocmd BufReadPre *.php setlocal foldmethod=indent foldlevel=1 foldnestmax=2
+autocmd BufReadPre *.php setlocal foldmethod=indent foldlevel=20 foldnestmax=21
 autocmd BufReadPre COMMIT_EDITMSG setlocal textwidth=72 spell spelllang=en
 autocmd BufRead * Neomake

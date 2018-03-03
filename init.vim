@@ -1,7 +1,7 @@
 set nocompatible
 
 call plug#begin()
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'

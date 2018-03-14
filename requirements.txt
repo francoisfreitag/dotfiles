@@ -1,4 +1,5 @@
 antigen
+ctags
 fzf
 git
 neovim

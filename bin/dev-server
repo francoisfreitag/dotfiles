@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -e
+set -u
+
+bash -c "tmux new-window -c '#{pane_current_path}'"
+tmux split-window -h -c '#{pane_current_path}'
+tmux split-window -v -c '#{pane_current_path}'
+tmux send-keys -t '{left}' \
+    "make &&
+     tmux send-keys -t '{top-right}' 'make run-django' Enter &&
+     tmux send-keys -t '{bottom-right}' 'make run-php' Enter &&
+     make run-webpack" Enter

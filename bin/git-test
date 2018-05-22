@@ -22,10 +22,16 @@ def main(test_command, branch, ignore):
         _exec = subprocess.run if ignore else subprocess.check_call
 
         for commit in commits:
-            print('=' * 72)
-            print('{0:^72}'.format(commit))
-            print('=' * 72)
             subprocess.check_call(['git', 'checkout', '--quiet', commit])
+
+            commit_line = clean_output(
+                subprocess.check_output(
+                    ['git', 'show', '--pretty=oneline', '--quiet']
+                )
+            )
+            print('=' * 80)
+            print('{0:^80}'.format(commit_line))
+            print('=' * 80)
 
             _exec(test_command)
     finally:

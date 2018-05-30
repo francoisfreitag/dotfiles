@@ -3,11 +3,13 @@
 set -e
 set -u
 
-bash -c "tmux new-window -c '#{pane_current_path}'"
-tmux split-window -h -c '#{pane_current_path}'
-tmux split-window -v -c '#{pane_current_path}'
-tmux send-keys -t '{left}' \
+WINDOW_NAME="dev-server"
+
+bash -c "tmux new-window -n ${WINDOW_NAME} -c '#{pane_current_path}'"
+tmux split-window -t ${WINDOW_NAME} -h -c '#{pane_current_path}'
+tmux split-window -t ${WINDOW_NAME} -v -c '#{pane_current_path}'
+tmux send-keys -t "${WINDOW_NAME}.{left}" \
     "make &&
-     tmux send-keys -t '{top-right}' 'make run-django' Enter &&
-     tmux send-keys -t '{bottom-right}' 'make run-php' Enter &&
+     tmux send-keys -t "${WINDOW_NAME}.{top-right}" 'make run-django' Enter &&
+     tmux send-keys -t "${WINDOW_NAME}.{bottom-right}" 'make run-php' Enter &&
      make run-webpack" Enter

@@ -5,7 +5,7 @@ set -u
 
 WINDOW_NAME="dev-server"
 
-bash -c "tmux new-window -n ${WINDOW_NAME} -c '#{pane_current_path}'"
+tmux new-window -n ${WINDOW_NAME} -c '#{pane_current_path}'
 tmux split-window -t ${WINDOW_NAME} -h -c '#{pane_current_path}'
 tmux split-window -t ${WINDOW_NAME} -v -c '#{pane_current_path}'
 tmux send-keys -t "${WINDOW_NAME}.{left}" \

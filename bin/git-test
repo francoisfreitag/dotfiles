@@ -44,9 +44,9 @@ if __name__ == '__main__':
         Run tests using the provided command, since the last "safe" commit.
         '''
     )
-    parser.add_argument('-b', '--branch', default='master')
+    parser.add_argument('-b', '--base-branch', default='master')
     parser.add_argument('-i', '--ignore-errors', action='store_true')
     parser.add_argument('test_command', nargs='+')
 
     args = parser.parse_args()
-    main(args.test_command, args.branch, args.ignore_errors)
+    main(args.test_command, args.base_branch, args.ignore_errors)

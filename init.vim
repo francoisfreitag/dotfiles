@@ -96,10 +96,10 @@ let g:SimpylFold_fold_import = 0
 
 
 " FZF
-nnoremap <c-p> :Files!<cr>
-nnoremap <c-l> :Tags!<cr>
-nnoremap <c-b> :Buffers!<cr>
-nnoremap <Leader>m :History!<cr>
+nnoremap <c-p> :Files<cr>
+nnoremap <c-l> :Tags<cr>
+nnoremap <c-b> :Buffers<cr>
+nnoremap <Leader>m :History<cr>
 
 " Markdown
 let g:vim_markdown_folding_disabled = 1

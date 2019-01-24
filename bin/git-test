@@ -10,24 +10,20 @@ def clean_output(output):
 
 def main(test_command, branch, ignore):
     current_branch = clean_output(
-        subprocess.check_output(
-            ['git', 'rev-parse', '--abbrev-ref', 'HEAD'],
-        )
+        subprocess.check_output(["git", "rev-parse", "--abbrev-ref", "HEAD"])
     )
     try:
         commits = subprocess.check_output(
-            ['git', 'log', '%s..HEAD' % branch, '--format="%H"', '--reverse'],
+            ["git", "log", "%s..HEAD" % branch, '--format="%H"', "--reverse"]
         )
         commits = [clean_output(commit) for commit in commits.split()]
         _exec = subprocess.run if ignore else subprocess.check_call
 
         for commit in commits:
-            subprocess.check_call(['git', 'checkout', '--quiet', commit])
+            subprocess.check_call(["git", "checkout", "--quiet", commit])
 
             commit_line = clean_output(
-                subprocess.check_output(
-                    ['git', 'show', '--pretty=oneline', '--quiet']
-                )
+                subprocess.check_output(["git", "show", "--pretty=oneline", "--quiet"])
             )
             print('=' * 80)
             print('{0:^80}'.format(commit_line))
@@ -35,18 +31,18 @@ def main(test_command, branch, ignore):
 
             _exec(test_command)
     finally:
-        subprocess.check_call(['git', 'checkout', current_branch])
+        subprocess.check_call(["git", "checkout", current_branch])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     parser = argparse.ArgumentParser(
-        description='''\
+        description="""\
         Run tests using the provided command, since the last "safe" commit.
-        '''
+        """
     )
-    parser.add_argument('-b', '--base-branch', default='master')
-    parser.add_argument('-i', '--ignore-errors', action='store_true')
-    parser.add_argument('test_command', nargs='+')
+    parser.add_argument("-b", "--base-branch", default="master")
+    parser.add_argument("-i", "--ignore-errors", action="store_true")
+    parser.add_argument("test_command", nargs="+")
 
     args = parser.parse_args()
     main(args.test_command, args.base_branch, args.ignore_errors)

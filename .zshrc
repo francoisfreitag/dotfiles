@@ -2,7 +2,7 @@ export EDITOR=/usr/bin/nvim
 alias vim=nvim
 alias fixup='git commit --fixup `fsha` 2>/dev/null'
 
-export PATH="$HOME/bin/:$HOME/.npm-packages/bin:$PATH"
+export PATH="$(systemd-path user-binaries):$HOME/bin:$HOME/.npm-packages/bin:$PATH"
 
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/dev/

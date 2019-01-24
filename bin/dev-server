@@ -9,7 +9,8 @@ tmux new-window -n ${WINDOW_NAME} -c '#{pane_current_path}'
 tmux split-window -t ${WINDOW_NAME} -h -c '#{pane_current_path}'
 tmux split-window -t ${WINDOW_NAME} -v -c '#{pane_current_path}'
 tmux send-keys -t "${WINDOW_NAME}.{left}" \
-    "make &&
+    "scripts/setpassword &&
+     make &&
      tmux send-keys -t ${WINDOW_NAME}.{top-right} 'make run-django' &&
      tmux send-keys -t ${WINDOW_NAME}.{bottom-right} 'make run-php' &&
      tmux send-keys -t ${WINDOW_NAME}.{left} 'make run-webpack' &&

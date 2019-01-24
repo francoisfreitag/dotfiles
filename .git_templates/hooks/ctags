@@ -5,5 +5,5 @@ PATH="/url/local/bin:$PATH"
 dir="`git rev-parse --show-toplevel`"
 trap 'rm -rf "$dir/$$.tags"' EXIT
 git ls-files | \
-    ctags --tag-relative -L - -f"$dir/$$.tags" --languages=-sql
+    ctags --tag-relative=yes -L - -f"$dir/$$.tags" --languages=-sql
 mv "$dir/$$.tags" "$dir/tags"

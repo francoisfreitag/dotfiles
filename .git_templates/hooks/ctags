@@ -6,4 +6,6 @@ dir="`git rev-parse --show-toplevel`"
 trap 'rm -rf "$dir/$$.tags"' EXIT
 git ls-files | \
     ctags --tag-relative=yes -L - -f"$dir/$$.tags" --languages=-sql
+find venv/lib/python3.7/site-packages -type f -name "*.py" | \
+    ctags --tag-relative=yes --append=yes -L - -f"$dir/$$.tags"
 mv "$dir/$$.tags" "$dir/tags"

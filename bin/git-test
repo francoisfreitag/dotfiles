@@ -25,9 +25,9 @@ def main(test_command, branch, ignore):
             commit_line = clean_output(
                 subprocess.check_output(["git", "show", "--pretty=oneline", "--quiet"])
             )
-            print('=' * 80)
-            print('{0:^80}'.format(commit_line))
-            print('=' * 80)
+            print("=" * len(commit_line))
+            print(commit_line)
+            print("=" * len(commit_line))
 
             _exec(test_command)
     finally:

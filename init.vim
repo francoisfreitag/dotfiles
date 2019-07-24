@@ -93,6 +93,9 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline_theme='solarized'
 
+" Git gutter
+set updatetime=100
+
 " Python
 let g:SimpylFold_fold_import = 0
 

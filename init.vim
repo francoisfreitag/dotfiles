@@ -60,7 +60,7 @@ set undofile
 " - avoid installing pynvim in each venv
 let g:python3_host_prog = '/usr/bin/python3'
 
-set path+=src,src/legacy
+set path+=src,src/legacy,src/*/templates,*/templates,templates,dumps
 
 " Always display status line
 set laststatus=2

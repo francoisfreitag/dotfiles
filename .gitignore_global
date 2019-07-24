@@ -1,5 +1,6 @@
 .autoenv.zsh
 .autoenv_leave.zsh
+.pre-commit-config.yaml
 Session.vim
 # Only ignore root tags file
 /tags

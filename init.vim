@@ -23,10 +23,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'dhruvasagar/vim-table-mode'
 " Themes
-Plug 'nanotech/jellybeans.vim'
-Plug 'joshdick/onedark.vim'
-Plug 'notpratheek/vim-luna'
-Plug 'frankier/neovim-colors-solarized-truecolor-only'
+Plug 'lifepillar/vim-solarized8'
 
 " Try list:
 " Plug 'sirver/UltiSnips'
@@ -38,7 +35,7 @@ call plug#end()
 
 set termguicolors
 set background=dark
-colorscheme solarized
+colorscheme solarized8_flat
 
 set ai
 set tabstop=4

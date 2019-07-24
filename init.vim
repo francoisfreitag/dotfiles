@@ -55,6 +55,11 @@ set history=2000
 set hidden
 set undofile
 
+" Force system python to:
+" - make startup faster
+" - avoid installing pynvim in each venv
+let g:python3_host_prog = '/usr/bin/python3'
+
 set path+=src,src/legacy
 
 " Always display status line

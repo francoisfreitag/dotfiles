@@ -142,7 +142,7 @@ let g:neomake_python_isort_maker = {
     \ 'errorformat': '%tRROR: %f %m',
     \ }
 
-let g:neomake_python_enabled_makers = ['python', 'pyflakes', 'pylint', 'isort']
+let g:neomake_python_enabled_makers = ['python', 'flake8', 'isort']
 
 " Ansible
 let g:ansible_options = {'ignore_blank_lines': 0}

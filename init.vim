@@ -80,7 +80,7 @@ let mapleader=" "
 noremap <Leader><Leader> :noh<CR>
 noremap <Leader>g :Gvdiff<CR>
 noremap <Leader>o :copen<cr>
-noremap <Leader>b Oimport pdb; pdb.set_trace()<ESC>
+noremap <Leader>b Obreakpoint()<ESC>
 noremap <Leader>c :cclose<ESC>
 " Expand %% to current file's work directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'

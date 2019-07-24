@@ -157,11 +157,13 @@ autocmd BufWritePost *.py :silent !isort "%"
 autocmd BufWritePost * Neomake
 
 " Filetype specific settings
-autocmd BufReadPre *.md,*.rst,*.txt setlocal textwidth=79 spell spelllang=en suffixesadd=.rst
-autocmd BufRead *.txt setlocal syntax=rst
-autocmd BufReadPre *.html setlocal spell spelllang=en sts=2 sw=2 tw=0
-autocmd BufReadPre *.js,*.json,*.s?css setlocal sts=4 sw=4
-autocmd BufReadPre *.yml,*.yaml setlocal sts=2 sw=2
-autocmd BufReadPre *.php setlocal foldmethod=indent foldlevel=20 foldnestmax=21
-autocmd BufReadPre COMMIT_EDITMSG setlocal textwidth=72 spell spelllang=en
-autocmd BufRead * Neomake
+autocmd BufNewFile,BufRead *.html setlocal spell spelllang=en sts=2 sw=2 tw=0
+autocmd BufNewFile,BufRead *.json,*.s?css setlocal sts=4 sw=4 ts=4
+autocmd BufNewFile,BufRead *.php setlocal spell spelllang=en foldmethod=indent foldlevel=20 foldnestmax=21
+autocmd BufNewFile,BufRead *.py setlocal spell spelllang=en foldlevel=3 textwidth=88
+autocmd BufNewFile,BufRead *.md,*.rst,*.txt setlocal spell spelllang=en suffixesadd=.rst
+autocmd BufNewFile,BufRead *.snap setlocal syntax=html sts=2 sw=2 ts=2
+autocmd BufNewFile,BufRead *.txt setlocal syntax=rst
+autocmd BufNewFile,BufRead Jenkinsfile,*.yml,*.yaml setlocal sts=2 sw=2 ts=2
+autocmd BufNewFile,BufRead PKGBUILD setlocal noexpandtab sw=4 ts=4
+autocmd BufNewFile,BufRead COMMIT_EDITMSG setlocal textwidth=72 spell spelllang=en

@@ -31,10 +31,6 @@ Plug 'lifepillar/vim-solarized8'
 " Plug 'sirver/UltiSnips'
 call plug#end()
 
-" Already performed by Plug
-" filetype indent plugin on
-" syntax on
-
 set termguicolors
 set background=dark
 colorscheme solarized8_flat

@@ -12,6 +12,7 @@ Plug 'neomake/neomake'
 Plug 'vim-scripts/matchit.zip'
 Plug 'mitsuhiko/vim-python-combined'
 Plug 'tmhedberg/SimpylFold'
+Plug 'python/black'
 Plug 'chase/vim-ansible-yaml'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'tpope/vim-fugitive'
@@ -157,8 +158,7 @@ set wildignore+=*.pyc
 
 " Remove all trailing spaces
 autocmd BufWritePre * :%s/\v\s+$//e
-autocmd BufWritePost *.py :silent !isort "%"
-autocmd BufWritePost * Neomake
+autocmd BufWritePre *.py execute ':Black'
 
 " Filetype specific settings
 autocmd BufNewFile,BufRead *.html setlocal spell spelllang=en sts=2 sw=2 tw=0

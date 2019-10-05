@@ -46,7 +46,7 @@ set modeline
 set textwidth=79
 set wrap
 set incsearch
-set nohlsearch
+set hlsearch
 set nonumber
 set history=2000
 set hidden

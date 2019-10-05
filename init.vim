@@ -126,6 +126,8 @@ nnoremap <Leader>a :Ack! -w <cword><cr>
 let g:SimpylFold_docstring_preview = 1
 
 " Neomake
+call neomake#configure#automake('r', 0)
+call neomake#configure#automake('nw', 5000)
 let g:neomake_open_list = 2  " Open list but preserve current cursor location
 let g:neomake_list_height = 3
 let g:neomake_xsd_xmllint_maker = {

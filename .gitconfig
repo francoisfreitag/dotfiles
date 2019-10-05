@@ -9,7 +9,6 @@
     st = status
     ci = commit
     br = branch
-    co = checkout
     cp = cherry-pick
     df = diff
     dc = diff --cached
@@ -19,6 +18,8 @@
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
     latest = for-each-ref --sort=-taggerdate --format='%(refname:short)' --count=1
     rev = !sh -c \"git log -p ${1:-master}..HEAD --reverse\"
+    rt = restore
+    sw = switch
     ctags = !.git/hooks/ctags
 
 [commit]

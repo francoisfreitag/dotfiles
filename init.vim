@@ -7,6 +7,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
 Plug 'pangloss/vim-javascript'
+Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'neomake/neomake'
 Plug 'vim-scripts/matchit.zip'
 Plug 'mitsuhiko/vim-python-combined'
@@ -105,6 +106,9 @@ nnoremap <c-p> :Files<cr>
 nnoremap <c-l> :Tags<cr>
 nnoremap <c-b> :Buffers<cr>
 nnoremap <Leader>m :History<cr>
+
+" JSX Pretty
+let g:vim_jsx_pretty_colorful_config = 1
 
 " Markdown
 let g:vim_markdown_folding_disabled = 1

@@ -114,6 +114,7 @@ let g:NERDTreeIgnore=['\.pyc']
 
 map <F2> :NERDTreeToggle<cr>
 map <F3> :NERDTreeFind<cr>
+map <F8> :BTags<cr>
 
 " Make ack.vim use the_silver_searcher
 let g:ackprg = 'ag --vimgrep'

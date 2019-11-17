@@ -156,7 +156,19 @@ set wildignore+=*.pyc
 
 " Remove all trailing spaces
 autocmd BufWritePre * :%s/\v\s+$//e
-autocmd BufWritePre *.py execute ':Black'
+if !executable("black")
+    let g:load_black = 0
+else
+    let root = trim(system("git rev-parse --show-toplevel 2>/dev/null"))
+    let venv = root . "/venv"
+    if isdirectory(venv)
+        let black = venv . "/bin/black"
+        if filereadable(black)
+            let g:black_virtualenv = venv
+        endif
+    endif
+    autocmd BufWritePre *.py execute ":Black"
+endif
 
 " Filetype specific settings
 autocmd BufNewFile,BufRead *.html setlocal spell spelllang=en sts=2 sw=2 tw=0

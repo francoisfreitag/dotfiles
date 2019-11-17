@@ -4,10 +4,6 @@ alias fixup='git commit --fixup `fsha` 2>/dev/null'
 
 export PATH="$(systemd-path user-binaries):$HOME/bin:$HOME/.npm-packages/bin:$PATH"
 
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/dev/
-source /usr/bin/virtualenvwrapper.sh
-
 export SAVEHIST=100000000
 
 # Setup antigen

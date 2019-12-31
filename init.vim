@@ -8,6 +8,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'prettier/vim-prettier'
 Plug 'neomake/neomake'
 Plug 'vim-scripts/matchit.zip'
 Plug 'mitsuhiko/vim-python-combined'
@@ -156,10 +157,10 @@ set wildignore+=*.pyc
 
 " Remove all trailing spaces
 autocmd BufWritePre * :%s/\v\s+$//e
+let root = trim(system("git rev-parse --show-toplevel 2>/dev/null"))
 if !executable("black")
     let g:load_black = 0
 else
-    let root = trim(system("git rev-parse --show-toplevel 2>/dev/null"))
     let venv = root . "/venv"
     if isdirectory(venv)
         let black = venv . "/bin/black"
@@ -168,6 +169,12 @@ else
         endif
     endif
     autocmd BufWritePre *.py execute ":Black"
+endif
+
+let prettier = root . "/node_modules/.bin/prettier"
+if filereadable(prettier)
+    let g:prettier#exec_cmd_path = prettier
+    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
 endif
 
 " Filetype specific settings

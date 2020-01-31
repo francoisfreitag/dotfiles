@@ -178,7 +178,7 @@ endif
 let prettier = root . "/node_modules/.bin/prettier"
 if filereadable(prettier)
     let g:prettier#exec_cmd_path = prettier
-    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
+    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.json,*.graphql,*.md Prettier
 endif
 
 " Filetype specific settings

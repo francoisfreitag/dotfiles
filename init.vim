@@ -1,6 +1,7 @@
 set nocompatible
 
 call plug#begin()
+Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -86,6 +87,9 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 " Plugins configuration
 " ~~~~~~~~~~~~~~~~~~~~~
+
+" EditorConfig
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 " Airline
 let g:airline#extensions#whitespace#enabled = 0

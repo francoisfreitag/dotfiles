@@ -13,7 +13,6 @@ Plug 'prettier/vim-prettier'
 Plug 'neomake/neomake'
 Plug 'vim-scripts/matchit.zip'
 Plug 'mitsuhiko/vim-python-combined'
-Plug 'tmhedberg/SimpylFold'
 Plug 'psf/black'
 Plug 'chase/vim-ansible-yaml'
 Plug 'Glench/Vim-Jinja2-Syntax'
@@ -98,10 +97,6 @@ let g:airline_theme='solarized'
 " Git gutter
 set updatetime=100
 
-" Python
-let g:SimpylFold_fold_import = 0
-
-
 " FZF
 nnoremap <c-p> :Files<cr>
 nnoremap <c-l> :Tags<cr>
@@ -126,9 +121,6 @@ let g:ackprg = 'ag --vimgrep'
 " Don't jump to the first result
 cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack! -w <cword><cr>
-
-" Simpylfold
-let g:SimpylFold_docstring_preview = 1
 
 " Neomake
 call neomake#configure#automake('w', 5000)

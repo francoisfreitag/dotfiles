@@ -175,7 +175,7 @@ endif
 " Filetype specific settings
 augroup vimrc
     autocmd BufNewFile,BufRead *.html setlocal spell spelllang=en sts=2 sw=2 tw=0
-    autocmd BufNewFile,BufRead *.json,*.s?css setlocal sts=4 sw=4 ts=4
+    autocmd BufNewFile,BufRead *.s?css setlocal sts=4 sw=4 ts=4
     autocmd BufNewFile,BufRead *.php setlocal spell spelllang=en foldmethod=indent foldlevel=20 foldnestmax=21
     autocmd BufNewFile,BufRead *.py setlocal spell spelllang=en foldlevel=3 textwidth=88
     autocmd BufNewFile,BufRead *.md,*.rst,*.txt setlocal spell spelllang=en suffixesadd=.rst

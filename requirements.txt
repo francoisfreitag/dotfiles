@@ -2,6 +2,7 @@ antigen
 ctags
 fzf
 git
+hub
 neovim
 the_silver_searcher
 tmux

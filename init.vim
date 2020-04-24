@@ -168,6 +168,7 @@ set wildignore+=*.pyc
 
 " Filetype specific settings
 augroup vimrc
+    autocmd BufNewFile,BufRead EDIT_PR_MSG_* set filetype=gitcommit
     autocmd BufNewFile,BufRead *.html setlocal spell spelllang=en sts=2 sw=2 tw=0
     autocmd BufNewFile,BufRead *.s?css setlocal sts=4 sw=4 ts=4
     autocmd BufNewFile,BufRead *.php setlocal spell spelllang=en foldmethod=indent foldlevel=20 foldnestmax=21

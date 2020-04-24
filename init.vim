@@ -55,6 +55,8 @@ set undofile
 " - make startup faster
 " - avoid installing pynvim in each venv
 let g:python3_host_prog = '/usr/bin/python3'
+" Disable Python 2 support
+let g:loaded_python_provider = 0
 
 set path+=src,src/legacy,src/*/templates,*/templates,templates,dumps
 

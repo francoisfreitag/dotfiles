@@ -9,11 +9,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'MaxMEllon/vim-jsx-pretty'
-Plug 'prettier/vim-prettier'
-Plug 'neomake/neomake'
+Plug 'dense-analysis/ale'
 Plug 'vim-scripts/matchit.zip'
 Plug 'mitsuhiko/vim-python-combined'
-Plug 'psf/black'
 Plug 'chase/vim-ansible-yaml'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'tpope/vim-fugitive'
@@ -91,8 +89,44 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 " Airline
+let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline_theme='solarized'
+
+" ALE
+let g:ale_open_list = 'on_save'
+let g:ale_list_window_size = 3
+let g:ale_fix_on_save = 1
+let fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'php': ['remove_trailing_lines', 'trim_whitespace', 'php_cs_fixer'],
+\}
+let root = trim(system("git rev-parse --show-toplevel 2>/dev/null")) . "/"
+
+let venv = root . "venv/"
+let py_fixers = ['remove_trailing_lines', 'trim_whitespace', 'isort']
+if isdirectory(venv) && filereadable(venv . "bin/black")
+    call add(py_fixers, 'black')
+endif
+let fixers['python'] = py_fixers
+
+let js_fixers = ['remove_trailing_lines', 'trim_whitespace']
+let js_root = root . "node_modules/"
+for js_linter in ['eslint', 'prettier']
+    if executable(js_root . ".bin/" . js_linter)
+        call add(js_fixers, js_linter)
+    endif
+endfor
+let fixers['javascript'] = js_fixers
+
+let g:ale_fixers = fixers
+
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+augroup CloseLoclistWindowGroup
+autocmd!
+autocmd QuitPre * if empty(&buftype) | lclose | endif
+augroup END
 
 " Git gutter
 set updatetime=100
@@ -122,24 +156,6 @@ let g:ackprg = 'ag --vimgrep'
 cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack! -w <cword><cr>
 
-" Neomake
-call neomake#configure#automake('w', 5000)
-let g:neomake_open_list = 2  " Open list but preserve current cursor location
-let g:neomake_list_height = 3
-let g:neomake_xsd_xmllint_maker = {
-            \ 'exe': 'xmllint',
-            \ 'args': ['--noout'],
-            \ }
-" This will need a nice error format
-let g:neomake_xsd_enabled_makers = ['xmllint']
-let g:neomake_python_isort_maker = {
-    \ 'exe': 'isort',
-    \ 'args': ['-c'],
-    \ 'errorformat': '%tRROR: %f %m',
-    \ }
-
-let g:neomake_python_enabled_makers = ['python', 'flake8', 'isort']
-
 " Ansible
 let g:ansible_options = {'ignore_blank_lines': 0}
 
@@ -149,28 +165,6 @@ let g:table_mode_header_fillchar="="
 
 " Ignore python compiled files
 set wildignore+=*.pyc
-
-" Remove all trailing spaces
-autocmd BufWritePre * :%s/\v\s+$//e
-let root = trim(system("git rev-parse --show-toplevel 2>/dev/null"))
-if !executable("black")
-    let g:load_black = 0
-else
-    let venv = root . "/venv"
-    if isdirectory(venv)
-        let black = venv . "/bin/black"
-        if filereadable(black)
-            let g:black_virtualenv = venv
-        endif
-    endif
-    autocmd BufWritePre *.py execute ":Black"
-endif
-
-let prettier = root . "/node_modules/.bin/prettier"
-if filereadable(prettier)
-    let g:prettier#exec_cmd_path = prettier
-    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.json,*.graphql,*.md Prettier
-endif
 
 " Filetype specific settings
 augroup vimrc

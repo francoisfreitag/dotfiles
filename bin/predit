@@ -1,9 +1,16 @@
 #!/usr/bin/env python3
+import argparse
 import os
 import subprocess
 import sys
 import tempfile
 import urllib.parse
+
+
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-c", "--from-commit", action="store_true")
+    return parser.parse_args()
 
 
 def current_pr_as_commit_message():
@@ -13,6 +20,15 @@ def current_pr_as_commit_message():
         check=True,
     )
     return result.stdout.decode().replace("\r\n", "\n").rstrip("\n")
+
+
+def latest_commit_message():
+    result = subprocess.run(
+        ["git", "show", "--no-patch", "--format=%s%n%n%b"],
+        stdout=subprocess.PIPE,
+        check=True,
+    )
+    return result.stdout.decode().rstrip("\n")
 
 
 def pr_update_path():
@@ -26,7 +42,12 @@ def pr_update_path():
 
 
 def main():
-    content = current_pr_as_commit_message()
+    options = parse_args()
+    content = (
+        latest_commit_message()
+        if options.from_commit
+        else current_pr_as_commit_message()
+    )
     editor = os.getenv("EDITOR", "vi")
     try:
         with tempfile.NamedTemporaryFile(
@@ -38,17 +59,26 @@ def main():
 
         with open(tmp.name, "r") as f:
             new_content = f.read().rstrip("\n")
-        if not new_content.strip() or new_content == content:
+        if (
+            not new_content.strip()
+            or not options.from_commit
+            and new_content == content
+        ):
             sys.exit("Empty commit message or commit message not edited.")
     finally:
         os.unlink(tmp.name)
 
     # Update PR description with new data.
-    title_end = new_content.index("\n")
-    title = new_content[:title_end]
-    # Ignore separators.
-    body = new_content[title_end + 2 :]
-
+    try:
+        title_end = new_content.index("\n")
+    except ValueError:
+        # Title does not contain \n.
+        title = new_content
+        body = ""
+    else:
+        title = new_content[:title_end]
+        # Ignore separators.
+        body = new_content[title_end + 2 :]
     subprocess.run(
         [
             "hub",

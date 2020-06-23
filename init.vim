@@ -152,6 +152,7 @@ map <F8> :BTags<cr>
 " Make ack.vim use the_silver_searcher
 let g:ackprg = 'ag --vimgrep'
 " Don't jump to the first result
+cnoreabbrev ack Ack!
 cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack! -w <cword><cr>
 

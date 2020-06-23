@@ -39,7 +39,7 @@ set softtabstop=4
 set nojoinspaces
 
 set modeline
-set textwidth=80
+set textwidth=79
 set wrap
 set incsearch
 set hlsearch

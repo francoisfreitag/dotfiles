@@ -1,0 +1,15 @@
+#!/bin/sh
+
+if test -z $1;
+then
+    echo "PR number?"
+    exit 1
+fi
+
+git reset HEAD
+git restore --patch
+if test -z $(git status --porcelain | grep -v "??"); then
+    git switch "pr/$1" --quiet
+    NEW_HEAD="origin/$(git rev-parse --abbrev-ref HEAD)"
+    git reset --hard $NEW_HEAD
+fi

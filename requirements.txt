@@ -1,5 +1,6 @@
 antigen
 ctags
+diff-so-fancy
 fzf
 git
 hub

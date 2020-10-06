@@ -39,4 +39,3 @@ font:
 
 mouse_bindings:
   - { mouse: Middle, action: PasteSelection }
-

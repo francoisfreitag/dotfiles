@@ -23,10 +23,6 @@
     sw = switch
     ctags = !.git/hooks/ctags
 
-[commit]
-    message = ~/.git_templates/commit_message.txt
-    template = ~/.git_templates/commit_message.txt
-
 [core]
     excludesfile = ~/.gitignore_global
 

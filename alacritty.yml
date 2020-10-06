@@ -24,13 +24,13 @@ colors:
   # Bright colors
   bright:
     black:   '0x586e75' # base01
-    red:     '0xcb4b16' # orange
-    green:   '0x586e75' # base01
-    yellow:  '0x657b83' # base00
-    blue:    '0x839496' # base0
-    magenta: '0x6c71c4' # violet
-    cyan:    '0x93a1a1' # base1
-    white:   '0xfdf6e3' # base3
+    red:     '0xd70000' # orange
+    green:   '0x5f8700' # base01
+    yellow:  '0xaf8700' # yellow
+    blue:    '0x0087ff' # blue
+    magenta: '0xaf005f' # violet
+    cyan:    '0x00afaf' # base1
+    white:   '0xffffd7' # base3
 
 font:
   size: 20

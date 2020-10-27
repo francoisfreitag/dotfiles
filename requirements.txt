@@ -6,5 +6,6 @@ git
 hub
 neovim
 the_silver_searcher
+thermald
 tmux
 zsh-syntax-highlighting

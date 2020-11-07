@@ -103,7 +103,7 @@ let root = trim(system("git rev-parse --show-toplevel 2>/dev/null")) . "/"
 let venv = root . "venv/"
 let py_fixers = ['remove_trailing_lines', 'trim_whitespace', 'isort']
 if isdirectory(venv) && filereadable(venv . "bin/black")
-    call add(py_fixers, 'black')
+    call insert(py_fixers, 'black')
 endif
 let fixers['python'] = py_fixers
 

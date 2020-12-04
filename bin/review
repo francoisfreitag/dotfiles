@@ -14,4 +14,5 @@ if test -z $(git status --porcelain | grep -v "??"); then
     git switch "pr/$1" --quiet
     NEW_HEAD="upstream/$(git rev-parse --abbrev-ref HEAD)"
     git reset --hard $NEW_HEAD
+    git ctags &
 fi

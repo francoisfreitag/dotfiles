@@ -34,7 +34,9 @@ def latest_commit_message():
 
 def pr_update_path():
     result = subprocess.run(
-        ["hub", "pr", "show", "--format", "%U"], capture_output=True
+        ["hub", "pr", "show", "--format", "%U"],
+        capture_output=True,
+        check=True,
     )
     pr_url = result.stdout.decode().rstrip("\n")
     path = urllib.parse.urlparse(pr_url).path
@@ -55,7 +57,7 @@ def edit(options):
         ) as tmp:
             tmp.write(content)
 
-        subprocess.run([editor, tmp.name], text=True)
+        subprocess.run([editor, tmp.name], text=True, check=True)
 
         with open(tmp.name, "r") as f:
             new_content = f.read().rstrip("\n")
@@ -92,6 +94,7 @@ def edit(options):
             f"body={body}",
         ],
         stdout=subprocess.DEVNULL,
+        check=True,
     )
 
 

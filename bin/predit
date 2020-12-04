@@ -10,6 +10,7 @@ import urllib.parse
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("-c", "--from-commit", action="store_true")
+    parser.add_argument("-r", "--request-review", action="store_true")
     return parser.parse_args()
 
 
@@ -41,8 +42,7 @@ def pr_update_path():
     return f"repos/{owner}/{repo}/pulls/{pr_number}"
 
 
-def main():
-    options = parse_args()
+def edit(options):
     content = (
         latest_commit_message()
         if options.from_commit
@@ -93,6 +93,33 @@ def main():
         ],
         stdout=subprocess.DEVNULL,
     )
+
+
+def request_review():
+    try:
+        with tempfile.NamedTemporaryFile(delete=False) as payload:
+            payload.write(b'{"team_reviewers": ["developers"]}')
+        subprocess.run(
+            [
+                "hub",
+                "api",
+                pr_update_path() + "/requested_reviewers",
+                "--input",
+                payload.name,
+            ],
+            stdout=subprocess.DEVNULL,
+            check=True,
+        )
+    finally:
+        os.unlink(payload.name)
+
+
+def main():
+    options = parse_args()
+    if options.request_review:
+        request_review()
+    else:
+        edit(options)
 
 
 if __name__ == "__main__":

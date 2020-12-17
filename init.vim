@@ -44,7 +44,6 @@ set wrap
 set incsearch
 set hlsearch
 set nonumber
-set history=2000
 set hidden
 set undofile
 

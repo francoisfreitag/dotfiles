@@ -39,7 +39,7 @@ set softtabstop=4
 set nojoinspaces
 
 set modeline
-set textwidth=79
+set textwidth=0
 set wrap
 set incsearch
 set hlsearch
@@ -170,7 +170,7 @@ augroup vimrc
     autocmd BufNewFile,BufRead *.html setlocal spell spelllang=en sts=2 sw=2 tw=0
     autocmd BufNewFile,BufRead *.s?css setlocal sts=4 sw=4 ts=4
     autocmd BufNewFile,BufRead *.php setlocal spell spelllang=en foldmethod=indent foldlevel=20 foldnestmax=21
-    autocmd BufNewFile,BufRead *.py setlocal spell spelllang=en foldlevel=3 textwidth=88
+    autocmd BufNewFile,BufRead *.py setlocal spell spelllang=en foldlevel=3
     autocmd BufNewFile,BufRead *.md,*.rst,*.txt setlocal spell spelllang=en suffixesadd=.rst
     autocmd BufNewFile,BufRead *.snap setlocal syntax=html sts=2 sw=2 ts=2
     autocmd BufNewFile,BufRead *.txt setlocal syntax=rst

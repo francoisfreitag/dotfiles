@@ -40,6 +40,7 @@ set softtabstop=4
 set nojoinspaces
 
 set modeline
+set scrolloff=2
 set textwidth=0
 set wrap
 set incsearch

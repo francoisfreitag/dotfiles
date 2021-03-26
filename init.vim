@@ -178,4 +178,5 @@ augroup vimrc
     autocmd BufNewFile,BufRead Jenkinsfile,*.yml,*.yaml setlocal sts=2 sw=2 ts=2
     autocmd BufNewFile,BufRead PKGBUILD setlocal noexpandtab sw=4 ts=4
     autocmd BufNewFile,BufRead COMMIT_EDITMSG setlocal textwidth=72 spell spelllang=en
+    autocmd BufNewFile,BufRead PULLREQ_EDITMSG setlocal textwidth=72 spell spelllang=en
 augroup END

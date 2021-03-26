@@ -147,8 +147,8 @@ map <F2> :NERDTreeToggle<cr>
 map <F3> :NERDTreeFind<cr>
 map <F8> :BTags<cr>
 
-" Make ack.vim use the_silver_searcher
-let g:ackprg = 'ag --vimgrep'
+" Make ack.vim use ripgrep
+let g:ackprg = 'rg --vimgrep --no-heading'
 " Don't jump to the first result
 cnoreabbrev ack Ack!
 cnoreabbrev Ack Ack!

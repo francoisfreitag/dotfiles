@@ -1,5 +1,6 @@
 # Fuzzy finder
-export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
+export FZF_DEFAULT_COMMAND='rg --files --hidden'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 _gen_fzf_default_opts() {
   local base03="234"
   local base02="235"

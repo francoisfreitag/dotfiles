@@ -2,9 +2,9 @@
 
 set -ue
 
-if test -z $1;
+if (( $# != 1 ))
 then
-    echo "PR number?"
+    echo "Usage: review PR_NUMBER"
     exit 1
 fi
 

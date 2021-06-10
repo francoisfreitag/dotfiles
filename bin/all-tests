@@ -1,0 +1,73 @@
+#!/usr/bin/env python
+import argparse
+import os
+import subprocess
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "erezlife.settings")
+
+
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--skip-setup", "-s", action="store_true")
+    parser.add_argument("-k")
+    parser.add_argument("--no-dump", action="store_true", dest="exclude_dump")
+    parser.add_argument("--no-js", action="store_true", dest="exclude_js")
+    parser.add_argument("--no-py", action="store_true", dest="exclude_py")
+    parser.add_argument("--no-php", action="store_true", dest="exclude_php")
+    return parser.parse_args()
+
+
+class Runner:
+    def __init__(self):
+        self.env = {
+            "DJANGO_TEST_PROCESSES": os.getenv("DJANGO_TEST_PROCESSES", 16),
+            "DJANGO_SETTINGS_MODULE": os.getenv(
+                "DJANGO_SETTINGS_MODULE", "erezlife.settings"
+            ),
+            "EREZLIFE_CONFIG_HOST": os.getenv("EREZLIFE_CONFIG_HOST"),
+            "EREZLIFE_CONFIG_KEY": os.getenv("EREZLIFE_CONFIG_KEY"),
+            "HOME": os.getenv("HOME"),  # Required by composer.
+            "PATH": os.getenv("PATH"),
+            "PYTHONPATH": "src",
+            "USER": os.getenv("USER"),
+        }
+
+    def run(self, *cmd):
+        subprocess.run(cmd, check=True, env=self.env)
+
+
+def main():
+    args = parse_args()
+    extra_args = ["-k", args.k] if args.k else []
+    runner = Runner()
+    runner.run("make")
+    if not args.skip_setup:
+        runner.run("make", "lint")
+        runner.run(
+            "venv/bin/python",
+            "scripts/mkconfig",
+            "--bucket",
+            "development-freitafr",
+        )
+        runner.run("venv/bin/python", "-m", "django", "resetdb", "--test")
+    if not args.exclude_js:
+        if not args.exclude_dump:
+            runner.run("venv/bin/python", "-m", "django", "dumpresponses", *extra_args)
+        runner.run("node_modules/.bin/jest")
+        runner.run("scripts/find-unused-dumps")
+    if not args.exclude_py:
+        runner.run(
+            "venv/bin/python",
+            "-m",
+            "django",
+            "test",
+            "--parallel",
+            "--keepdb",
+            *extra_args
+        )
+    if not args.exclude_php:
+        runner.run("vendor/bin/paratest")
+
+
+if __name__ == "__main__":
+    main()

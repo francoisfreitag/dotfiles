@@ -40,7 +40,7 @@ def main():
     args = parse_args()
     extra_args = ["-k", args.k] if args.k else []
     runner = Runner()
-    runner.run("make")
+    runner.run("make", "--jobs=4")
     if not args.skip_setup:
         runner.run("make", "lint")
         runner.run(

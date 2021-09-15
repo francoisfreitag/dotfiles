@@ -20,7 +20,7 @@ def parse_args():
 class Runner:
     def __init__(self):
         self.env = {
-            "DJANGO_TEST_PROCESSES": os.getenv("DJANGO_TEST_PROCESSES", 16),
+            "DJANGO_TEST_PROCESSES": os.getenv("DJANGO_TEST_PROCESSES", "16"),
             "DJANGO_SETTINGS_MODULE": os.getenv(
                 "DJANGO_SETTINGS_MODULE", "erezlife.settings"
             ),

@@ -5,6 +5,7 @@ set -u
 
 WINDOW_NAME="dev-server"
 
+tmux kill-window -t ${WINDOW_NAME} 2>/dev/null || true
 tmux new-window -n ${WINDOW_NAME} -c '#{pane_current_path}'
 tmux split-window -t ${WINDOW_NAME} -h -c '#{pane_current_path}'
 tmux split-window -t ${WINDOW_NAME} -v -c '#{pane_current_path}'

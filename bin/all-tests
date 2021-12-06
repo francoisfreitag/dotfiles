@@ -62,6 +62,9 @@ def main():
     if not args.exclude_py:
         runner.run(
             "venv/bin/python",
+            "-b",
+            "-Wall",
+            "-X dev",
             "-m",
             "django",
             "test",

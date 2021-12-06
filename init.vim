@@ -24,9 +24,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'neovim/nvim-lspconfig'
 " Themes
 Plug 'lifepillar/vim-solarized8'
-
-" Try list:
-" Plug 'sirver/UltiSnips'
 call plug#end()
 
 set termguicolors

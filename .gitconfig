@@ -68,3 +68,5 @@
 	old = red bold
 	new = green bold
 	whitespace = red reverse
+[blame]
+	ignoreRevsFile = .git-blame-ignore-revs

@@ -156,9 +156,8 @@ endif
 let fixers['python'] = py_fixers
 
 let js_fixers = ['remove_trailing_lines', 'trim_whitespace']
-let js_root = root . "node_modules/"
 for js_linter in ['eslint', 'prettier']
-    if executable(js_root . ".bin/" . js_linter)
+    if executable(js_linter)
         call add(js_fixers, js_linter)
     endif
 endfor

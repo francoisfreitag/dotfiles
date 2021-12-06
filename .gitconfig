@@ -70,3 +70,5 @@
 	whitespace = red reverse
 [blame]
 	ignoreRevsFile = .git-blame-ignore-revs
+[advice]
+	skippedCherryPicks = false

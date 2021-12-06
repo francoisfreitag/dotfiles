@@ -1,0 +1,140 @@
+#!/usr/bin/env python3
+import argparse
+import io
+import json
+import subprocess
+import sys
+import urllib.parse
+
+
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("pr_number")
+    return parser.parse_args()
+
+
+def show_confirm(pr_number):
+    result = subprocess.run(
+        [
+            "hub",
+            "pr",
+            "show",
+            pr_number,
+            "--format=Merge “%t” to \033[1m%B\033[0m? [y/n]",
+        ],
+        capture_output=True,
+        check=True,
+    )
+    text = result.stdout.decode().strip()
+    answer = ""
+    while not answer or answer[0] not in "yn":
+        answer = input(text).lower()
+    return answer == "y"
+
+
+def repo_info():
+    result = subprocess.run(
+        ["git", "remote", "get-url", "upstream"],
+        capture_output=True,
+        check=True,
+    )
+    url = result.stdout.decode().strip()
+    if url.startswith("git@"):
+        if url.endswith(".git"):
+            url = url[:-4]
+        _domain, path = url.split(":", maxsplit=1)
+    else:
+        parsed = urllib.parse.urlparse(url)
+        path = parsed.path.lstrip("/")
+    owner, repo = path.split("/", maxsplit=1)
+    return owner, repo
+
+
+def pr_reviewers(owner, repo, pr_number):
+    result = subprocess.run(
+        ["hub", "api", f"repos/{owner}/{repo}/pulls/{pr_number}/reviews"],
+        capture_output=True,
+        check=True,
+    )
+    reviews = json.loads(result.stdout)
+    result = subprocess.run(
+        ["hub", "api", "/user"],
+        capture_output=True,
+        check=True
+    )
+    user = json.loads(result.stdout)
+    user = user["login"]
+    return {review["user"]["login"] for review in reviews} - {user}
+
+
+def pr_body(pr_number):
+    result = subprocess.run(
+        ["hub", "pr", "show", pr_number, "--format=%b"],
+        capture_output=True,
+        check=True,
+    )
+    return result.stdout.decode().strip()
+
+
+def tag_body(body, reviewers):
+    lines = []
+    for line in body.splitlines(keepends=True):
+        if not line.lower().startswith("reviewed-by:"):
+            lines.append(line)
+    last_line = lines[-1]
+    while last_line.strip() == "":
+        lines = lines[:-1]
+        last_line = lines[-1]
+    with io.StringIO() as new_body:
+        new_body.writelines(lines)
+        new_body.write("\n\n")
+        for reviewer in sorted(reviewers):
+            new_body.write(f"Reviewed-by: {reviewer}\n")
+        return new_body.getvalue()
+
+
+def main():
+    options = parse_args()
+    owner, repo = repo_info()
+    confirm = show_confirm(options.pr_number)
+    if not confirm:
+        return 1
+    reviewers = pr_reviewers(owner, repo, options.pr_number)
+    body = pr_body(options.pr_number)
+    new_body = tag_body(body, reviewers)
+    subprocess.run(
+        [
+            "hub",
+            "api",
+            "--method",
+            "PATCH",
+            f"/repos/{owner}/{repo}/pulls/{options.pr_number}",
+            "--field",
+            f"body={new_body}",
+        ],
+        stdout=subprocess.DEVNULL,
+        check=True,
+    )
+    subprocess.run(
+        [
+            "hub",
+            "api",
+            "--method",
+            "POST",
+            f"/repos/{owner}/{repo}/issues/{options.pr_number}/comments",
+            "--field",
+            "body=bors r+",
+        ],
+        stdout=subprocess.DEVNULL,
+        check=True,
+    )
+    subprocess.run(
+        ["hub", "pr", "show", options.pr_number],
+        stdout=subprocess.DEVNULL,
+        check=True,
+    )
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

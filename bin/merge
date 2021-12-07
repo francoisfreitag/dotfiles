@@ -81,10 +81,8 @@ def tag_body(body, reviewers):
     for line in body.splitlines(keepends=True):
         if not line.lower().startswith("reviewed-by:"):
             lines.append(line)
-    last_line = lines[-1]
-    while last_line.strip() == "":
+    while lines and lines[-1].strip() == "":
         lines = lines[:-1]
-        last_line = lines[-1]
     with io.StringIO() as new_body:
         new_body.writelines(lines)
         new_body.write("\n\n")

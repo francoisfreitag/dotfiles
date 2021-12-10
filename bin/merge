@@ -9,8 +9,17 @@ import urllib.parse
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument("pr_number")
+    parser.add_argument("pr_number", nargs="?", default=current_pr_number())
     return parser.parse_args()
+
+
+def current_pr_number():
+    result = subprocess.run(
+        ["hub", "pr", "show", "--format=%I"],
+        capture_output=True,
+        check=True,
+    )
+    return result.stdout.decode().strip()
 
 
 def show_confirm(pr_number):

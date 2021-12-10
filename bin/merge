@@ -66,11 +66,7 @@ def pr_reviewers(owner, repo, pr_number):
         check=True,
     )
     reviews = json.loads(result.stdout)
-    result = subprocess.run(
-        ["hub", "api", "/user"],
-        capture_output=True,
-        check=True
-    )
+    result = subprocess.run(["hub", "api", "/user"], capture_output=True, check=True)
     user = json.loads(result.stdout)
     user = user["login"]
     return {review["user"]["login"] for review in reviews} - {user}

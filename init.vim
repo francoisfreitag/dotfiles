@@ -58,9 +58,6 @@ set path+=src,src/legacy,src/*/templates,*/templates,templates,dumps
 " Always display status line
 set laststatus=2
 
-" Handy 'save as root'
-cmap w!! w !sudo tee % >/dev/null
-
 set mouse=
 
 set diffopt=vertical

@@ -9,7 +9,7 @@ import urllib.parse
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument("pr_number", nargs="?", default=current_pr_number())
+    parser.add_argument("pr_number", nargs="?")
     return parser.parse_args()
 
 
@@ -98,6 +98,8 @@ def tag_body(body, reviewers):
 
 def main():
     options = parse_args()
+    if not options.pr_number:
+        options.pr_number = current_pr_number()
     owner, repo = repo_info()
     confirm = show_confirm(options.pr_number)
     if not confirm:

@@ -8,6 +8,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
 Plug 'dense-analysis/ale'
+Plug 'vim-vdebug/vdebug'
 Plug 'vim-scripts/matchit.zip'
 Plug 'wellle/targets.vim'
 Plug 'Glench/Vim-Jinja2-Syntax'
@@ -207,6 +208,13 @@ let g:ansible_options = {'ignore_blank_lines': 0}
 " Table mode
 let g:table_mode_corner_corner="+"
 let g:table_mode_header_fillchar="="
+
+" Vdebug
+" Default for Xdebug
+let g:vdebug_options = {
+\   'port': 9003,
+\   'ide_key': 'neovim',
+\}
 
 " Ignore python compiled files
 set wildignore+=*.pyc

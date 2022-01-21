@@ -89,8 +89,9 @@ def tag_body(body, reviewers):
     while lines and lines[-1].strip() == "":
         lines = lines[:-1]
     with io.StringIO() as new_body:
-        new_body.writelines(lines)
-        new_body.write("\n\n")
+        if lines:
+            new_body.writelines(lines)
+            new_body.write("\n\n")
         for reviewer in sorted(reviewers):
             new_body.write(f"Reviewed-by: {reviewer}\n")
         return new_body.getvalue()

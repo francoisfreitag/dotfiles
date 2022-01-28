@@ -193,7 +193,7 @@ map <F3> :NERDTreeFind<cr>
 map <F8> :BTags<cr>
 
 " Make ack.vim use ripgrep
-let g:ackprg = 'rg --vimgrep --no-heading'
+let g:ackprg = 'rg --hidden --vimgrep --no-heading'
 " Don't jump to the first result
 cnoreabbrev ack Ack!
 cnoreabbrev Ack Ack!

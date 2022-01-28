@@ -1,7 +1,6 @@
 .autoenv.zsh
 .autoenv_leave.zsh
 .git-blame-ignore-revs
-.pre-commit-config.yaml
 Session.vim
 # Only ignore root tags file
 /tags

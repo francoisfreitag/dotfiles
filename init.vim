@@ -211,6 +211,8 @@ let g:table_mode_header_fillchar="="
 let g:vdebug_options = {
 \   'port': 9003,
 \   'ide_key': 'neovim',
+\   'break_on_open': 0,
+\   'layout': 'horizontal',
 \}
 
 " Ignore python compiled files

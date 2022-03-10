@@ -12,7 +12,7 @@ colors:
 
   # Normal colors
   normal:
-    black:   '0x073642' # base02
+    black:   '0x1b4652' # base02
     red:     '0xdc322f' # red
     green:   '0x859900' # green
     yellow:  '0xb58900' # yellow

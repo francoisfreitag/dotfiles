@@ -59,6 +59,14 @@ def repo_info():
     return owner, repo
 
 
+def default_branch(owner, repo):
+    result = subprocess.run(
+        ["hub", "api", f"repos/{owner}/{repo}"], capture_output=True, check=True
+    )
+    repo_details = json.loads(result.stdout)
+    return repo_details["default_branch"]
+
+
 def pr_reviewers(owner, repo, pr_number):
     result = subprocess.run(
         ["hub", "api", f"repos/{owner}/{repo}/pulls/{pr_number}/reviews"],
@@ -79,6 +87,17 @@ def pr_body(pr_number):
         check=True,
     )
     return result.stdout.decode().strip()
+
+
+def pr_branch(pr_number):
+    result = subprocess.run(
+        ["hub", "pr", "show", pr_number, "--format=%H"],
+        capture_output=True,
+        check=True,
+    )
+    head = result.stdout.decode().strip()
+    _fork, head_branch = head.split(":", maxsplit=1)
+    return head_branch
 
 
 def tag_body(body, reviewers):
@@ -134,11 +153,37 @@ def main():
         stdout=subprocess.DEVNULL,
         check=True,
     )
-    subprocess.run(
-        ["hub", "pr", "show", options.pr_number],
-        stdout=subprocess.DEVNULL,
-        check=True,
-    )
+
+    branch = pr_branch(options.pr_number)
+    try:
+        subprocess.run(
+            ["git", "show", branch, "--"],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            check=True,
+        )
+    except subprocess.CalledProcessError:
+        print(f"Could not find branch {branch} locally.", file=sys.stderr)
+    else:
+        subprocess.run(
+            [
+                "git",
+                "show",
+                "--no-patch",
+                "--format=Branch head was at %Cblue%H%Creset",
+                branch,
+            ],
+            check=True,
+        )
+        result = subprocess.run(
+            ["git", "branch", "--show-current"], check=True, capture_output=True
+        )
+        current_branch = result.stdout.decode().strip()
+        if current_branch == branch:
+            subprocess.run(
+                ["git", "switch", "--quiet", default_branch(owner, repo)], check=True
+            )
+        subprocess.run(["git", "branch", "--delete", "--force", branch], check=True)
     return 0
 
 

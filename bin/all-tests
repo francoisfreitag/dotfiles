@@ -12,6 +12,7 @@ def parse_args():
     parser.add_argument("-k")
     parser.add_argument("-f", "--full", action="store_true")
     parser.add_argument("--no-dump", action="store_true", dest="exclude_dump")
+    parser.add_argument("--no-lint", action="store_true", dest="exclude_lint")
     parser.add_argument("--no-js", action="store_true", dest="exclude_js")
     parser.add_argument("--no-py", action="store_true", dest="exclude_py")
     parser.add_argument("--no-php", action="store_true", dest="exclude_php")
@@ -43,7 +44,8 @@ def main():
     runner = Runner()
     runner.run("make", "--jobs=4")
     if not args.skip_setup:
-        runner.run("make", "lint")
+        if not args.exclude_lint:
+            runner.run("make", "lint")
         runner.run(
             "venv/bin/python",
             "scripts/mkconfig",

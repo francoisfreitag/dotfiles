@@ -1,8 +1,8 @@
 antigen
 ctags
-diff-so-fancy
 fzf
 git
+git-delta
 hub
 neovim
 the_silver_searcher

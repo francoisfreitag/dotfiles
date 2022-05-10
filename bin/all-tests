@@ -45,7 +45,7 @@ def main():
     runner.run("make", "--jobs=4")
     if not args.skip_setup:
         if not args.exclude_lint:
-            runner.run("make", "lint")
+            runner.run("make", "--jobs=4", "lint")
         runner.run(
             "venv/bin/python",
             "scripts/mkconfig",

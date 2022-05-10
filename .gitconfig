@@ -19,7 +19,7 @@
 	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 	latest = for-each-ref --sort=-taggerdate --format='%(refname:short)' --count=1
 	rb = rebase
-	rev = !sh -c \"git log -p ${1:-master}..HEAD --reverse\"
+	rev = !sh -c \"git log -p ${1:-beta}..HEAD --reverse\"
 	rt = restore
 	sw = switch
 	ctags = !.git/hooks/ctags

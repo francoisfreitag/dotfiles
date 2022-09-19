@@ -1,0 +1,40 @@
+#!/usr/bin/env python3
+
+import subprocess
+
+
+def main():
+    prefix = "ff/*"
+    remote_output = subprocess.run(
+        ["git", "ls-remote", "origin", "--heads", f"refs/heads/{prefix}"],
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    remote_branches = set()
+    for line in remote_output.stdout.splitlines():
+        columns = [col for col in line.split("\t") if col]
+        [_sha, ref] = columns
+        remote_branches.add(ref.removeprefix("refs/heads/"))
+    local_branches = subprocess.run(
+        ["git", "branch", "--format=%(refname:short)", "--list", prefix],
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    local_branches = {branch for branch in local_branches.stdout.splitlines()}
+    to_delete = local_branches - remote_branches
+    if to_delete:
+        print("\n".join(to_delete))
+        answer = ""
+        while answer[:1] not in ["y", "n"]:
+            answer = input("Delete [y/n]? ")
+        if answer == "y":
+            subprocess.run(
+                ["git", "branch", "--delete", "--force", *to_delete],
+                check=True,
+            )
+
+
+if __name__ == "__main__":
+    main()

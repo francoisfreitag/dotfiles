@@ -21,7 +21,8 @@ Plug 'tpope/vim-unimpaired'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'dhruvasagar/vim-table-mode'
-Plug 'sheerun/vim-polyglot'
+Plug 'chrisbra/unicode.vim'
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'neovim/nvim-lspconfig'
 " Themes
 Plug 'lifepillar/vim-solarized8'
@@ -53,7 +54,7 @@ set undofile
 " - avoid installing pynvim in each venv
 let g:python3_host_prog = '/usr/bin/python3'
 
-set path+=src,src/legacy,src/*/templates,*/templates,templates,dumps
+set path+=docs,*/templates,templates
 
 " Always display status line
 set laststatus=2
@@ -64,6 +65,9 @@ set diffopt=vertical
 
 " LSP
 lua << EOF
+---------
+-- LSP --
+---------
 local nvim_lsp = require('lspconfig')
 
 -- Use an on_attach function to only map the following keys
@@ -142,13 +146,11 @@ let g:ale_list_window_size = 3
 let g:ale_fix_on_save = 1
 let fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'php': ['remove_trailing_lines', 'trim_whitespace', 'php_cs_fixer'],
 \}
 let root = trim(system("git rev-parse --show-toplevel 2>/dev/null")) . "/"
 
-let venv = root . "venv/"
 let py_fixers = ['remove_trailing_lines', 'trim_whitespace', 'isort']
-if isdirectory(venv) && filereadable(venv . "bin/black")
+if executable('black')
     call insert(py_fixers, 'black')
 endif
 let fixers['python'] = py_fixers
@@ -160,6 +162,7 @@ for js_linter in ['eslint', 'prettier']
     endif
 endfor
 let fixers['javascript'] = js_fixers
+let fixers['javascriptreact'] = js_fixers
 
 let g:ale_fixers = fixers
 
@@ -220,7 +223,8 @@ set wildignore+=*.pyc
 
 " Filetype specific settings
 augroup vimrc
-    autocmd BufNewFile,BufRead EDIT_PR_MSG_* setlocal filetype=gitcommit spell
+    autocmd BufNewFile,BufRead EDIT_PR_MSG_* setlocal filetype=gitcommit tw=0 spell spelllang=fr
+    autocmd BufNewFile,BufRead neomutt-* setlocal spell spelllang=fr
     autocmd BufNewFile,BufRead *.html setlocal spell
     autocmd BufNewFile,BufRead *.php setlocal spell spelllang=en foldmethod=indent foldlevel=20 foldnestmax=21
     autocmd BufNewFile,BufRead *.py setlocal spell spelllang=en foldlevel=3
@@ -230,5 +234,5 @@ augroup vimrc
     autocmd BufNewFile,BufRead *.txt setlocal syntax=rst
     autocmd BufNewFile,BufRead PKGBUILD setlocal noexpandtab sw=4 ts=4
     autocmd BufNewFile,BufRead COMMIT_EDITMSG setlocal textwidth=72 spell spelllang=en
-    autocmd BufNewFile,BufRead PULLREQ_EDITMSG setlocal textwidth=72 spell spelllang=en
+    autocmd BufNewFile,BufRead PULLREQ_EDITMSG setlocal tw=0 spell spelllang=fr
 augroup END

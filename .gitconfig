@@ -23,6 +23,7 @@
 	rt = restore
 	sw = switch
 	ctags = !.git/hooks/ctags
+	pf = push --force-with-lease --force-if-includes
 
 [core]
 	excludesfile = ~/.gitignore_global

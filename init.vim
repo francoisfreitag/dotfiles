@@ -146,27 +146,12 @@ let g:airline_theme='solarized'
 let g:ale_open_list = 'on_save'
 let g:ale_list_window_size = 3
 let g:ale_fix_on_save = 1
-let fixers = {
+let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'python': ['black', 'isort', 'remove_trailing_lines'],
 \}
-let root = trim(system("git rev-parse --show-toplevel 2>/dev/null")) . "/"
-
-let py_fixers = ['remove_trailing_lines', 'trim_whitespace', 'isort']
-if executable('black')
-    call insert(py_fixers, 'black')
-endif
-let fixers['python'] = py_fixers
-
-let js_fixers = ['remove_trailing_lines', 'trim_whitespace']
-for js_linter in ['eslint', 'prettier']
-    if executable(js_linter)
-        call add(js_fixers, js_linter)
-    endif
-endfor
-let fixers['javascript'] = js_fixers
-let fixers['javascriptreact'] = js_fixers
-
-let g:ale_fixers = fixers
+let g:ale_warn_about_trailing_blank_lines = 0
+let g:ale_warn_about_trailing_whitespace = 0
 
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
@@ -225,16 +210,15 @@ set wildignore+=*.pyc
 
 " Filetype specific settings
 augroup vimrc
-    autocmd BufNewFile,BufRead EDIT_PR_MSG_* setlocal filetype=gitcommit tw=0 spell spelllang=fr
-    autocmd BufNewFile,BufRead neomutt-* setlocal spell spelllang=fr
+    autocmd BufNewFile,BufRead EDIT_PR_MSG_* setlocal filetype=gitcommit tw=0 spell
+    autocmd BufNewFile,BufRead neomutt-* setlocal spell
     autocmd BufNewFile,BufRead *.html setlocal spell
-    autocmd BufNewFile,BufRead *.php setlocal spell spelllang=en foldmethod=indent foldlevel=20 foldnestmax=21
-    autocmd BufNewFile,BufRead *.py setlocal spell spelllang=en foldlevel=3
-    autocmd BufNewFile,BufRead *.jsx? setlocal spell spelllang=en
-    autocmd BufNewFile,BufRead *.md,*.rst,*.txt setlocal spell spelllang=en suffixesadd=.rst
+    autocmd BufNewFile,BufRead *.py setlocal spell foldlevel=3
+    autocmd BufNewFile,BufRead *.jsx? setlocal spell
+    autocmd BufNewFile,BufRead *.md,*.rst,*.txt setlocal spell suffixesadd=.rst
     autocmd BufNewFile,BufRead *.snap setlocal syntax=html
     autocmd BufNewFile,BufRead *.txt setlocal syntax=rst
     autocmd BufNewFile,BufRead PKGBUILD setlocal noexpandtab sw=4 ts=4
-    autocmd BufNewFile,BufRead COMMIT_EDITMSG setlocal textwidth=72 spell spelllang=en
-    autocmd BufNewFile,BufRead PULLREQ_EDITMSG setlocal tw=0 spell spelllang=fr
+    autocmd BufNewFile,BufRead COMMIT_EDITMSG setlocal textwidth=72 spell
+    autocmd BufNewFile,BufRead PULLREQ_EDITMSG setlocal tw=0 spell
 augroup END

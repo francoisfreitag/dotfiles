@@ -1,5 +1,4 @@
-/.autoenv.zsh
-/.autoenv_leave.zsh
+/.envrc
 /.git-blame-ignore-revs
 /Session.vim
 # Only ignore root tags file

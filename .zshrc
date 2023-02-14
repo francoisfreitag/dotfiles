@@ -5,7 +5,10 @@ alias rg='rg --hidden'
 
 export PATH="$(systemd-path user-binaries):$HOME/bin:$PATH"
 
+export HISTSIZE=100000000
 export SAVEHIST=100000000
+setopt INC_APPEND_HISTORY
+setopt HIST_IGNORE_DUPS
 
 # Display active virtualenv
 grml_theme_add_token venv -f virtualenv_prompt '%F{magenta}' '%f'

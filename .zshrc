@@ -7,12 +7,6 @@ export PATH="$(systemd-path user-binaries):$HOME/bin:$PATH"
 
 export SAVEHIST=100000000
 
-# Setup antigen
-source /usr/share/zsh/share/antigen.zsh
-
-antigen bundle Tarrasch/zsh-autoenv
-antigen apply
-
 # Display active virtualenv
 grml_theme_add_token venv -f virtualenv_prompt '%F{magenta}' '%f'
 
@@ -30,3 +24,5 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source "$HOME/.zshrc.fzf"
+
+eval "$(direnv hook zsh)"

@@ -1,5 +1,5 @@
-antigen
 ctags
+direnv
 fzf
 git
 git-delta

@@ -2,6 +2,7 @@ set nocompatible
 
 call plug#begin()
 Plug 'editorconfig/editorconfig-vim'
+Plug 'konfekt/vim-DetectSpellLang'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -134,6 +135,10 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 " EditorConfig
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+
+" DetectSpellLang
+let g:detectspelllang_langs = {}
+let g:detectspelllang_langs.aspell = [ 'fr', 'en' ]
 
 " Airline
 let g:airline#extensions#ale#enabled = 1

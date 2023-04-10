@@ -1,7 +1,6 @@
 set nocompatible
 
 call plug#begin()
-Plug 'editorconfig/editorconfig-vim'
 Plug 'konfekt/vim-DetectSpellLang'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'

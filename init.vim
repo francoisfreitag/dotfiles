@@ -102,7 +102,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'html', 'intelephense', 'jsonls', 'pyright', 'tsserver' }
+local servers = { 'html', 'jsonls', 'pyright', 'tsserver' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -195,15 +195,6 @@ let g:ansible_options = {'ignore_blank_lines': 0}
 " Table mode
 let g:table_mode_corner_corner="+"
 let g:table_mode_header_fillchar="="
-
-" Vdebug
-" Default for Xdebug
-let g:vdebug_options = {
-\   'port': 9003,
-\   'ide_key': 'neovim',
-\   'break_on_open': 0,
-\   'layout': 'horizontal',
-\}
 
 " Ignore python compiled files
 set wildignore+=*.pyc

@@ -24,6 +24,7 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'chrisbra/unicode.vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " Themes
 Plug 'lifepillar/vim-solarized8'
 call plug#end()
@@ -101,7 +102,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'html', 'jsonls', 'pyright', 'tsserver' }
+local servers = { 'html', 'jsonls', 'pylsp', 'pyright', 'tsserver' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -110,6 +111,20 @@ for _, lsp in ipairs(servers) do
     }
   }
 end
+EOF
+
+" Tree-sitter
+" ~~~~~~~~~~~
+
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = {"c", "css", "javascript", "html", "htmldjango", "python", "vim", "vimdoc"},
+  auto_install = true,
+
+  highlight = {
+    enable = true,
+  },
+}
 EOF
 
 " Custom shortcuts

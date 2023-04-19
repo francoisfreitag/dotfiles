@@ -4,25 +4,28 @@ import subprocess
 
 
 def main():
-    prefix = "ff/*"
+    remote_branches = set()
     remote_output = subprocess.run(
-        ["git", "ls-remote", "origin", "--heads", f"refs/heads/{prefix}"],
+        ["git", "ls-remote", "origin", "--heads", "refs/heads/*"],
         check=True,
         capture_output=True,
         text=True,
     )
-    remote_branches = set()
     for line in remote_output.stdout.splitlines():
         columns = [col for col in line.split("\t") if col]
         [_sha, ref] = columns
         remote_branches.add(ref.removeprefix("refs/heads/"))
+
     local_branches = subprocess.run(
-        ["git", "branch", "--format=%(refname:short)", "--list", prefix],
+        ["git", "branch", "--format=%(refname:short)", "--list"],
         check=True,
         capture_output=True,
         text=True,
     )
-    local_branches = {branch for branch in local_branches.stdout.splitlines()}
+    local_branches = set(local_branches.stdout.splitlines()) - {
+        "master",
+        "master_clever",
+    }
     to_delete = local_branches - remote_branches
     if to_delete:
         print("\n".join(to_delete))

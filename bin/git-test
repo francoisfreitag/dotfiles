@@ -19,17 +19,19 @@ def main(test_command, branch, ignore):
         commits = [clean_output(commit) for commit in commits.split()]
         _exec = subprocess.run if ignore else subprocess.check_call
 
+        prefix = ""
         for commit in commits:
             subprocess.check_call(["git", "checkout", "--quiet", commit])
 
             commit_line = clean_output(
                 subprocess.check_output(["git", "show", "--pretty=oneline", "--quiet"])
             )
-            print("=" * len(commit_line))
+            print(f"{prefix}{'=' * len(commit_line)}")
             print(commit_line)
             print("=" * len(commit_line))
 
             _exec(test_command)
+            prefix = "\n"
     finally:
         subprocess.check_call(["git", "checkout", current_branch])
 

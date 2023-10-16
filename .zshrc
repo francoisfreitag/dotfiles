@@ -1,6 +1,5 @@
 export EDITOR=/usr/bin/nvim
 alias vim=nvim
-alias fixup='git commit --fixup `fsha` 2>/dev/null'
 alias rg='rg --hidden'
 
 export PATH="$(systemd-path user-binaries):$HOME/bin:$PATH"

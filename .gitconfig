@@ -24,6 +24,7 @@
 	sw = switch
 	ctags = !.git/hooks/ctags
 	pf = push --force-with-lease --force-if-includes
+    fixup = "!git log --oneline --no-decorate --no-merges | fzf -0 --preview 'git show --color=always --format=oneline {1}' | awk '{print $1}' | xargs -r git commit --fixup"
 
 [core]
 	excludesfile = ~/.gitignore_global

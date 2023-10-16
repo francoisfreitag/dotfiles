@@ -18,7 +18,7 @@ colors:
     yellow:  '0xb58900' # yellow
     blue:    '0x268bd2' # blue
     magenta: '0xd33682' # magenta
-    cyan:    '0x2aa198' # cyan
+    cyan:    '0x2aa1c8' # cyan  -- Boosted the blue component for higher constrast in search.
     white:   '0xeee8d5' # base2
 
   # Bright colors

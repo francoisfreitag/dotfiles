@@ -8,7 +8,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
 Plug 'dense-analysis/ale'
-Plug 'vim-vdebug/vdebug'
 Plug 'vim-scripts/matchit.zip'
 Plug 'wellle/targets.vim'
 Plug 'Glench/Vim-Jinja2-Syntax'
@@ -162,8 +161,12 @@ let g:ale_list_window_size = 3
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'python': ['black', 'isort', 'remove_trailing_lines'],
+\   'python': ['ruff', 'remove_trailing_lines'],
 \}
+
+if !getenv('NOBLACK')
+    call add(g:ale_fixers["python"], 'black')
+endif
 let g:ale_warn_about_trailing_blank_lines = 0
 let g:ale_warn_about_trailing_whitespace = 0
 
@@ -217,13 +220,12 @@ set wildignore+=*.pyc
 augroup vimrc
     autocmd BufNewFile,BufRead EDIT_PR_MSG_* setlocal filetype=gitcommit tw=0 spell
     autocmd BufNewFile,BufRead neomutt-* setlocal spell
-    autocmd BufNewFile,BufRead *.html setlocal spell
-    autocmd BufNewFile,BufRead *.py setlocal spell foldlevel=3
-    autocmd BufNewFile,BufRead *.jsx? setlocal spell
+    autocmd BufNewFile,BufRead .envrc setlocal filetype=sh
+"     autocmd BufNewFile,BufRead *.py setlocal spell foldlevel=3
+"     autocmd BufNewFile,BufRead *.jsx? setlocal spell
     autocmd BufNewFile,BufRead *.md,*.rst,*.txt setlocal spell suffixesadd=.rst
-    autocmd BufNewFile,BufRead *.snap setlocal syntax=html
-    autocmd BufNewFile,BufRead *.txt setlocal syntax=rst
-    autocmd BufNewFile,BufRead PKGBUILD setlocal noexpandtab sw=4 ts=4
+    autocmd BufNewFile,BufRead *.txt setlocal filetype=md
+"     autocmd BufNewFile,BufRead PKGBUILD setlocal noexpandtab sw=4 ts=4
     autocmd BufNewFile,BufRead COMMIT_EDITMSG setlocal textwidth=72 spell
     autocmd BufNewFile,BufRead PULLREQ_EDITMSG setlocal tw=0 spell
 augroup END

@@ -1,12 +1,14 @@
 #!/bin/sh
 # Many thanks to Tim Pope, http://tbaggery.com/2011/08/08/effortless-ctags-with-git.html
-set -e
-dir="`git rev-parse --show-toplevel`"
+set -eu
+dir="$(git rev-parse --show-toplevel)"
 trap 'rm -rf "$dir/$$.tags"' EXIT
-git ls-files | \
-    ctags --tag-relative=yes -L - -f"$dir/$$.tags" --languages=-sql
-if test -d venv; then
-    find venv/lib/*/site-packages -type f -name "*.py" | \
-        ctags --tag-relative=yes --append=yes -L - -f"$dir/$$.tags"
-fi
+git ls-files | ctags --tag-relative=yes -L - -f"$dir/$$.tags"
+for dirname in venv .venv
+do
+    if test -d $dirname; then
+        find $dirname/lib/*/site-packages -type f -name "*.py" | \
+            ctags --tag-relative=yes --append=yes -L - -f"$dir/$$.tags"
+    fi
+done
 mv "$dir/$$.tags" "$dir/tags"

@@ -12,7 +12,7 @@
 	br = branch
 	cp = cherry-pick
 	df = diff
-	dc = diff --cached
+	ds = diff --staged
 	lg = log -p
 	pr = pull --rebase
 	lol = log --graph --decorate --pretty=oneline --abbrev-commit

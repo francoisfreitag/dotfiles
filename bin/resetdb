@@ -1,0 +1,73 @@
+#!/usr/bin/env python
+
+import argparse
+import os
+import pathlib
+import subprocess
+import sys
+
+DBS_PATH = pathlib.Path.home() / "Downloads" / "dbs"
+
+
+def run(cmds):
+    subprocess.run(cmds, check=True)
+
+
+def main(database, file, fetch, latest, preserve):
+    if fetch:
+        latest = True
+        run(
+            [
+                "rclone",
+                "copy",
+                "--max-age",
+                "24h",
+                "--progress",
+                "emplois:/encrypted-backups/",
+                str(DBS_PATH),
+            ]
+        )
+    if latest:
+        paths = sorted(path for path in DBS_PATH.iterdir())
+        file = paths[-1]
+    run(["dropdb", "--if-exists", database])
+    run(["createdb", database])
+    if file is None:
+        run(["./manage.py", "migrate"])
+        run(["make", "populate_db"])
+    elif file:
+        # Do not check output, there will be errors.
+        subprocess.run(
+            ["pg_restore", "--jobs=8", "--no-owner", f"--dbname={database}", file]
+        )
+    else:
+        sys.exit("Specify either empty of file")
+    if not preserve:
+        run(["./manage.py", "set_fake_passwords"])
+        run(
+            [
+                "./manage.py",
+                "shell",
+                "--command",
+                "from itou.users.models import User; "
+                'print(User.objects.update(identity_provider="DJANGO"))',
+            ]
+        )
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("database", nargs="?", default=os.getenv("PGDATABASE"))
+    parser.add_argument("--file", type=pathlib.Path)
+    parser.add_argument("--latest", action="store_true")
+    parser.add_argument("--fetch", action="store_true")
+    parser.add_argument("--preserve", action="store_true")
+    args = parser.parse_args()
+    if args.fetch and args.file:
+        sys.exit("Cannot supply both --fetch and --file.")
+    if not args.database:
+        sys.exit(
+            "Must provide a database, through the argument "
+            "or the PGDATABASE environment variable"
+        )
+    main(args.database, args.file, args.fetch, args.latest, args.preserve)

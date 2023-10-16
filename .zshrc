@@ -1,6 +1,7 @@
 export EDITOR=/usr/bin/nvim
 alias vim=nvim
 alias rg='rg --hidden'
+alias aws="aws --endpoint-url https://cellar-c2.services.clever-cloud.com"
 
 export PATH="$(systemd-path user-binaries):$HOME/bin:$PATH"
 

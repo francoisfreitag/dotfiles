@@ -1,6 +1,6 @@
 # Local overrides
-macro index,pager ga "<change-folder>=Archives/2022<enter>" "go to archive"
-macro index,pager Ma ";<save-message>=Archives/2022<enter>" "move mail to archive"
-macro index,pager Ca ";<copy-message>=Archives/2022<enter>" "copy mail to archive"
+macro index,pager ga "<change-folder>=Archives<enter>" "go to Archives"
+macro index,pager Ma ";<save-message>=Archives<enter>" "move mail to Archives"
+macro index,pager Ca ";<copy-message>=Archives<enter>" "copy mail to Archives"
 
 set use_threads = threads

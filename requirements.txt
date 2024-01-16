@@ -5,7 +5,7 @@ git
 git-delta
 hub
 neovim
-the_silver_searcher
+ripgrep
 thermald
 tmux
 zsh-syntax-highlighting

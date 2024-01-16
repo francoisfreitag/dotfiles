@@ -102,8 +102,7 @@ augroup CloseLoclistWindowGroup
 augroup END
 ]])
 -- DetectSpellLang
-vim.g.detectspelllang_langs = {}
-vim.g.detectspelllang_langs.hunspell = { 'fr_FR', 'en_US' }
+vim.g.detectspelllang_langs = { hunspell = { 'fr_FR', 'en_US' }}
 -- EditorConfig
 vim.g.EditorConfig_exclude_patterns = {'fugitive://.*'}
 -- FZF

@@ -187,9 +187,6 @@ local servers = { 'html', 'jsonls', 'pylsp', 'pyright', 'ruff_lsp', 'tsserver' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
-    flags = {
-      debounce_text_changes = 150,
-    }
   }
 end
 

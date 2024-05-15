@@ -27,6 +27,16 @@ def main():
         "master_clever",
     }
     to_delete = local_branches - remote_branches
+    current_branch = subprocess.run(
+        ["git", "branch", "--show-current"],
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout.strip()
+    try:
+        to_delete.remove(current_branch)
+    except KeyError:
+        pass
     if to_delete:
         print("\n".join(to_delete))
         answer = ""

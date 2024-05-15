@@ -123,7 +123,6 @@ require("lazy").setup({
     "stevearc/conform.nvim",
     "vim-scripts/matchit.zip",
     "wellle/targets.vim",
-    "Glench/Vim-Jinja2-Syntax",
     "tpope/vim-fugitive",
     "tpope/vim-rhubarb",
     "tpope/vim-commentary",

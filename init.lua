@@ -275,7 +275,6 @@ conform.setup({
 vim.cmd([[
 " Filetype specific settings
 augroup vimrc
-    autocmd BufNewFile,BufRead EDIT_PR_MSG_* setlocal filetype=gitcommit tw=0 spell
     autocmd BufNewFile,BufRead neomutt-* setlocal spell
     autocmd BufNewFile,BufRead .envrc setlocal filetype=sh
     autocmd BufNewFile,BufRead *.md,*.rst,*.txt setlocal spell suffixesadd=.rst

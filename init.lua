@@ -82,15 +82,6 @@ vim.g.airline_theme='solarized'
 vim.g.ale_open_list = 'on_save'
 vim.g.ale_list_window_size = 3
 vim.g.ale_fix_on_save = 1
-vim.g.ale_fixers = {
-    ['*'] = { 'remove_trailing_lines', 'trim_whitespace'},
-    python = {'ruff', 'remove_trailing_lines'}
-}
-if vim.env.NOBLACK ~= '1' then
-    local ale_fixers = vim.g.ale_fixers
-    table.insert(ale_fixers.python, 'black')
-    vim.g.ale_fixers = ale_fixers
-end
 vim.g.ale_warn_about_trailing_blank_lines = 0
 vim.g.ale_warn_about_trailing_whitespace = 0
 vim.keymap.set('n', '<c-k>', '<Plug>(ale_previous_wrap)', {silent = true})
@@ -129,6 +120,7 @@ require("lazy").setup({
     "junegunn/fzf.vim",
     "mileszs/ack.vim",
     "dense-analysis/ale",
+    "stevearc/conform.nvim",
     "vim-scripts/matchit.zip",
     "wellle/targets.vim",
     "Glench/Vim-Jinja2-Syntax",
@@ -157,6 +149,11 @@ local nvim_lsp = require('lspconfig')
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
+
+  if client.name == 'ruff_lsp' then
+    -- Disable hover in favor of Pyright
+    client.server_capabilities.hoverProvider = false
+  end
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
@@ -185,7 +182,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'html', 'jsonls', 'pylsp', 'pyright', 'tsserver' }
+local servers = { 'html', 'jsonls', 'pylsp', 'pyright', 'ruff_lsp', 'tsserver' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -206,6 +203,27 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
   },
 }
+
+-- Conform.nvim
+local conform = require("conform")
+conform.setup({
+  formatters_by_ft = {
+    htmldjango = { "djlint" },
+    lua = { "stylua" },
+    python = function(bufnr)
+      if conform.get_formatter_info("ruff_format", bufnr).available then
+        return { "ruff_fix", "ruff_format" }
+      else
+        return { "isort", "black" }
+      end
+    end,
+    ["*"] = { "trim_newlines", "trim_whitespace" }
+  },
+  format_on_save = {
+    lsp_fallback = true,
+    timeout_ms = 500,
+  },
+})
 
 vim.cmd([[
 " Filetype specific settings

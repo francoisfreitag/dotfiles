@@ -12,7 +12,6 @@ vim.g.python3_host_prog = "/usr/bin/python3"
 
 vim.opt.compatible = false
 
-vim.opt.termguicolors = true
 vim.opt.background = "dark"
 
 vim.opt.ai = true

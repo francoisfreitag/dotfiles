@@ -14,7 +14,7 @@ vim.opt.compatible = false
 
 vim.opt.background = "dark"
 
-vim.opt.ai = true
+vim.opt.autoindent = true
 vim.opt.tabstop = 4
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 4

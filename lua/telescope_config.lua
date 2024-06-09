@@ -1,0 +1,7 @@
+local telescope = require("telescope")
+telescope.load_extension("fzf")
+vim.keymap.set("n", "<c-p>", ":Telescope git_files<cr>")
+vim.keymap.set("n", "<c-b>", ":Telescope buffers<cr>")
+vim.keymap.set("n", "<Leader>d", ":Telescope diagnostics bufnr=0<cr>")
+vim.keymap.set("n", "<Leader>m", ":Telescope oldfiles<cr>")
+vim.keymap.set("n", "<c-l>", ":Telescope tags<cr>")

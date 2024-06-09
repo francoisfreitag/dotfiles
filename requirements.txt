@@ -4,8 +4,11 @@ fzf
 git
 git-delta
 hub
+nerd-fonts
 neovim
 ripgrep
 thermald
 tmux
+tree-sitter
+tree-sitter-cli
 zsh-syntax-highlighting

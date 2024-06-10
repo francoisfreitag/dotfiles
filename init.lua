@@ -6,15 +6,8 @@ require("lazy").setup({
 	"nvim-treesitter/nvim-treesitter-context",
 	"nvim-treesitter/nvim-treesitter-textobjects",
 	{
-		"nvim-telescope/telescope.nvim",
-		branch = "0.1.x",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			{
-				"nvim-telescope/telescope-fzf-native.nvim",
-				build = "make",
-			},
-		},
+		"ibhagwan/fzf-lua",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
 	"stevearc/conform.nvim",
 	"vim-scripts/matchit.zip",
@@ -45,8 +38,8 @@ vim.cmd("colorscheme solarized-osaka")
 require("lsp")
 require("treesitter")
 require("conform_config")
+require("fzf")
 require("gitsigns_config")
-require("telescope_config")
 require("lualine_config")
 
 vim.cmd([[

@@ -41,7 +41,13 @@ require("lazy").setup({
 	"tpope/vim-commentary",
 	"tpope/vim-repeat",
 	"tpope/vim-surround",
-	"tpope/vim-unimpaired",
+	{
+		"tpope/vim-unimpaired",
+		config = function()
+			vim.keymap.set("n", "[q", ":cprev<cr>zt")
+			vim.keymap.set("n", "]q", ":cnext<cr>zt")
+		end,
+	},
 	"dhruvasagar/vim-table-mode",
 	"chrisbra/unicode.vim",
 	"konfekt/vim-DetectSpellLang",

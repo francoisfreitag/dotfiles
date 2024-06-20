@@ -17,6 +17,8 @@ vim.opt.grepprg = "rg --hidden --vimgrep"
 vim.opt.hidden = true
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
+vim.opt.list = true
+vim.opt.listchars = { tab = "» ", nbsp = "␣" }
 vim.opt.joinspaces = false
 vim.opt.modeline = true
 vim.opt.mouse = ""

@@ -8,10 +8,6 @@ red = "0xd70000"
 white = "0xffffd7"
 yellow = "0xaf8700"
 
-[colors.cursor]
-cursor = "0x839496"
-text = "0x002b36"
-
 [colors.normal]
 black = "0x1b4652"
 blue = "0x268bd2"
@@ -30,7 +26,7 @@ foreground = "0x839496"
 size = 20
 
 [font.normal]
-family = "JetBrains Mono"
+family = "Inconsolata Nerd Font"
 
 [[mouse.bindings]]
 action = "PasteSelection"

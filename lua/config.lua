@@ -30,7 +30,6 @@ vim.opt.tabstop = 4
 vim.opt.textwidth = 0
 vim.opt.undofile = true
 vim.opt.wrap = true
-vim.opt.wrapscan = false
 
 vim.opt.path:append({ "docs", "lua", "*/templates", "templates" })
 

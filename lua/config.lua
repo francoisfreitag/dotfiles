@@ -31,7 +31,7 @@ vim.opt.textwidth = 0
 vim.opt.undofile = true
 vim.opt.wrap = true
 
-vim.opt.path:append({ "docs", "lua", "*/templates", "templates" })
+vim.opt.path:append({ "docs", "lua", "*/templates", "templates", "*/static" })
 
 -- Expand %% to current file's work directory
 vim.keymap.set("c", "%%", function()

@@ -4,11 +4,13 @@ conform.setup({
 		htmldjango = { "djlint" },
 		lua = { "stylua" },
 		python = function(bufnr)
+			if os.getenv("NO_FORMAT") then
+				return { "isort" }
+			end
 			if conform.get_formatter_info("ruff_format", bufnr).available then
 				return { "ruff_fix", "ruff_format" }
-			else
-				return { "isort", "black" }
 			end
+			return { "isort", "black" }
 		end,
 		["*"] = { "trim_newlines", "trim_whitespace" },
 	},

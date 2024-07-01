@@ -55,6 +55,7 @@ require("lazy").setup({
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		opts = {
+			extensions = { "fzf", require("lualine_qf") },
 			options = {
 				component_separators = "",
 				section_separators = "",

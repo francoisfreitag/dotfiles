@@ -1,0 +1,7 @@
+# vim: filetype=neomuttrc
+source /usr/share/mutt-wizard/mutt-wizard.muttrc
+source /home/freitafr/.config/mutt/accounts/mail@franek.fr.muttrc
+source /home/freitafr/.config/mutt/freitafr.muttrc
+source /home/freitafr/.config/mutt/solarized.muttrc
+macro index o "<shell-escape>mbsync --all && notmuch new --quiet<enter>" "sync mails and index them"
+macro index,pager i1 '<sync-mailbox><enter-command>source /home/freitafr/.config/mutt/accounts/mail@franek.fr.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to mail@franek.fr"

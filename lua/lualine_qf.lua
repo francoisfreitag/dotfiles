@@ -31,7 +31,8 @@ end
 M.sections = {
 	lualine_a = { label },
 	lualine_b = { title },
-	lualine_z = { total_lines, "location" },
+	lualine_y = { total_lines },
+	lualine_z = { "location" },
 }
 
 M.filetypes = { "qf" }

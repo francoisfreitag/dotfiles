@@ -31,3 +31,6 @@ family = "Inconsolata Nerd Font"
 [[mouse.bindings]]
 action = "PasteSelection"
 mouse = "Middle"
+
+[shell]
+program = "/usr/bin/tmux"

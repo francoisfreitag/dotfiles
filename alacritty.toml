@@ -34,3 +34,7 @@ mouse = "Middle"
 
 [shell]
 program = "/usr/bin/tmux"
+
+[window]
+decorations = "None"
+startup_mode = "Maximized"

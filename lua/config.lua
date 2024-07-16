@@ -1,8 +1,8 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<Leader><Leader>", "<cmd>:noh<cr>")
 vim.keymap.set("n", "<Leader>b", "Obreakpoint()<esc>")
 vim.keymap.set("n", "<Leader>a", ":grep! -w <cword><cr>")
 vim.keymap.set("c", "grr", "grep!")
+vim.cmd([[packadd! cfilter]])
 
 -- Force system python to make startup faster and avoid installing pynvim in
 -- each venv.

@@ -29,6 +29,7 @@ require("lazy").setup({
 		end,
 	},
 	"vim-scripts/matchit.zip",
+	"romainl/vim-cool",
 	"wellle/targets.vim",
 	{
 		"lewis6991/gitsigns.nvim",

@@ -42,6 +42,18 @@ require("lazy").setup({
 			require("gitsigns_config")
 		end,
 	},
+	{
+		"NeogitOrg/neogit",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"sindrets/diffview.nvim",
+			"ibhagwan/fzf-lua",
+		},
+		config = function()
+			vim.keymap.set("n", "<Leader>n", ":Neogit<cr>")
+			require("neogit").setup()
+		end,
+	},
 	"tpope/vim-fugitive",
 	"tpope/vim-rhubarb",
 	"tpope/vim-commentary",

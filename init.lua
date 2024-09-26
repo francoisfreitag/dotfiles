@@ -23,6 +23,11 @@ require("lazy").setup({
 		end,
 	},
 	{
+		"stevearc/oil.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = true,
+	},
+	{
 		"stevearc/conform.nvim",
 		config = function()
 			require("conform_config")

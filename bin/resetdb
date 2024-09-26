@@ -13,6 +13,11 @@ def run(cmds):
     subprocess.run(cmds, check=True)
 
 
+def recreate(database):
+    run(["dropdb", "--if-exists", database])
+    run(["createdb", database])
+
+
 def main(database, file, fetch, latest, preserve):
     if fetch:
         latest = True
@@ -30,12 +35,15 @@ def main(database, file, fetch, latest, preserve):
     if latest:
         paths = sorted(path for path in DBS_PATH.iterdir())
         file = paths[-1]
-    run(["dropdb", "--if-exists", database])
-    run(["createdb", database])
     if file is None:
-        run(["./manage.py", "migrate"])
-        run(["make", "populate_db"])
+        try:
+            run(["make", "resetdb"])
+        except subprocess.CalledProcessError:
+            recreate(database)
+            run(["./manage.py", "migrate"])
+            run(["make", "populate_db"])
     elif file:
+        recreate(database)
         # Do not check output, there will be errors.
         subprocess.run(
             ["pg_restore", "--jobs=8", "--no-owner", f"--dbname={database}", file]

@@ -49,8 +49,8 @@ def main(database, file, fetch, latest, preserve):
             ["pg_restore", "--jobs=8", "--no-owner", f"--dbname={database}", file]
         )
     else:
-        sys.exit("Specify either empty of file")
-    if not preserve:
+        sys.exit("Specify either empty or file")
+    if file and not preserve:
         run(["./manage.py", "set_fake_passwords"])
         run(
             [

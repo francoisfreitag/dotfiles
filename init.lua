@@ -25,7 +25,14 @@ require("lazy").setup({
 	{
 		"stevearc/oil.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
-		config = true,
+		keys = {
+			{ "<F3>", "<cmd>:e %:h<cr>", desc = "Open oil.nvim in current dir" },
+		},
+		opts = {
+			view_options = {
+				show_hidden = true,
+			},
+		},
 	},
 	{
 		"stevearc/conform.nvim",

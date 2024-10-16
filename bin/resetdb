@@ -52,15 +52,15 @@ def main(database, file, fetch, latest, preserve):
         sys.exit("Specify either empty or file")
     if file and not preserve:
         run(["./manage.py", "set_fake_passwords"])
-        run(
-            [
-                "./manage.py",
-                "shell",
-                "--command",
-                "from itou.users.models import User; "
-                'print(User.objects.update(identity_provider="DJANGO"))',
-            ]
-        )
+    run(
+        [
+            "./manage.py",
+            "shell",
+            "--command",
+            "from itou.users.models import User; "
+            'print(User.objects.update(identity_provider="DJANGO"))',
+        ]
+    )
 
 
 if __name__ == "__main__":

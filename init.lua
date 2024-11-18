@@ -126,6 +126,6 @@ augroup vimrc
     autocmd BufNewFile,BufRead neomutt-* setlocal tw=0 spell
     autocmd BufNewFile,BufRead .envrc setlocal filetype=sh
     autocmd BufNewFile,BufRead *.rst setlocal spell suffixesadd=.rst
-    autocmd BufNewFile,BufRead *.md setlocal spell suffixesadd=.rst
+    autocmd BufNewFile,BufRead *.md setlocal spell
 augroup END
 ]])

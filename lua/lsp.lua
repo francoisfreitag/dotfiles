@@ -3,7 +3,7 @@ local nvim_lsp = require("lspconfig")
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-	if client.name == "ruff_lsp" then
+	if client.name == "ruff" then
 		-- Disable hover in favor of Pyright
 		client.server_capabilities.hoverProvider = false
 	end
@@ -39,7 +39,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "html", "jsonls", "pyright", "ruff_lsp", "ts_ls" }
+local servers = { "html", "jsonls", "pyright", "ruff", "ts_ls" }
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({
 		on_attach = on_attach,

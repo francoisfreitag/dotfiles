@@ -1,0 +1,22 @@
+---
+- name: Install mutt
+  become: yes
+  pacman:
+    name:
+      - mutt-wizard
+      - neomutt
+      - notmuch-runtime
+
+- name: Create mutt configuration directory
+  file:
+    path: "~/.config/mutt"
+
+- name: Configure mutt
+  file:
+    src: "{{ role_path }}/{{ item }}"
+    dest: "~/.config/mutt/{{ item }}"
+    state: link
+  loop:
+    - freitafr.muttrc
+    - muttrc
+    - solarized.muttrc

@@ -1,0 +1,5 @@
+vim.keymap.set("n", "<c-p>", ":FzfLua git_files<cr>")
+vim.keymap.set("n", "<c-b>", ":FzfLua buffers<cr>")
+vim.keymap.set("n", "<Leader>d", ":FzfLua diagnostics_document bufnr=0<cr>")
+vim.keymap.set("n", "<Leader>m", ":FzfLua oldfiles<cr>")
+vim.keymap.set("n", "<c-l>", ":FzfLua tags<cr>")

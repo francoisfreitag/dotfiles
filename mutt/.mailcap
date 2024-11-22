@@ -1,2 +1,0 @@
-text/csv;nvim -R %s
-application/vnd.openxmlformats-officedocument.presentationml.presentation;libreoffice %s

@@ -1,3 +1,5 @@
 # dotfiles
 
-My dot files, currently only a simple .vimrc
+```
+uv run ansible-playbook setup.yaml
+```

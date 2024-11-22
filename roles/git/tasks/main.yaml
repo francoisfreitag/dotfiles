@@ -1,0 +1,10 @@
+---
+- name: Install git configuration files
+  file:
+    src: "{{ role_path }}/files/{{ item }}"
+    dest: "~/{{ item }}"
+    state: link
+  loop:
+    - .gitconfig
+    - .gitignore_global
+    - .git_templates

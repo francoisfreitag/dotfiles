@@ -1,0 +1,6 @@
+---
+- name: Install custom bin
+  file:
+    src: "{{ role_path }}/files"
+    dest: "~/bin"
+    state: link

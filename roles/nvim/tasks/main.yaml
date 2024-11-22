@@ -1,0 +1,23 @@
+---
+- name: Install nvim
+  become: yes
+  pacman:
+    name:
+      - neovim
+      - python-pynvim
+
+- name: Create config directory
+  file:
+    path: ~/.config/nvim
+    state: directory
+
+- name: Link to init
+  file:
+    src: "{{ role_path }}/files/{{ item }}"
+    dest: "~/.config/nvim/{{ item }}"
+    state: link
+  loop:
+    - init.lua
+    - ftplugin
+    - lua
+    - spell

@@ -1,8 +1,0 @@
-vim.b["surround_" .. string.byte("v")] = "{{ \r }}"
-vim.b["surround_" .. string.byte("{")] = "{{ \r }}"
-vim.b["surround_" .. string.byte("%")] = "{% \r %}"
-vim.b["surround_" .. string.byte("b")] = "{% block \1block name: \1 %}\r{% endblock \1\1 %}"
-vim.b["surround_" .. string.byte("i")] = "{% if \1condition: \1 %}\r{% endif %}"
-vim.b["surround_" .. string.byte("w")] = "{% with \1with: \1 %}\r{% endwith %}"
-vim.b["surround_" .. string.byte("f")] = "{% for \1for loop: \1 %}\r{% endfor %}"
-vim.b["surround_" .. string.byte("c")] = "{% comment %}\r{% endcomment %}"

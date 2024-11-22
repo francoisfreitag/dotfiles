@@ -1,0 +1,16 @@
+---
+- name: Install dependencies
+  become: yes
+  pacman:
+    name:
+      - ctags
+      - direnv
+      - fzf
+      - git-delta
+      - github-cli
+      - nerd-fonts
+      - ripgrep
+      - thermald
+      - tree-sitter
+      - tree-sitter-cli
+      - zsh-syntax-highlighting

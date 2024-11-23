@@ -32,7 +32,7 @@ family = "Inconsolata Nerd Font"
 action = "PasteSelection"
 mouse = "Middle"
 
-[shell]
+[terminal.shell]
 program = "/usr/bin/tmux"
 args = ["new-session", "-A", "-s", "dev"]
 

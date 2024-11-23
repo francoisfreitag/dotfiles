@@ -6,6 +6,7 @@
       - ctags
       - direnv
       - fzf
+      - git-absorb
       - git-delta
       - github-cli
       - nerd-fonts

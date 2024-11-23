@@ -1,12 +1,4 @@
 ---
-- name: Install mutt
-  become: yes
-  pacman:
-    name:
-      - mutt-wizard
-      - neomutt
-      - notmuch-runtime
-
 - name: Create mutt configuration directory
   file:
     path: "~/.config/mutt"

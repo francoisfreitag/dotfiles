@@ -1,9 +1,4 @@
 ---
-- name: Install alacritty
-  become: yes
-  pacman:
-    name: alacritty
-
 - name: Ensure .config exists
   file:
     path: ~/.config

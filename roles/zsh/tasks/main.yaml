@@ -1,8 +1,4 @@
 ---
-- name: Install zsh
-  pacman:
-    name: zsh
-
 - name: Install zsh configuration files
   file:
     src: "{{ role_path }}/files/{{ item }}"

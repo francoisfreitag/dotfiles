@@ -1,9 +1,4 @@
 ---
-- name: Install tmux
-  become: yes
-  pacman:
-    name: tmux
-
 - name: Configure tmux
   file:
     src: "{{ role_path }}/files/.tmux.conf"

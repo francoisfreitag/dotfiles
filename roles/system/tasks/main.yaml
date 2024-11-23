@@ -3,18 +3,25 @@
   become: yes
   pacman:
     name:
+      - alacritty
       - ctags
       - direnv
       - fzf
       - git-absorb
       - git-delta
       - github-cli
+      - neomutt
+      - neovim
       - nerd-fonts
+      - notmuch-runtime
       - openssh
+      - python-pynvim
       - ripgrep
       - thermald
+      - tmux
       - tree-sitter
       - tree-sitter-cli
+      - zsh
       - zsh-syntax-highlighting
 
 - name: Make systemd environment.d

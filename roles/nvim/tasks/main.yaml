@@ -1,11 +1,4 @@
 ---
-- name: Install nvim
-  become: yes
-  pacman:
-    name:
-      - neovim
-      - python-pynvim
-
 - name: Create config directory
   file:
     path: ~/.config/nvim

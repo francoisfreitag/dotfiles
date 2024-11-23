@@ -8,7 +8,21 @@
   file:
     src: "{{ role_path }}/files/{{ item }}"
     dest: "~/.config/environment.d/{{ item }}"
+    state: link
   loop:
     - git_askpass.conf
     - kwallet_gpg.conf
     - ssh_askpass.conf
+
+- name: Create SDDM config directory
+  become: yes
+  file:
+    path: /etc/sddm.conf.d/
+    state: directory
+
+# TODO: https://wiki.archlinux.org/title/SDDM#KDE_Plasma_/_KWin
+- name: Block global shortcuts
+  become: yes
+  copy:
+    src: 10-wayland.conf
+    dest: /etc/sddm.conf.d/

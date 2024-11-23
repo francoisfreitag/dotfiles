@@ -1,6 +1,7 @@
 - hosts: localhost
   roles:
     - system
+    - alacritty
     - bin
     - git
     - mutt

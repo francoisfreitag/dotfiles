@@ -1,0 +1,16 @@
+---
+- name: Install alacritty
+  become: yes
+  pacman:
+    name: alacritty
+
+- name: Ensure .config exists
+  file:
+    path: ~/.config
+    state: directory
+
+- name: Configure alacritty
+  file:
+    src: "{{ role_path }}/files/alacritty.toml"
+    dest: ~/.config/alacritty.toml
+    state: link

@@ -9,8 +9,25 @@
       - git-delta
       - github-cli
       - nerd-fonts
+      - openssh
       - ripgrep
       - thermald
       - tree-sitter
       - tree-sitter-cli
       - zsh-syntax-highlighting
+
+- name: Make systemd environment.d
+  file:
+    path: ~/.config/environment.d
+    state: directory
+
+- name: Enable SSH agent
+  systemd_service:
+    name: ssh-agent
+    scope: user
+    enabled: yes
+
+- name: Link to the SSH agent
+  copy:
+    content: SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
+    dest: ~/.config/environment.d/ssh_agent.conf

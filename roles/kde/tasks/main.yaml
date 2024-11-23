@@ -1,0 +1,14 @@
+---
+- name: Make systemd environment.d directory
+  file:
+    path: ~/.config/environment.d
+    state: directory
+
+- name: Use KWalletManager
+  file:
+    src: "{{ role_path }}/files/{{ item }}"
+    dest: "~/.config/environment.d/{{ item }}"
+  loop:
+    - git_askpass.conf
+    - kwallet_gpg.conf
+    - ssh_askpass.conf

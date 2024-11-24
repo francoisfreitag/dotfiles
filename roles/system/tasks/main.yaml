@@ -40,3 +40,10 @@
   copy:
     content: SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
     dest: ~/.config/environment.d/ssh_agent.conf
+
+- name: Set restrictive umask
+  become: yes
+  lineinfile:
+    line: UMASK		077
+    path: /etc/login.defs
+    regexp: '^UMASK\s+[0-9]{3}$'

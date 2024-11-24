@@ -17,6 +17,7 @@
       - openssh
       - python-pynvim
       - ripgrep
+      - rsync
       - thermald
       - tmux
       - tree-sitter

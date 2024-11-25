@@ -1,0 +1,5 @@
+application/gzip; ark %s
+application/vnd.openxmlformats-officedocument.presentationml.presentation; libreoffice %s
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; libreoffice %s
+application/zip; ark %s
+text/csv; nvim -R %s

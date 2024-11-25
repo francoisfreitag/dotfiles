@@ -11,6 +11,7 @@
       - git-absorb
       - git-delta
       - github-cli
+      - mailcap
       - neomutt
       - neovim
       - nerd-fonts

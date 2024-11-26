@@ -7,6 +7,7 @@
       - ctags
       - direnv
       - fzf
+      - git
       - git-absorb
       - git-delta
       - github-cli
@@ -47,3 +48,5 @@
     line: UMASK		077
     path: /etc/login.defs
     regexp: '^UMASK\s+[0-9]{3}$'
+
+- import_tasks: yay.yaml

@@ -1,4 +1,4 @@
-/.envrc
+.envrc
 /.git-blame-ignore-revs
 /Session.vim
 # Only ignore root tags file

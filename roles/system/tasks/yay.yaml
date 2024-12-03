@@ -32,3 +32,10 @@
     name: go
     state: absent
   when: yay_clone.changed
+
+- name: Allow upgrading packages without password
+  become: yes
+  copy:
+    content: "%wheel ALL=(ALL:ALL) NOPASSWD: ^/usr/bin/yay -Syu$"
+    dest: /etc/sudoers.d/upgrade-without-password
+    mode: 0400

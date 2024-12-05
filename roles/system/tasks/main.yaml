@@ -6,24 +6,44 @@
       - alacritty
       - ctags
       - direnv
+      - firefox-developer-edition
+      - flameshot
       - fzf
       - git
       - git-absorb
       - git-delta
       - github-cli
+      - hunspell-fr
+      - jq
+      - kde-applications-meta
       - mailcap
+      - man-db
+      - man-pages
+      - ncdu
+      - nextcloud-client
       - neomutt
       - neovim
       - nerd-fonts
       - notmuch-runtime
       - openssh
+      - pacman-contrib
+      - plasma-meta
+      - pwgen
       - python-pynvim
+      - pyright
+      - reflector
       - ripgrep
+      - ruff-lsp
       - rsync
+      - signal-desktop
       - thermald
       - tmux
       - tree-sitter
       - tree-sitter-cli
+      - uv
+      - vscode-html-languageserver
+      - vscode-json-languageserver
+      - wireguard-tools
       - zsh
       - zsh-syntax-highlighting
 

@@ -58,7 +58,11 @@ require("lazy").setup({
 		},
 		config = function()
 			vim.keymap.set("n", "<Leader>n", ":Neogit<cr>")
-			require("neogit").setup()
+			require("neogit").setup({
+				sections = {
+					untracked = { folded = true },
+				},
+			})
 		end,
 	},
 	"tpope/vim-fugitive",

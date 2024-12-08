@@ -3,7 +3,7 @@ alias vim=nvim
 alias rg='rg --hidden'
 # alias aws="aws --endpoint-url https://cellar-c2.services.clever-cloud.com"
 
-export PATH="$(systemd-path user-binaries):$HOME/bin:$PATH"
+export PATH="$(systemd-path user-binaries):$PATH"
 
 export HISTSIZE=100000000
 export SAVEHIST=100000000

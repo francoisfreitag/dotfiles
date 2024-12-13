@@ -3,6 +3,7 @@
   become: yes
   pacman:
     name:
+      - aerc
       - alacritty
       - ctags
       - direnv
@@ -14,14 +15,15 @@
       - git-delta
       - github-cli
       - hunspell-fr
+      - isync
       - jq
       - kde-applications-meta
       - mailcap
       - man-db
       - man-pages
+      - msmtp
       - ncdu
       - nextcloud-client
-      - neomutt
       - neovim
       - nerd-fonts
       - notmuch-runtime
@@ -43,6 +45,7 @@
       - uv
       - vscode-html-languageserver
       - vscode-json-languageserver
+      - w3m
       - wireguard-tools
       - zsh
       - zsh-syntax-highlighting

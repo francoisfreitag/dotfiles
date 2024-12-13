@@ -1,0 +1,14 @@
+[database]
+path=/home/freitafr/.local/share/mail
+[user]
+name=François Freitag
+primary_email=mail@franek.fr
+[new]
+tags=unread;inbox;
+ignore=.mbsyncstate;.uidvalidity
+[search]
+exclude_tags=deleted;spam;
+[maildir]
+synchronize_flags=true
+[crypto]
+gpg_path=gpg

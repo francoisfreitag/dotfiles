@@ -1,0 +1,52 @@
+---
+- name: Create aerc & tools config directories
+  file:
+    path: "~/.config/{{ item }}"
+    state: directory
+  loop:
+    - aerc
+    - msmtp
+
+- name: Copy msmtpq script to local bin
+  copy:
+    src: /usr/share/doc/msmtp/msmtpq/msmtpq
+    dest: ~/.local/bin
+    mode: "0700"
+
+- name: Configure aerc
+  file:
+    src: "{{ role_path }}/files/{{ item }}"
+    dest: "~/.config/aerc/{{ item }}"
+    state: link
+  loop:
+    - accounts.conf
+    - aerc.conf
+    - binds.conf
+    - filters
+    - map.conf
+
+- name: Configure mbsync
+  file:
+    src: "{{ role_path }}/files/mbsyncrc"
+    dest: ~/.mbsyncrc
+    state: link
+
+- name: Configure msmtp
+  file:
+    src: "{{ role_path }}/files/msmtp_config"
+    dest: ~/.config/msmtp/config
+    state: link
+
+- name: Configure msmtpq
+  file:
+    src: "{{ role_path }}/files/msmtpqrc"
+    dest: ~/.msmtpqrc
+    state: link
+
+- name: Configure notmuch
+  file:
+    src: "{{ role_path }}/files/notmuch-config"
+    dest: ~/.notmuch-config
+    state: link
+
+# TODO: Creds lookup in system keyring

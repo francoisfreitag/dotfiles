@@ -1,0 +1,49 @@
+IMAPStore mail@franek.fr-remote
+Host mail.ouvaton.coop
+Port 993
+User mail@franek.fr
+PassCmd "pass mail@franek.fr"
+AuthMechs LOGIN
+TLSType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore mail@franek.fr-local
+Subfolders Verbatim
+Path /home/freitafr/.local/share/mail/mail@franek.fr/
+Inbox /home/freitafr/.local/share/mail/mail@franek.fr/INBOX
+
+Channel mail@franek.fr
+Expunge Both
+Far :mail@franek.fr-remote:
+Near :mail@franek.fr-local:
+Patterns *
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+# End profile
+
+IMAPStore francois.freitag@inclusion.gouv.fr-remote
+Host imap.gmail.com
+Port 993
+User francois.freitag@inclusion.gouv.fr
+PassCmd "pass francois.freitag@inclusion.gouv.fr"
+AuthMechs LOGIN
+TLSType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore francois.freitag@inclusion.gouv.fr-local
+Subfolders Verbatim
+Path /home/freitafr/.local/share/mail/francois.freitag@inclusion.gouv.fr/
+Inbox /home/freitafr/.local/share/mail/francois.freitag@inclusion.gouv.fr/INBOX
+
+Channel francois.freitag@inclusion.gouv.fr
+Expunge Both
+Far :francois.freitag@inclusion.gouv.fr-remote:
+Near :francois.freitag@inclusion.gouv.fr-local:
+Patterns * !"[Gmail]/Tous les messages"
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+# End profile

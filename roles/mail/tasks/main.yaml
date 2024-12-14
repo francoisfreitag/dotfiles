@@ -22,7 +22,6 @@
     - accounts.conf
     - aerc.conf
     - binds.conf
-    - filters
     - map.conf
 
 - name: Configure mbsync

@@ -2,7 +2,7 @@ IMAPStore mail@franek.fr-remote
 Host mail.ouvaton.coop
 Port 993
 User mail@franek.fr
-PassCmd "pass mail@franek.fr"
+PassCmd "secret-tool lookup name mail@franek.fr"
 AuthMechs LOGIN
 TLSType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
@@ -27,7 +27,7 @@ IMAPStore francois.freitag@inclusion.gouv.fr-remote
 Host imap.gmail.com
 Port 993
 User francois.freitag@inclusion.gouv.fr
-PassCmd "pass francois.freitag@inclusion.gouv.fr"
+PassCmd "secret-tool lookup name francois.freitag@inclusion.gouv.fr"
 AuthMechs LOGIN
 TLSType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt

@@ -24,6 +24,14 @@
     - binds.conf
     - map.conf
 
+- name: Create mail directories
+  file:
+    path: "~/.local/share/mail/{{ item }}"
+    state: directory
+  loop:
+    - mail@franek.fr
+    - francois.freitag@inclusion.gouv.fr
+
 - name: Configure mbsync
   file:
     src: "{{ role_path }}/files/mbsyncrc"

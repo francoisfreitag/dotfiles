@@ -38,10 +38,10 @@
       - ruff-lsp
       - rsync
       - signal-desktop
-      - thermald
       - tmux
       - tree-sitter
       - tree-sitter-cli
+      - tuned
       - uv
       - vscode-html-languageserver
       - vscode-json-languageserver
@@ -72,5 +72,12 @@
     line: UMASK		077
     path: /etc/login.defs
     regexp: '^UMASK\s+[0-9]{3}$'
+
+- name: Enable tuned
+  become: yes
+  systemd_service:
+    name: tuned
+    enabled: yes
+    state: started
 
 - import_tasks: yay.yaml

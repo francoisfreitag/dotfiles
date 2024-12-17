@@ -2,7 +2,7 @@
 source <(fzf --zsh)
 export FZF_DEFAULT_OPTS='--tmux'
 pytest_failed() {
-    tmux capture-pane -S - -p | rg '^(FAILED|ERROR) ' | cut -d' ' -f 2 | uniq | fzf --multi --bind 'enter:become(pytest {+})'
+    tmux capture-pane -S - -p | rg '^(FAILED|ERROR) ' | cut -d' ' -f 2 | sort -u | fzf --multi --bind 'enter:become(pytest {+})'
 }
 zle -N pytest_failed
 bindkey '^v' pytest_failed

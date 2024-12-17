@@ -1,8 +1,31 @@
 # Fuzzy finder
 source <(fzf --zsh)
 export FZF_DEFAULT_OPTS='--tmux'
+
 pytest_failed() {
-    tmux capture-pane -S - -p | rg '^(FAILED|ERROR) ' | cut -d' ' -f 2 | sort -u | fzf --multi --bind 'enter:become(pytest {+})'
+    local TESTS
+    TESTS=$(tmux capture-pane -S - -p \
+        | rg '^(FAILED|ERROR) '\
+        | tac \
+        | cut -d' ' -f 2 \
+        | awk '!a[$0]++' \
+        | fzf --multi \
+        | while read -r item
+        do
+            echo -n -E "${(q)item} "
+        done)
+    if [[ -n $TESTS ]]; then
+        zle push-line
+        BUFFER="pytest ${TESTS}"
+        zle accept-line
+        local ret=$?
+        zle reset-prompt
+        return ret
+    else
+        zle redisplay
+        return 0
+    fi
 }
+
 zle -N pytest_failed
 bindkey '^v' pytest_failed

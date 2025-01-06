@@ -16,7 +16,7 @@ pytest_failed() {
         | tac \
         | cut -d' ' -f 2 \
         | awk '!a[$0]++' \
-        | fzf --multi \
+        | fzf --multi --bind 'ctrl-a:select-all+accept' \
         | while read -r item
         do
             echo -n -E "${(q)item} "

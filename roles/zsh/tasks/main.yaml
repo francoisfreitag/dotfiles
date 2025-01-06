@@ -7,3 +7,4 @@
   loop:
     - .zshrc.local
     - .zshrc.fzf
+    - .zshrc.syntax-highlighting-catppuccin

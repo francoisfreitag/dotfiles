@@ -1,8 +1,17 @@
 ---
 - name: Ensure .config exists
   file:
-    path: ~/.config
+    path: "{{ item }}"
     state: directory
+  loop:
+    - ~/.config
+    - ~/.config/alacritty
+
+- name: Install alacritty theme
+  file:
+    src: "{{ role_path }}/files/catppuccin-mocha.toml"
+    dest: ~/.config/alacritty/catppuccin-mocha.toml
+    state: link
 
 - name: Configure alacritty
   file:

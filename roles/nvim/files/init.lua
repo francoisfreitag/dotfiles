@@ -116,13 +116,19 @@ require("lazy").setup({
 		},
 	},
 	{
-		"craftzdog/solarized-osaka.nvim",
-		lazy = false,
+		"catppuccin/nvim",
+		name = "catppuccin",
 		priority = 1000,
-		opts = {},
+		opts = {
+			styles = {
+				comments = {},
+				conditionals = {},
+			},
+		},
 	},
 })
-vim.cmd("colorscheme solarized-osaka")
+vim.o.termguicolors = true
+vim.cmd.colorscheme("catppuccin")
 
 vim.cmd([[
 " Filetype specific settings

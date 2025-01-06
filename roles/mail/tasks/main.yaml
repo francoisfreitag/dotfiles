@@ -5,6 +5,7 @@
     state: directory
   loop:
     - aerc
+    - aerc/stylesets
     - msmtp
 
 - name: Copy msmtpq script to local bin
@@ -23,6 +24,7 @@
     - aerc.conf
     - binds.conf
     - map.conf
+    - stylesets/catppuccin-mocha
 
 - name: Create mail directories
   file:

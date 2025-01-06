@@ -1,4 +1,10 @@
 ---
+- name: Get theme
+  git:
+    repo: https://github.com/catppuccin/tmux.git
+    dest: ~/.config/tmux/plugins/catppuccin/tmux
+    version: v2.1.2
+
 - name: Configure tmux
   file:
     src: "{{ role_path }}/files/.tmux.conf"

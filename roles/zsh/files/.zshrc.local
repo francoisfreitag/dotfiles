@@ -23,6 +23,7 @@ if [ -z "$TMUX" ]; then
     tmux
 fi
 
+source ~/.zshrc.syntax-highlighting-catppuccin
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

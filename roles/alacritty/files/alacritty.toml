@@ -1,26 +1,7 @@
-[colors.bright]
-black = "0x586e75"
-blue = "0x0087ff"
-cyan = "0x00afaf"
-green = "0x5f8700"
-magenta = "0xaf005f"
-red = "0xd70000"
-white = "0xffffd7"
-yellow = "0xaf8700"
-
-[colors.normal]
-black = "0x1b4652"
-blue = "0x268bd2"
-cyan = "0x2aa1c8"
-green = "0x859900"
-magenta = "0xd33682"
-red = "0xdc322f"
-white = "0xeee8d5"
-yellow = "0xb58900"
-
-[colors.primary]
-background = "0x002b36"
-foreground = "0x839496"
+[general]
+import = [
+  "~/.config/alacritty/catppuccin-mocha.toml"
+]
 
 [font]
 size = 20

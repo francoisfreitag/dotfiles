@@ -72,10 +72,10 @@ require("lazy").setup({
 	"tpope/vim-surround",
 	{
 		"tpope/vim-unimpaired",
-		config = function()
-			vim.keymap.set("n", "[q", ":cprev<cr>zt")
-			vim.keymap.set("n", "]q", ":cnext<cr>zt")
-		end,
+		keys = {
+			{ "[q", ":cprev<cr>zt", "Previous quickfix item, redrawn at the top" },
+			{ "]q", ":cnext<cr>zt", "Next quickfix item, redrawn at the top" },
+		},
 	},
 	"dhruvasagar/vim-table-mode",
 	"chrisbra/unicode.vim",

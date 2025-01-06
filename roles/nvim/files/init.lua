@@ -56,14 +56,14 @@ require("lazy").setup({
 			"sindrets/diffview.nvim",
 			"ibhagwan/fzf-lua",
 		},
-		config = function()
-			vim.keymap.set("n", "<Leader>n", ":Neogit<cr>")
-			require("neogit").setup({
-				sections = {
-					untracked = { folded = true },
-				},
-			})
-		end,
+		opts = {
+			sections = {
+				untracked = { folded = true },
+			},
+		},
+		keys = {
+			{ "<Leader>n", ":Neogit<cr>", desc = "Open Neogit" },
+		},
 	},
 	"tpope/vim-fugitive",
 	"tpope/vim-rhubarb",

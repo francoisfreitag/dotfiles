@@ -5,6 +5,11 @@
     dest: ~/.config/tmux/plugins/catppuccin/tmux
     version: v2.1.2
 
+- name: Get tmux-yank
+  git:
+    repo: https://github.com/tmux-plugins/tmux-yank
+    dest: ~/.config/tmux/plugins/tmux-yank/
+
 - name: Configure tmux
   file:
     src: "{{ role_path }}/files/.tmux.conf"

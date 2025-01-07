@@ -1,5 +1,4 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<Leader>b", "Obreakpoint()<esc>")
 vim.keymap.set("n", "<Leader>a", ":grep! -w <cword><cr>")
 vim.keymap.set("c", "grr", "grep!")
 

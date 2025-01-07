@@ -19,5 +19,6 @@ args = ["new-session", "-A", "-s", "dev"]
 
 [window]
 decorations = "None"
+dynamic_padding = true
 startup_mode = "Maximized"
 opacity = 0.9

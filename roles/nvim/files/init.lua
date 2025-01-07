@@ -50,22 +50,6 @@ require("lazy").setup({
 			require("gitsigns_config")
 		end,
 	},
-	{
-		"NeogitOrg/neogit",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"sindrets/diffview.nvim",
-			"ibhagwan/fzf-lua",
-		},
-		opts = {
-			sections = {
-				untracked = { folded = true },
-			},
-		},
-		keys = {
-			{ "<Leader>n", ":Neogit<cr>", desc = "Open Neogit" },
-		},
-	},
 	"tpope/vim-fugitive",
 	"tpope/vim-rhubarb",
 	"tpope/vim-commentary",

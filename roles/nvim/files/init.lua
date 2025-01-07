@@ -33,6 +33,7 @@ require("lazy").setup({
 				show_hidden = true,
 			},
 		},
+		lazy = false,
 	},
 	{
 		"stevearc/conform.nvim",

@@ -63,7 +63,20 @@ require("lazy").setup({
 		},
 	},
 	"dhruvasagar/vim-table-mode",
-	"chrisbra/unicode.vim",
+	{
+		"allaman/emoji.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"ibhagwan/fzf-lua",
+		},
+		keys = {
+			{ "<leader>se", ":Emoji<cr>", { desc = "[S]earch [E]moji" } },
+		},
+		config = function(_, opts)
+			require("emoji").setup(opts)
+			require("fzf-lua").register_ui_select()
+		end,
+	},
 	"konfekt/vim-DetectSpellLang",
 	{
 		"nvim-lualine/lualine.nvim",

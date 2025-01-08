@@ -1,0 +1,14 @@
+---
+- name: Create fuzzel config directory
+  file:
+    path: ~/.config/fuzzel
+    state: directory
+
+- name: Configure fuzzel
+  file:
+    src: "{{ role_path }}/files/{{ item }}"
+    dest: "~/.config/fuzzel/{{ item }}"
+    state: link
+  loop:
+    - fuzzel.ini
+    - catppuccin-mocha-blue.ini

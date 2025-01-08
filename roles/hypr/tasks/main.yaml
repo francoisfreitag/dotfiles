@@ -1,0 +1,71 @@
+---
+- name: Create Hyprland config directory
+  file:
+    path: "~/{{ item }}"
+    state: directory
+  loop:
+    - .config
+    - .config/hypr
+
+- name: Start Hyprland with uwsm
+  copy:
+    content: |
+      if uwsm check may-start; then
+          exec uwsm start hyprland.desktop
+      fi
+    dest: ~/.zprofile
+
+- name: Create drop-in directory for autologin configuration
+  become: yes
+  file:
+    path: /etc/systemd/system/getty@tty1.service.d/
+    state: directory
+
+- name: Configure automatic login for uwsm
+  become: yes
+  copy:
+    content: |
+      [Service]
+      ExecStart=
+      ExecStart=/sbin/agetty -o '-p -f -- \\u' --noclear --autologin freitafr %I $TERM
+    dest: /etc/systemd/system/getty@tty1.service.d/autologin.conf
+
+- name: Create wallpapers directory
+  file:
+    src: "{{ role_path }}/files/wallpapers"
+    dest: ~/.local/share/wallpapers
+    state: link
+
+- name: Configure Hyprland
+  file:
+    src: "{{ role_path }}/files/{{ item }}"
+    dest: "~/.config/hypr/{{ item }}"
+    state: link
+  loop:
+    - hypridle.conf
+    - hyprland.conf
+    - hyprlock.conf
+    - hyprpaper.conf
+
+- name: Enable hyprpaper
+  systemd_service:
+    name: hyprpaper.service
+    scope: user
+    enabled: yes
+    state: started
+
+- name: Set dark mode
+  dconf:
+    key: "{{ item.key }}"
+    value: "{{ item.value }}"
+  loop:
+    - key: /org/gnome/desktop/interface/monospace-font-name
+      value: '"Inconsolata Nerd Font"'
+    - key: /org/gnome/desktop/interface/color-scheme
+      value: '"prefer-dark"'
+    - key: /org/gnome/desktop/interface/gtk-theme
+      value: '"Adwaita-dark"'
+    - key: /org/gnome/desktop/interface/font-antialiasing
+      value: '"rgba"'
+    - key: /org/gnome/desktop/interface/font-hinting
+      value: '"full"'

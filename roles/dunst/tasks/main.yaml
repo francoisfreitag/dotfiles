@@ -1,0 +1,11 @@
+---
+- name: Create dunst configuration directory
+  file:
+    path: ~/.config/dunst
+    state: directory
+
+- name: Configure dunst
+  file:
+    src: "{{ role_path }}/files/dunstrc"
+    dest: ~/.config/dunst/dunstrc
+    state: link

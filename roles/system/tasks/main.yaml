@@ -5,10 +5,17 @@
     name:
       - aerc
       - alacritty
+      - blueman
+      - brightnessctl
+      - chromium
       - ctags
+      - dbus-broker
       - direnv
+      - dunst
+      - dolphin
       - firefox-developer-edition
       - flameshot
+      - fuzzel
       - fzf
       - git
       - git-absorb
@@ -17,9 +24,13 @@
       - grml-zsh-config
       - hunspell
       - hunspell-fr
+      - hypridle
+      - hyprland
+      - hyprlock
+      - hyprpaper
       - isync
+      - loupe
       - jq
-      - kde-applications-meta
       - mailcap
       - man-db
       - man-pages
@@ -28,13 +39,17 @@
       - nextcloud-client
       - neovim
       - nerd-fonts
+      - network-manager-applet
       - notmuch-runtime
       - openssh
       - pacman-contrib
-      - plasma-meta
       - pwgen
+      - python-psutil  # Used by ansible to manage dconf.
       - python-pynvim
       - pyright
+      - qt5-wayland
+      - qt6-wayland
+      - qt6ct  # Wayland theme for Qt apps.
       - reflector
       - ripgrep
       - ruff-lsp
@@ -44,10 +59,12 @@
       - tree-sitter
       - tree-sitter-cli
       - tuned
+      - udiskie
       - uv
       - vscode-html-languageserver
       - vscode-json-languageserver
       - w3m
+      - xdg-desktop-portal-hyprland
       - wireguard-tools
       - zsh
       - zsh-syntax-highlighting
@@ -83,3 +100,9 @@
     state: started
 
 - import_tasks: yay.yaml
+
+- name: Install AUR packages
+  command: yay --sync --refresh --noconfirm --norebuild uwsm hyprsunset
+  environment:
+    PATH: /usr/bin
+    VIRTUAL_ENV: ''

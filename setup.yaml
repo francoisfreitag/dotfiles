@@ -4,7 +4,9 @@
     - alacritty
     - bin
     - git
-    - kde
+    - fuzzel
+    - dunst
+    - hypr
     - mail
     - nvim
     - tmux

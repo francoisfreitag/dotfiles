@@ -1,0 +1,14 @@
+---
+- name: Create hyprland config directory
+  file:
+    path: "~/{{ item }}"
+    state: directory
+  loop:
+    - .config
+    - .config/hypr
+
+- name: Configure hyprland
+  file:
+    src: "{{ role_path }}/files/hyprland.conf"
+    dest: "~/.config/hypr/hyprland.conf"
+    state: link

@@ -17,9 +17,10 @@
       - grml-zsh-config
       - hunspell
       - hunspell-fr
+      - hyprland
+      - hyprlock
       - isync
       - jq
-      - kde-applications-meta
       - mailcap
       - man-db
       - man-pages
@@ -31,7 +32,6 @@
       - notmuch-runtime
       - openssh
       - pacman-contrib
-      - plasma-meta
       - pwgen
       - python-pynvim
       - pyright

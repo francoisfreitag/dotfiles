@@ -1,0 +1,11 @@
+---
+- name: Create swappy config directory
+  file:
+    path: ~/.config/swappy
+    state: directory
+
+- name: Configure swappy
+  file:
+    src: "{{ role_path }}/files/config.ini"
+    dest: ~/.config/swappy/config
+    state: link

@@ -21,6 +21,7 @@
       - git-absorb
       - git-delta
       - github-cli
+      - gnome-themes-extra  # https://wiki.archlinux.org/title/Dark_mode_switching
       - grim
       - grml-zsh-config
       - hunspell
@@ -69,6 +70,7 @@
       - uv
       - vscode-html-languageserver
       - vscode-json-languageserver
+      - xdg-desktop-portal-gtk  # https://wiki.archlinux.org/title/Dark_mode_switching#gsettings
       - xdg-desktop-portal-hyprland
       - wireguard-tools
       - wl-clipboard

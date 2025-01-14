@@ -67,19 +67,3 @@
   loop:
     - hyprpaper.service
     - hyprpolkitagent.service
-
-- name: Set dark mode
-  dconf:
-    key: "{{ item.key }}"
-    value: "{{ item.value }}"
-  loop:
-    - key: /org/gnome/desktop/interface/monospace-font-name
-      value: '"Inconsolata Nerd Font"'
-    - key: /org/gnome/desktop/interface/color-scheme
-      value: '"prefer-dark"'
-    - key: /org/gnome/desktop/interface/gtk-theme
-      value: '"Adwaita-dark"'
-    - key: /org/gnome/desktop/interface/font-antialiasing
-      value: '"rgba"'
-    - key: /org/gnome/desktop/interface/font-hinting
-      value: '"full"'

@@ -30,6 +30,17 @@
       ExecStart=/sbin/agetty -o '-p -f -- \\u' --noclear --autologin freitafr %I $TERM
     dest: /etc/systemd/system/getty@tty1.service.d/autologin.conf
 
+- name: Create uwsm configuration directory
+  file:
+    path: ~/.config/uwsm/
+    state: directory
+
+- name: Configure uwsm environment
+  file:
+    src: "{{ role_path }}/files/env"
+    dest: ~/.config/uwsm/env
+    state: link
+
 - name: Create wallpapers directory
   file:
     src: "{{ role_path }}/files/wallpapers"

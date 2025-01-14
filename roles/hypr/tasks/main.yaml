@@ -58,12 +58,15 @@
     - hyprlock.conf
     - hyprpaper.conf
 
-- name: Enable hyprpaper
+- name: Enable hyprland services
   systemd_service:
-    name: hyprpaper.service
+    name: "{{ item }}"
     scope: user
     enabled: yes
     state: started
+  loop:
+    - hyprpaper.service
+    - hyprpolkitagent.service
 
 - name: Set dark mode
   dconf:

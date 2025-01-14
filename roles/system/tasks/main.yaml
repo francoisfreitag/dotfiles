@@ -9,6 +9,7 @@
       - brightnessctl
       - chromium
       - ctags
+      - dante  # Preview HTML emails in aerc.
       - dbus-broker
       - direnv
       - dunst
@@ -63,7 +64,6 @@
       - uv
       - vscode-html-languageserver
       - vscode-json-languageserver
-      - w3m
       - xdg-desktop-portal-hyprland
       - wireguard-tools
       - zsh

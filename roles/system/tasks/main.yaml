@@ -57,6 +57,7 @@
       - ruff-lsp
       - rsync
       - signal-desktop
+      - simple-scan
       - telegram-desktop
       - tmux
       - tree-sitter

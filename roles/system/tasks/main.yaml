@@ -13,7 +13,8 @@
       - dbus-broker
       - direnv
       - dunst
-      - dolphin
+      - evince
+      - file-roller
       - firefox-developer-edition
       - fuzzel
       - fzf
@@ -37,6 +38,7 @@
       - man-db
       - man-pages
       - msmtp
+      - nautilus
       - ncdu
       - nextcloud-client
       - neovim
@@ -44,6 +46,7 @@
       - network-manager-applet
       - notmuch-runtime
       - openssh
+      - p7zip
       - pacman-contrib
       - pwgen
       - python-psutil  # Used by ansible to manage dconf.
@@ -66,6 +69,7 @@
       - tree-sitter-cli
       - tuned
       - udiskie
+      - unzip
       - uv
       - vscode-html-languageserver
       - vscode-json-languageserver

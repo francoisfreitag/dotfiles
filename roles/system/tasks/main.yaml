@@ -21,7 +21,6 @@
       - git-absorb
       - git-delta
       - github-cli
-      - gnome-themes-extra  # https://wiki.archlinux.org/title/Dark_mode_switching
       - grim
       - grml-zsh-config
       - hunspell

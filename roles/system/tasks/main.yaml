@@ -113,3 +113,8 @@
   environment:
     PATH: /usr/bin
     VIRTUAL_ENV: ''
+
+- name: Enable wayland for Chromium
+  copy:
+    content: --ozone-platform-hint=auto
+    dest: ~/.config/chromium-flags.conf

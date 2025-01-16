@@ -8,6 +8,7 @@
       - blueman
       - brightnessctl
       - chromium
+      - cliphist
       - ctags
       - dante  # Preview HTML emails in aerc.
       - dbus-broker

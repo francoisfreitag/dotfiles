@@ -41,12 +41,6 @@
     dest: ~/.config/uwsm/env
     state: link
 
-- name: Create wallpapers directory
-  file:
-    src: "{{ role_path }}/files/wallpapers"
-    dest: ~/.local/share/wallpapers
-    state: link
-
 - name: Configure Hyprland
   file:
     src: "{{ role_path }}/files/{{ item }}"

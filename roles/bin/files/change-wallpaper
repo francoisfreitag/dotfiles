@@ -1,0 +1,11 @@
+#!/usr/bin/bash
+
+set -eu
+
+WALLPAPER_DIR="$HOME/cloud/Wallpapers"
+
+if [[ -d $WALLPAPER_DIR ]]; then
+    WALLPAPER=$(find $WALLPAPER_DIR -type f | shuf -n 1)
+    hyprctl hyprpaper preload $WALLPAPER
+    hyprctl hyprpaper wallpaper ", $WALLPAPER"
+fi

@@ -61,6 +61,7 @@ require("lazy").setup({
 			{ "[q", ":cprev<cr>zt", "Previous quickfix item, redrawn at the top" },
 			{ "]q", ":cnext<cr>zt", "Next quickfix item, redrawn at the top" },
 		},
+		lazy = false,
 	},
 	"dhruvasagar/vim-table-mode",
 	{

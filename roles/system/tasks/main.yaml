@@ -10,7 +10,6 @@
       - chromium
       - cliphist
       - ctags
-      - dante  # Preview HTML emails in aerc.
       - dbus-broker
       - direnv
       - dunst
@@ -76,6 +75,7 @@
       - vscode-json-languageserver
       - xdg-desktop-portal-gtk  # https://wiki.archlinux.org/title/Dark_mode_switching#gsettings
       - xdg-desktop-portal-hyprland
+      - w3m  # Weak dependency for aerc default text/html
       - wireguard-tools
       - wl-clipboard
       - zsh

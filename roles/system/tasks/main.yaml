@@ -37,6 +37,7 @@
       - mailcap
       - man-db
       - man-pages
+      - mpv
       - msmtp
       - nautilus
       - ncdu

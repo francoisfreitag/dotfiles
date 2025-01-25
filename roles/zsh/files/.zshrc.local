@@ -21,7 +21,6 @@ zstyle ':prompt:grml:left:setup' items rc venv change-root path vcs percent
 source ~/.zshrc.syntax-highlighting-catppuccin
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source "$HOME/.zshrc.fzf"
 
 eval "$(direnv hook zsh)"

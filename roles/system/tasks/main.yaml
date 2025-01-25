@@ -77,6 +77,7 @@
       - xdg-desktop-portal-gtk  # https://wiki.archlinux.org/title/Dark_mode_switching#gsettings
       - xdg-desktop-portal-hyprland
       - w3m  # Weak dependency for aerc default text/html
+      - wf-recorder
       - wireguard-tools
       - wl-clipboard
       - zsh

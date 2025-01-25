@@ -8,6 +8,7 @@
     - dunst
     - swappy
     - hypr
+    - waybar
     - mail
     - nvim
     - tmux

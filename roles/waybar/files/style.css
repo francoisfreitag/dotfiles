@@ -1,0 +1,54 @@
+@import "mocha.css";
+
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: FontAwesome, Inconsolata Nerd Font;
+    border: none;
+    border-radius: 0;
+    min-height: 24px;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 0;
+    color: #bbbbbb;
+}
+
+window#waybar {
+    background-color: transparent;
+}
+
+#clock {
+    background-color: #000000;
+    color: #dddddd;
+    font-weight: bold;
+    border-radius: 0px 0px 12px 12px;
+    padding: 0 10px;
+}
+
+#battery,
+#cpu,
+#memory,
+#disk,
+#network,
+#pulseaudio,
+#wireplumber,
+#tray,
+#idle_inhibitor {
+    margin: 0 7px;
+}
+
+#workspaces button {
+    padding: 0 4px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
+#idle_inhibitor.activated {
+    color: #ffffff;
+    font-weight: bold;
+}

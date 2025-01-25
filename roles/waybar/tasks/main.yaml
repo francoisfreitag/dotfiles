@@ -1,0 +1,13 @@
+---
+- name: Configure waybar
+  file:
+    src: "{{ role_path }}/files/"
+    dest: ~/.config/waybar
+    state: link
+
+- name: Enable waybar
+  systemd_service:
+    name: waybar
+    scope: user
+    enabled: yes
+    state: started

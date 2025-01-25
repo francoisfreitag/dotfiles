@@ -47,8 +47,12 @@
       - network-manager-applet
       - notmuch-runtime
       - openssh
+      - otf-font-awesome  # Waybar icons
       - p7zip
       - pacman-contrib
+      - pavucontrol
+      - pulseaudio
+      - pulseaudio-bluetooth
       - pwgen
       - python-psutil  # Used by ansible to manage dconf.
       - python-pynvim
@@ -77,6 +81,7 @@
       - xdg-desktop-portal-gtk  # https://wiki.archlinux.org/title/Dark_mode_switching#gsettings
       - xdg-desktop-portal-hyprland
       - w3m  # Weak dependency for aerc default text/html
+      - waybar
       - wf-recorder
       - wireguard-tools
       - wl-clipboard

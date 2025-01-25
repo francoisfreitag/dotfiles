@@ -53,6 +53,7 @@
     - hypridle.conf
     - hyprland.conf
     - hyprlock.conf
+    - hyprpaper.conf
 
 - name: Enable hyprland services
   systemd_service:

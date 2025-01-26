@@ -9,7 +9,7 @@
     font-weight: 500;
     font-size: 16px;
     padding: 0;
-    color: #bbbbbb;
+    color: #dddddd;
 }
 
 window#waybar {
@@ -37,7 +37,9 @@ window#waybar {
 }
 
 #workspaces button {
-    padding: 0 4px;
+    padding-left: 6px;
+    /* fontawesome icons take more than a character’s width. */
+    padding-right: 12px;
 }
 
 #tray > .passive {

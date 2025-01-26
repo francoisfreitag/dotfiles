@@ -51,8 +51,8 @@
       - p7zip
       - pacman-contrib
       - pavucontrol
-      - pulseaudio
-      - pulseaudio-bluetooth
+      - pipewire
+      - pipewire-pulse
       - pwgen
       - python-psutil  # Used by ansible to manage dconf.
       - python-pynvim

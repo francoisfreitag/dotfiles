@@ -1,0 +1,11 @@
+[calendars]
+    [[nextcloud]]
+    path = ~/.local/share/vdirsyncer/calendars/nextcloud.franek.fr/*
+    type = discover
+
+    [[work]]
+    path = ~/.local/share/vdirsyncer/calendars/inclusion.gouv.fr/*
+    type = discover
+
+[locale]
+timeformat = %H:%M

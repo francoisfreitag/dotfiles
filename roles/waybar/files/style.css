@@ -16,12 +16,21 @@ window#waybar {
     background-color: transparent;
 }
 
+.modules-center {
+    border-radius: 0px 0px 12px 12px;
+    background: rgba(0, 0, 0, .6);
+}
+
 #clock {
     background-color: #000000;
     color: #dddddd;
     font-weight: bold;
+    border-radius: 0px 0px 0px 12px;
+    padding: 0 12px;
+}
+
+.modules-center #clock:last-child {
     border-radius: 0px 0px 12px 12px;
-    padding: 0 10px;
 }
 
 #battery,

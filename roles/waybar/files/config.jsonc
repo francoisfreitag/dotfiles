@@ -9,6 +9,7 @@
     ],
     "modules-center": [
         "clock",
+        "custom/nextmeeting",
         "privacy"
     ],
     "modules-right": [
@@ -50,6 +51,13 @@
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}"
+    },
+    "custom/nextmeeting": {
+        "exec": "khal list --day-format= --format='{start-time} {title}' --include-calendar 'francois.freitag@inclusion.gouv.fr' --notstarted $(date +%H:%M --date '5 minutes ago') $(date +%H:%M --date 'next hour')",
+        "hide-empty-text": true,
+        "interval": 300,
+        "max-length": 30,
+        "tooltip": false
     },
     "cpu": {
         "format": "{usage}% ",

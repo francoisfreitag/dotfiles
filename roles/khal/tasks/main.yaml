@@ -1,0 +1,13 @@
+---
+- name: Create khal configuration directory
+  file:
+    path: ~/.config/khal
+    state: directory
+
+- name: Configure khal
+  file:
+    src: "{{ role_path }}/files/config"
+    dest: ~/.config/khal/config
+    state: link
+
+# TODO: Multiple events as tooltip?

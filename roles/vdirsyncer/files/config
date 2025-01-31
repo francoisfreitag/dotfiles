@@ -1,0 +1,38 @@
+[general]
+status_path = "~/.local/share/vdirsyncer/status/"
+
+[pair nextcloud_calendar]
+a = "nextcloud_remote"
+b = "nextcloud_local"
+collections = ["from a", "from b"]
+conflict_resolution = ["command", "nvim", "-d"]
+metadata = ["color", "displayname"]
+
+[storage nextcloud_remote]
+type = "caldav"
+url = "https://nextcloud.franek.fr/remote.php/caldav/"
+username.fetch = ["command", "secret-tool", "lookup", "name", "vdirsyncer.username"]
+password.fetch = ["command", "secret-tool", "lookup", "name", "vdirsyncer.password"]
+
+[storage nextcloud_local]
+type = "filesystem"
+path = "~/.local/share/vdirsyncer/calendars/nextcloud.franek.fr/"
+fileext = ".ics"
+
+[pair google_calendar]
+a = "google_inclusion_remote"
+b = "google_inclusion_local"
+collections = ["from a"]
+conflict_resolution = ["command", "nvim", "-d"]
+metadata = ["color", "displayname"]
+
+[storage google_inclusion_remote]
+type = "google_calendar"
+token_file = "~/.local/share/vdirsyncer/inclusion_gouv_fr_token"
+client_id.fetch = ["command", "secret-tool", "lookup", "name", "vdirsyncer.google.username"]
+client_secret.fetch = ["command", "secret-tool", "lookup", "name", "vdirsyncer.google.password"]
+
+[storage google_inclusion_local]
+type = "filesystem"
+path = "~/.local/share/vdirsyncer/calendars/inclusion.gouv.fr/"
+fileext = ".ics"

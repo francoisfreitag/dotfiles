@@ -8,6 +8,8 @@
     - dunst
     - swappy
     - hypr
+    - vdirsyncer
+    - khal
     - waybar
     - mail
     - nvim

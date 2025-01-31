@@ -31,6 +31,7 @@
       - hyprlock
       - hyprpaper
       - hyprpolkitagent
+      - hyprsunset
       - isync
       - loupe
       - jq
@@ -76,6 +77,7 @@
       - udiskie
       - unzip
       - uv
+      - uwsm
       - vscode-html-languageserver
       - vscode-json-languageserver
       - xdg-desktop-portal-gtk  # https://wiki.archlinux.org/title/Dark_mode_switching#gsettings
@@ -119,12 +121,6 @@
     state: started
 
 - import_tasks: yay.yaml
-
-- name: Install AUR packages
-  command: yay --sync --refresh --noconfirm --norebuild uwsm hyprsunset
-  environment:
-    PATH: /usr/bin
-    VIRTUAL_ENV: ''
 
 - name: Enable wayland for Chromium
   copy:

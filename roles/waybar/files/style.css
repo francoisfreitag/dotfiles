@@ -36,6 +36,16 @@ window#waybar {
     margin: 0 7px;
 }
 
+.modules-left {
+    background: rgba(0, 0, 0, .6);
+    border-radius: 0px 0px 12px 0px;
+}
+
+.modules-right {
+    background: rgba(0, 0, 0, .5);
+    border-radius: 0px 0px 0px 12px;
+}
+
 #workspaces button {
     padding-left: 6px;
     /* fontawesome icons take more than a character’s width. */

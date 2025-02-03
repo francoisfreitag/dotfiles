@@ -56,7 +56,7 @@
         "exec": "khal list --day-format= --format='{start-time} {title}' --include-calendar 'francois.freitag@inclusion.gouv.fr' --notstarted $(date +%H:%M --date '5 minutes ago') $(date +%H:%M --date 'next hour')",
         "hide-empty-text": true,
         "interval": 300,
-        "max-length": 30,
+        "max-length": 40,
         "tooltip": false
     },
     "cpu": {

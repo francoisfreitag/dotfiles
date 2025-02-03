@@ -33,6 +33,10 @@ window#waybar {
     padding: 0 12px 0 6px;
 }
 
+#custom-nextmeeting {
+    padding: 0 12px 0 0;
+}
+
 .modules-center #clock:last-child {
     border-radius: 0px 0px 12px 12px;
 }

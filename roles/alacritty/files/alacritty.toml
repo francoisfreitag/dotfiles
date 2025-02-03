@@ -4,10 +4,10 @@ import = [
 ]
 
 [font]
-size = 16
+size = 13
 
 [font.normal]
-family = "Inconsolata Nerd Font"
+family = "Fira Code Nerd Font"
 
 [[mouse.bindings]]
 action = "PasteSelection"

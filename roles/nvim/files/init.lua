@@ -71,7 +71,7 @@ require("lazy").setup({
 			"ibhagwan/fzf-lua",
 		},
 		keys = {
-			{ "<leader>se", ":Emoji<cr>", { desc = "[S]earch [E]moji" } },
+			{ "<leader>pe", ":Emoji<cr>", { desc = "[P]ick [E]moji" } },
 		},
 		config = function(_, opts)
 			require("emoji").setup(opts)

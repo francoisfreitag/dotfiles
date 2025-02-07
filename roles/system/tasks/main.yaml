@@ -5,6 +5,7 @@
     name:
       - aerc
       - alacritty
+      - arc-gtk-theme
       - blueman
       - brightnessctl
       - chromium

@@ -9,7 +9,7 @@ vim.g.python3_host_prog = "/usr/bin/python3"
 vim.opt.compatible = false
 
 vim.opt.autoindent = true
-vim.opt.diffopt = "vertical"
+vim.opt.diffopt = "internal,filler,closeoff,vertical,linematch:60"
 vim.opt.expandtab = true
 vim.opt.grepprg = "rg --hidden --vimgrep"
 vim.opt.hidden = true

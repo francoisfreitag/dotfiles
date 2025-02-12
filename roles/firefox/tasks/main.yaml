@@ -1,0 +1,21 @@
+---
+- name: Read firefox profile directory
+  command: "python {{ role_path }}/files/scripts/find_firefox_profile.py"
+  register: firefox_profile
+
+- name: Create preferences directory
+  file:
+    path: "~/.mozilla/firefox/{{ firefox_profile.stdout }}/chrome/"
+    state: directory
+
+- name: Install user preferences
+  file:
+    src: "{{ role_path }}/files/user.js"
+    dest: "~/.mozilla/firefox/{{ firefox_profile.stdout }}/user.js"
+    state: link
+
+- name: Install user styles
+  file:
+    src: "{{ role_path }}/files/userChrome.css"
+    dest: "~/.mozilla/firefox/{{ firefox_profile.stdout }}/chrome/userChrome.css"
+    state: link

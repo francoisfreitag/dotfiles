@@ -78,6 +78,7 @@
       - tree-sitter
       - tree-sitter-cli
       - tuned
+      - typescript-language-server
       - udiskie
       - unzip
       - uv

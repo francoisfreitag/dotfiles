@@ -2,16 +2,18 @@
 frame_color = "#89b4fa"
 separator_color= frame
 highlight = "#89b4fa"
+icon_theme = "bloom"
+corner_radius = "10"
 
 [urgency_low]
-background = "#1e1e2e"
-foreground = "#cdd6f4"
+background = "#1e1e2eee"
+foreground = "#89dceb"
 
 [urgency_normal]
-background = "#1e1e2e"
-foreground = "#cdd6f4"
+background = "#1e1e2eee"
+foreground = "#94e2d5"
 
 [urgency_critical]
-background = "#1e1e2e"
-foreground = "#cdd6f4"
+background = "#1e1e2eee"
+foreground = "#fab387"
 frame_color = "#fab387"

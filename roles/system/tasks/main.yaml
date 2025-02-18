@@ -21,7 +21,6 @@
       - fuzzel
       - fzf
       - git
-      - git-absorb
       - git-delta
       - github-cli
       - grim

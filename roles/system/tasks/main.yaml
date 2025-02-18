@@ -132,3 +132,17 @@
   copy:
     content: --ozone-platform-hint=auto
     dest: ~/.config/chromium-flags.conf
+
+- name: Create logind.conf.d/
+  become: yes
+  file:
+    path: /etc/systemd/logind.conf.d/
+    state: directory
+    mode: 0755
+
+- name: Setup logind.conf
+  become: yes
+  copy:
+    src: 00_prefs.conf
+    dest: /etc/systemd/logind.conf.d/
+    mode: 0644

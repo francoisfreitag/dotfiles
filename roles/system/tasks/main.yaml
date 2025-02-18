@@ -50,6 +50,7 @@
       - nerd-fonts
       - network-manager-applet
       - notmuch-runtime
+      - noto-fonts-emoji
       - openssh
       - otf-font-awesome  # Waybar icons
       - p7zip

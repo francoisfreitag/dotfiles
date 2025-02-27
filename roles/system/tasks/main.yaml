@@ -97,6 +97,13 @@
       - zsh
       - zsh-syntax-highlighting
 
+- name: Enable reflector timer
+  become: yes
+  systemd_service:
+    name: reflector.timer
+    state: started
+    enabled: yes
+
 - name: Make systemd environment.d
   file:
     path: ~/.config/environment.d

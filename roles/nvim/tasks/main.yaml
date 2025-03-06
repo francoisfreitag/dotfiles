@@ -13,4 +13,5 @@
     - init.lua
     - ftplugin
     - lua
+    - lsp
     - spell

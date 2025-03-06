@@ -1,12 +1,7 @@
 require("config")
+require("lsp")
 require("install_lazy")
 require("lazy").setup({
-	{
-		"neovim/nvim-lspconfig",
-		config = function()
-			require("lsp")
-		end,
-	},
 	{
 		"nvim-treesitter/nvim-treesitter",
 		config = function()

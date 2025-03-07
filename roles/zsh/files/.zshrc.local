@@ -4,6 +4,8 @@ alias rg='rg --hidden'
 
 export PATH="$(systemd-path user-binaries):$PATH"
 
+export MANPAGER='nvim +Man!'
+
 export HISTSIZE=100000000
 export SAVEHIST=100000000
 setopt INC_APPEND_HISTORY

@@ -36,6 +36,7 @@
       - hyprsunset
       - khal
       - isync
+      - lua-language-server
       - loupe
       - jq
       - mailcap

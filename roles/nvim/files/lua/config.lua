@@ -6,29 +6,29 @@ vim.keymap.set("c", "grr", "grep!")
 -- each venv.
 vim.g.python3_host_prog = "/usr/bin/python3"
 
-vim.opt.compatible = false
+vim.o.compatible = false
 
-vim.opt.autoindent = true
-vim.opt.diffopt = "internal,filler,closeoff,vertical,linematch:60"
-vim.opt.expandtab = true
-vim.opt.grepprg = "rg --hidden --vimgrep"
-vim.opt.hidden = true
-vim.opt.hlsearch = true
-vim.opt.incsearch = true
-vim.opt.list = true
+vim.o.autoindent = true
+vim.o.diffopt = "internal,filler,closeoff,vertical,linematch:60"
+vim.o.expandtab = true
+vim.o.grepprg = "rg --hidden --vimgrep"
+vim.o.hidden = true
+vim.o.hlsearch = true
+vim.o.incsearch = true
+vim.o.list = true
 vim.opt.listchars = { tab = "» ", nbsp = "␣" }
-vim.opt.joinspaces = false
-vim.opt.modeline = true
-vim.opt.mouse = ""
-vim.opt.number = false
-vim.opt.scrolloff = 5
-vim.opt.shiftwidth = 4
-vim.opt.softtabstop = 4
-vim.opt.spelloptions = "camel"
-vim.opt.tabstop = 4
-vim.opt.textwidth = 0
-vim.opt.undofile = true
-vim.opt.wrap = true
+vim.o.joinspaces = false
+vim.o.modeline = true
+vim.o.mouse = ""
+vim.o.number = false
+vim.o.scrolloff = 5
+vim.o.shiftwidth = 4
+vim.o.softtabstop = 4
+vim.o.spelloptions = "camel"
+vim.o.tabstop = 4
+vim.o.textwidth = 0
+vim.o.undofile = true
+vim.o.wrap = true
 
 vim.opt.path:append({ "docs", "lua", "*/templates", "templates", "*/static" })
 

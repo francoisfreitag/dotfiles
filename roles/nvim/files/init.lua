@@ -48,7 +48,6 @@ require("lazy").setup({
 	},
 	"tpope/vim-fugitive",
 	"tpope/vim-rhubarb",
-	"tpope/vim-commentary",
 	"tpope/vim-repeat",
 	"tpope/vim-surround",
 	{

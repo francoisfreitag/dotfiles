@@ -24,6 +24,7 @@ vim.opt.number = false
 vim.opt.scrolloff = 5
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
+vim.opt.spelloptions = "camel"
 vim.opt.tabstop = 4
 vim.opt.textwidth = 0
 vim.opt.undofile = true

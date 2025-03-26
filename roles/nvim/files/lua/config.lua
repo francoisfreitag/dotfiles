@@ -11,6 +11,7 @@ vim.o.compatible = false
 vim.o.autoindent = true
 vim.o.diffopt = "internal,filler,closeoff,vertical,linematch:60"
 vim.o.expandtab = true
+vim.opt.formatoptions:append("n")
 vim.o.grepprg = "rg --hidden --vimgrep"
 vim.o.hidden = true
 vim.o.hlsearch = true

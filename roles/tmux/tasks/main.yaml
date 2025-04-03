@@ -3,7 +3,7 @@
   git:
     repo: https://github.com/catppuccin/tmux.git
     dest: ~/.config/tmux/plugins/catppuccin/tmux
-    version: v2.1.2
+    version: v2.1.3
 
 - name: Get tmux-yank
   git:

@@ -5,13 +5,13 @@
     name:
       - aerc
       - alacritty
-      - arc-gtk-theme
       - blueman
       - brightnessctl
       - chromium
       - cliphist
       - ctags
       - dbus-broker
+      - deepin-gtk-theme
       - deepin-icon-theme
       - direnv
       - dunst

@@ -13,9 +13,3 @@
     src: "{{ role_path }}/files/user.js"
     dest: "~/.mozilla/firefox/{{ firefox_profile.stdout }}/user.js"
     state: link
-
-- name: Install user styles
-  file:
-    src: "{{ role_path }}/files/userChrome.css"
-    dest: "~/.mozilla/firefox/{{ firefox_profile.stdout }}/chrome/userChrome.css"
-    state: link

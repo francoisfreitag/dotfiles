@@ -1,6 +1,9 @@
 vim.g.mapleader = " "
 vim.keymap.set("n", "<Leader>a", ":grep! -w <cword><cr>")
 vim.keymap.set("c", "grr", "grep!")
+vim.keymap.set("n", "gK", function()
+	vim.diagnostic.config({ virtual_lines = not vim.diagnostic.config().virtual_lines })
+end, { desc = "Toggle diagnostic virtual_lines" })
 
 -- Force system python to make startup faster and avoid installing pynvim in
 -- each venv.

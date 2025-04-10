@@ -1,11 +1,11 @@
-#!/usr/bin/bash
-
+#!/usr/bin/env bash
 set -eu
+
+# https://wiki.hyprland.org/Hypr-Ecosystem/hyprpaper/#using-this-keyword-to-randomize-your-wallpaper
 
 WALLPAPER_DIR="$HOME/cloud/Wallpapers"
 
 if [[ -d $WALLPAPER_DIR ]]; then
     WALLPAPER=$(find $WALLPAPER_DIR -type f | shuf -n 1)
-    hyprctl hyprpaper preload $WALLPAPER
-    hyprctl hyprpaper wallpaper ", $WALLPAPER"
+    hyprctl hyprpaper reload ,$WALLPAPER
 fi

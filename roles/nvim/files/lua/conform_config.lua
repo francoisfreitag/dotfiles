@@ -12,6 +12,7 @@ conform.setup({
 			end
 			return { "isort", "black" }
 		end,
+		terraform = { "terraform_fmt" },
 		["*"] = { "trim_newlines", "trim_whitespace" },
 	},
 	format_on_save = {

@@ -156,3 +156,10 @@
     src: 00_prefs.conf
     dest: /etc/systemd/logind.conf.d/
     mode: 0644
+
+- name: Start NetworkManager
+  become: yes
+  systemd_service:
+    name: NetworkManager
+    state: started
+    enabled: yes

@@ -13,7 +13,6 @@ vim.o.compatible = false
 
 vim.o.autoindent = true
 vim.o.diffopt = "internal,filler,closeoff,vertical,linematch:60"
-vim.o.expandtab = true
 vim.opt.formatoptions:append("n")
 vim.o.grepprg = "rg --hidden --vimgrep"
 vim.o.hidden = true
@@ -26,11 +25,7 @@ vim.o.modeline = true
 vim.o.mouse = ""
 vim.o.number = false
 vim.o.scrolloff = 5
-vim.o.shiftwidth = 4
-vim.o.softtabstop = 4
 vim.o.spelloptions = "camel"
-vim.o.tabstop = 4
-vim.o.textwidth = 0
 vim.o.undofile = true
 vim.o.wrap = true
 

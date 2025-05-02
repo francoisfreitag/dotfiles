@@ -1,9 +1,6 @@
-[user]
-	name = François Freitag
-	email = mail@franek.fr
-
-[color]
-	ui = true
+[advice]
+	skippedCherryPicks = false
+	diverging = false
 
 [alias]
 	st = status
@@ -26,12 +23,15 @@
 	pf = push --force-with-lease --force-if-includes
 	fixup = "!git log --oneline --no-decorate --no-merges | fzf -0 --no-multi --preview 'git show --color=always --format=oneline {1}' | awk '{print $1}' | xargs -r git commit --fixup"
 
+; [blame]
+	; ignoreRevsFile = .git-blame-ignore-revs
+
+[color]
+	ui = true
+
 [core]
 	excludesfile = ~/.gitignore_global
 	pager = delta
-
-[interactive]
-	diffFilter = delta --color-only --features=interactive
 
 [delta]
 	keep-plus-minus-markers = true
@@ -42,15 +42,18 @@
 	colorMoved = default
 	tool = vimdiff
 
+[init]
+	templatedir = ~/.git_templates
+
+[interactive]
+	diffFilter = delta --color-only --features=interactive
+
 [merge]
 	tool = vimdiff
 	conflictstyle = zdiff3
 
 [mergetool "vimdiff"]
 	cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
-
-[init]
-	templatedir = ~/.git_templates
 
 [pull]
 	ff = only
@@ -59,19 +62,13 @@
 	default = current
 	useForceIfIncludes = true
 
-[stash]
-	showPatch = true
-
 [rebase]
 	autoSquash = true
 	updateRefs = true
-; [blame]
-	; ignoreRevsFile = .git-blame-ignore-revs
-[advice]
-	skippedCherryPicks = false
-	diverging = false
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+
+[stash]
+	showPatch = true
+
+[user]
+	name = François Freitag
+	email = mail@franek.fr

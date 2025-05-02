@@ -1,7 +1,3 @@
-vim.lsp.config("*", {
-	root_markers = { ".git" },
-})
-
 vim.lsp.enable("htmlls")
 vim.lsp.enable("jsonls")
 vim.lsp.enable("luals")

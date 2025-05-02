@@ -16,6 +16,37 @@ require("lazy").setup({
 	},
 	"nvim-treesitter/nvim-treesitter-textobjects",
 	{
+		"williamboman/mason.nvim",
+		dependencies = {
+			"williamboman/mason-lspconfig.nvim",
+		},
+		config = function()
+			local mason = require("mason")
+			mason.setup()
+			local registry = require("mason-registry")
+			lsp_providers = {
+				"ansible-language-server",
+				"basedpyright",
+				"django-template-lsp",
+				"html-lsp",
+				"json-lsp",
+				"lua-language-server",
+				"php-cs-fixer",
+				"phpcs",
+				"prettier",
+				"ruff",
+				"terraform-ls",
+				"typescript-language-server",
+			}
+			for _k, lsp_provider in ipairs(lsp_providers) do
+				if not registry.is_installed(lsp_provider) then
+					registry.get_package(lsp_provider):install()
+				end
+			end
+		end,
+	},
+	{ "neovim/nvim-lspconfig" },
+	{
 		"ibhagwan/fzf-lua",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()

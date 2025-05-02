@@ -47,6 +47,8 @@ vim.g.detectspelllang_langs = { hunspell = { "fr_FR", "en_US" } }
 vim.g.table_mode_corner_corner = "+"
 vim.g.table_mode_header_fillchar = "="
 
+vim.diagnostic.config({ virtual_text = true })
+
 vim.filetype.add({
 	pattern = {
 		[".*/itou/templates/.*%.html"] = { "htmldjango", priority = 10 },

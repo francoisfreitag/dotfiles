@@ -57,6 +57,7 @@
 
 [push]
 	default = current
+	useForceIfIncludes = true
 
 [stash]
 	showPatch = true

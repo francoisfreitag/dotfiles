@@ -24,22 +24,22 @@
 	sw = switch
 	ctags = !.git/hooks/ctags
 	pf = push --force-with-lease --force-if-includes
-    fixup = "!git log --oneline --no-decorate --no-merges | fzf -0 --no-multi --preview 'git show --color=always --format=oneline {1}' | awk '{print $1}' | xargs -r git commit --fixup"
+	fixup = "!git log --oneline --no-decorate --no-merges | fzf -0 --no-multi --preview 'git show --color=always --format=oneline {1}' | awk '{print $1}' | xargs -r git commit --fixup"
 
 [core]
 	excludesfile = ~/.gitignore_global
 	pager = delta
 
 [interactive]
-    diffFilter = delta --color-only --features=interactive
+	diffFilter = delta --color-only --features=interactive
 
 [delta]
-    keep-plus-minus-markers = true
-    max-line-length = 65535
-    navigate = true  # Use n and N to move between diff sections.
+	keep-plus-minus-markers = true
+	max-line-length = 65535
+	navigate = true  # Use n and N to move between diff sections.
 
 [diff]
-    colorMoved = default
+	colorMoved = default
 	tool = vimdiff
 
 [merge]

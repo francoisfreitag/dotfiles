@@ -21,7 +21,24 @@ require("lazy").setup({
 	"neovim/nvim-lspconfig",
 	{
 		"williamboman/mason-lspconfig.nvim",
-		opts = { automatic_installation = true },
+		config = function()
+			local lsps = {
+				"ansiblels",
+				"basedpyright",
+				"html",
+				"jsonls",
+				"lua_ls",
+				"ruff",
+				"terraformls",
+				"ts_ls",
+			}
+			local to_install = { "stylua" }
+			for k, v in ipairs(lsps) do
+				to_install[k] = v
+			end
+			require("mason-lspconfig").setup({ ensure_installed = to_install })
+			vim.lsp.enable(lsps)
+		end,
 	},
 	{
 		"ibhagwan/fzf-lua",
@@ -137,17 +154,6 @@ require("lazy").setup({
 })
 vim.o.termguicolors = true
 vim.cmd.colorscheme("catppuccin")
-
-vim.lsp.enable({
-	"ansiblels",
-	"basedpyright",
-	"htmlls",
-	"jsonls",
-	"luals",
-	"ruff",
-	"terraformls",
-	"typescriptls",
-})
 
 vim.cmd([[
 " Filetype specific settings

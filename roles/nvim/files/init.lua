@@ -15,29 +15,29 @@ require("lazy").setup({
 	},
 	"nvim-treesitter/nvim-treesitter-textobjects",
 	{
-		"williamboman/mason.nvim",
-		opts = {},
-	},
-	"neovim/nvim-lspconfig",
-	{
-		"williamboman/mason-lspconfig.nvim",
+		"mason-org/mason-lspconfig.nvim",
+		dependencies = {
+			"mason-org/mason.nvim",
+			"neovim/nvim-lspconfig",
+		},
 		config = function()
-			local lsps = {
-				"ansiblels",
-				"basedpyright",
-				"html",
-				"jsonls",
-				"lua_ls",
-				"ruff",
-				"terraformls",
-				"ts_ls",
-			}
-			local to_install = { "stylua" }
-			for k, v in ipairs(lsps) do
-				to_install[k] = v
-			end
-			require("mason-lspconfig").setup({ ensure_installed = to_install })
-			vim.lsp.enable(lsps)
+			require("mason").setup()
+			require("mason-lspconfig").setup({
+				ensure_installed = {
+					"ansiblels",
+					"basedpyright",
+					"html",
+					"jsonls",
+					"lua_ls",
+					"ruff",
+					"terraformls",
+					"ts_ls",
+				},
+			})
+			-- https://github.com/williamboman/nvim-config/tree/mason-v2-example
+			vim.lsp.config("*", {
+				capabilities = vim.lsp.protocol.make_client_capabilities(),
+			})
 		end,
 	},
 	{

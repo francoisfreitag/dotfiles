@@ -11,6 +11,7 @@
     state: link
   loop:
     - init.lua
+    - after
     - ftplugin
     - lua
     - spell

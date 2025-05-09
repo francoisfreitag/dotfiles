@@ -54,7 +54,7 @@ require("lazy").setup({
 			{ "<F3>", "<cmd>:e %:h<cr>", desc = "Open oil.nvim in current dir" },
 		},
 		opts = {
-			skip_confirm_for_simple_edits = false,
+			skip_confirm_for_simple_edits = true,
 			view_options = {
 				show_hidden = true,
 			},

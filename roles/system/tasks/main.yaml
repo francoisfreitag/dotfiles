@@ -95,6 +95,13 @@
       - zsh
       - zsh-syntax-highlighting
 
+- name: Configure reflector
+  become: yes
+  lineinfile:
+    path: /etc/xdg/reflector/reflector.conf
+    regexp: '^--country '
+    line: --country France
+
 - name: Enable reflector timer
   become: yes
   systemd_service:

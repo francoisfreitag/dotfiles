@@ -24,6 +24,7 @@
       - git-delta
       - git-zsh-completion
       - github-cli
+      - greetd-agreety
       - grim
       - grml-zsh-config
       - hunspell

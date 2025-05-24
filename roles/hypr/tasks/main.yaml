@@ -7,31 +7,30 @@
     - .config
     - .config/hypr
 
-- name: Start Hyprland with uwsm
-  copy:
-    content: |
-      if uwsm check may-start; then
-          exec uwsm start hyprland.desktop
-      fi
-    dest: ~/.zprofile
-
+# TODO: Remove these two tasks after they have been executed.
+- name: Remove .zprofile
+  file:
+    path: ~/.zprofile
+    state: absent
 - name: Create drop-in directory for autologin configuration
   become: yes
   file:
     path: /etc/systemd/system/getty@tty1.service.d/
-    state: directory
+    state: absent
+# END TODO
 
-- name: Configure automatic login for uwsm
+- name: Configure greetd
   become: yes
   copy:
-    content: |
-      [Service]
-      ExecStart=
-      ExecStart=/sbin/agetty -o '-p -f -- \\u' --noclear --autologin freitafr %I $TERM
-    # Remove a systemd warning: is marked world-inaccessible. This has no
-    # effect as configuration data is accessible via APIs without restrictions
-    mode: 0644
-    dest: /etc/systemd/system/getty@tty1.service.d/autologin.conf
+    src: greetd.toml
+    dest: /etc/greetd/config.toml
+    mode: 0600
+
+- name: Enable greetd
+  become: yes
+  systemd_service:
+    name: greetd
+    enabled: yes
 
 - name: Create uwsm configuration directory
   file:

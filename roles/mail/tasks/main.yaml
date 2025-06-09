@@ -8,12 +8,6 @@
     - aerc/stylesets
     - msmtp
 
-- name: Copy msmtpq script to local bin
-  copy:
-    src: /usr/share/doc/msmtp/msmtpq/msmtpq
-    dest: ~/.local/bin
-    mode: "0700"
-
 - name: Configure aerc
   file:
     src: "{{ role_path }}/files/{{ item }}"

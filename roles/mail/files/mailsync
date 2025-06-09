@@ -1,0 +1,5 @@
+#!/usr/bin/sh
+set -eu
+
+mbsync ${1:--a}
+notmuch new

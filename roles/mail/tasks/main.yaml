@@ -52,4 +52,10 @@
     dest: ~/.notmuch-config
     state: link
 
+- name: Install custom fetch mail command
+  file:
+    src: "{{ role_path }}/files/mailsync"
+    dest: ~/.local/bin/mailsync
+    state: link
+
 # TODO: Creds lookup in system keyring

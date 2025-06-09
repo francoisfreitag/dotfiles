@@ -98,6 +98,40 @@
       - zsh
       - zsh-syntax-highlighting
 
+- name: Create systemd-resolved drop-in configuration directory
+  become: yes
+  file:
+    path: /etc/systemd/resolved.conf.d
+    state: directory
+    mode: 0755
+
+- name: Configure systemd-resolved
+  become: yes
+  copy:
+    content: |
+      [Resolve]
+      DNS=2620:fe::fe 2620:fe::9 9.9.9.9 1.1.1.1
+      DNSSEC=allow-downgrade
+    dest: /etc/systemd/resolved.conf.d/freitafr.conf
+    mode: 0644
+    owner: root
+    group: root
+
+- name: Enable systemd-resolved
+  become: yes
+  systemd_service:
+    name: systemd-resolved
+    state: started
+    enabled: yes
+
+- name: Replace resolv.conf with systemd-resolved stub
+  become: yes
+  file:
+    src: ../run/systemd/resolve/stub-resolv.conf
+    dest: /etc/resolv.conf
+    state: link
+    force: yes
+
 - name: Configure reflector
   become: yes
   lineinfile:

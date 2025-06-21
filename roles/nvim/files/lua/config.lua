@@ -27,6 +27,7 @@ vim.o.number = false
 vim.o.scrolloff = 5
 vim.o.spelloptions = "camel"
 vim.o.undofile = true
+vim.opt.winborder = "rounded"
 vim.o.wrap = true
 
 vim.opt.path:append({ "docs", "lua", "*/templates", "templates", "*/static" })

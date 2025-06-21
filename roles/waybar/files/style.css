@@ -48,9 +48,12 @@ window#waybar {
 #network,
 #pulseaudio,
 #wireplumber,
-#tray,
-#idle_inhibitor {
+#tray {
     margin: 0 7px;
+}
+
+#idle_inhibitor {
+    margin: 0 8px;
 }
 
 .modules-left {

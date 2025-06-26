@@ -37,6 +37,20 @@ require("lazy").setup({
 			-- https://github.com/williamboman/nvim-config/tree/mason-v2-example
 			vim.lsp.config("*", {
 				capabilities = vim.lsp.protocol.make_client_capabilities(),
+				root_dir = function(bufnr, on_dir)
+					function should_enable(bufname)
+						local ignore_patterns = { "fugitive://.*", "^octo://.*" }
+						for _, ignore_pattern in pairs(ignore_patterns) do
+							if bufname:match(ignore_pattern) then
+								return false
+							end
+						end
+						return true
+					end
+					if should_enable(vim.fn.bufname(bufnr)) then
+						on_dir(vim.fn.getcwd())
+					end
+				end,
 			})
 		end,
 	},

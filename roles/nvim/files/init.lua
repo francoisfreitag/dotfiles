@@ -97,8 +97,8 @@ require("lazy").setup({
 	{
 		"tpope/vim-unimpaired",
 		keys = {
-			{ "[q", ":cprev<cr>zt", "Previous quickfix item, redrawn at the top" },
-			{ "]q", ":cnext<cr>zt", "Next quickfix item, redrawn at the top" },
+			{ "[q", ":cprev<cr>zz", "Previous quickfix item, redrawn at the top" },
+			{ "]q", ":cnext<cr>zz", "Next quickfix item, redrawn at the top" },
 		},
 		lazy = false,
 	},

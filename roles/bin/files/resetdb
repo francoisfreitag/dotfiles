@@ -51,7 +51,20 @@ def main(database, file, fetch, latest, preserve):
     else:
         sys.exit("Specify either empty or file")
     if file and not preserve:
-        run(["./manage.py", "set_fake_passwords"])
+        run(
+            [
+                "./manage.py",
+                "shell",
+                "--command",
+                "from django.contrib.auth.hashers import make_password;"
+                "from itou.users.models import User;"
+                "print("
+                "    User.objects.filter("
+                "        email__startswith='francois.freitag@'"
+                "    ).update(password=make_password('p'))"
+                ")",
+            ]
+        )
     if not preserve:
         run(
             [

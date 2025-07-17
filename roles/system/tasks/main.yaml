@@ -51,7 +51,6 @@
       - ncdu
       - nextcloud-client
       - neovim
-      - nerd-fonts
       - network-manager-applet
       - notmuch-runtime
       - noto-fonts-emoji
@@ -82,6 +81,7 @@
       - tmux
       - tree-sitter
       - tree-sitter-cli
+      - ttf-fira-code-nerd
       - tuned
       - udiskie
       - unzip

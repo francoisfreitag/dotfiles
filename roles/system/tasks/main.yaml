@@ -110,7 +110,7 @@
   copy:
     content: |
       [Resolve]
-      DNS=2620:fe::fe 2620:fe::9 9.9.9.9 1.1.1.1
+      DNS=10.64.0.1
       DNSSEC=allow-downgrade
     dest: /etc/systemd/resolved.conf.d/freitafr.conf
     mode: 0644

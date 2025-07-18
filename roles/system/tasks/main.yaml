@@ -81,7 +81,7 @@
       - tmux
       - tree-sitter
       - tree-sitter-cli
-      - ttf-fira-code-nerd
+      - ttf-firacode-nerd
       - tuned
       - udiskie
       - unzip

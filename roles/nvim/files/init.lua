@@ -86,7 +86,6 @@ require("lazy").setup({
 			require("conform_config")
 		end,
 	},
-	"vim-scripts/matchit.zip",
 	"romainl/vim-cool",
 	"wellle/targets.vim",
 	{

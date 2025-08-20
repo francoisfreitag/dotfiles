@@ -9,6 +9,7 @@ require("lazy").setup({
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-context",
+		event = "VeryLazy",
 		opts = {
 			max_lines = 8,
 		},
@@ -20,6 +21,7 @@ require("lazy").setup({
 			"mason-org/mason.nvim",
 			"neovim/nvim-lspconfig",
 		},
+		event = "VeryLazy",
 		config = function()
 			require("mason").setup()
 			require("mason-lspconfig").setup({
@@ -57,6 +59,7 @@ require("lazy").setup({
 	{
 		"ibhagwan/fzf-lua",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
+		event = "VeryLazy",
 		config = function()
 			require("fzf")
 		end,
@@ -73,10 +76,12 @@ require("lazy").setup({
 				show_hidden = true,
 			},
 		},
+		event = "VeryLazy",
 		lazy = false,
 	},
 	{
 		"stevearc/conform.nvim",
+		event = "VeryLazy",
 		config = function()
 			require("conform_config")
 		end,
@@ -100,6 +105,7 @@ require("lazy").setup({
 			{ "[q", ":cprev<cr>zz", "Previous quickfix item, redrawn at the top" },
 			{ "]q", ":cnext<cr>zz", "Next quickfix item, redrawn at the top" },
 		},
+		event = "VeryLazy",
 		lazy = false,
 	},
 	"dhruvasagar/vim-table-mode",

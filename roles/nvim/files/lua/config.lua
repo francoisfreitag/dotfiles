@@ -9,18 +9,11 @@ end, { desc = "Toggle diagnostic virtual_lines" })
 -- each venv.
 vim.g.python3_host_prog = "/usr/bin/python3"
 
-vim.o.compatible = false
-
-vim.o.autoindent = true
-vim.o.diffopt = "internal,filler,closeoff,vertical,linematch:60"
 vim.opt.formatoptions:append("n")
 vim.o.grepprg = "rg --hidden --vimgrep --sort=path"
-vim.o.hidden = true
-vim.o.hlsearch = true
 vim.o.incsearch = true
 vim.o.list = true
 vim.opt.listchars = { tab = "» ", nbsp = "␣" }
-vim.o.joinspaces = false
 vim.o.modeline = true
 vim.o.mouse = ""
 vim.o.number = false

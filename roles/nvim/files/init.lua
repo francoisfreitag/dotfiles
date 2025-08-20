@@ -3,6 +3,7 @@ require("install_lazy")
 require("lazy").setup({
 	{
 		"nvim-treesitter/nvim-treesitter",
+		event = "VeryLazy",
 		config = function()
 			require("treesitter")
 		end,
@@ -14,7 +15,10 @@ require("lazy").setup({
 			max_lines = 8,
 		},
 	},
-	"nvim-treesitter/nvim-treesitter-textobjects",
+	{
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		event = "VeryLazy",
+	},
 	{
 		"mason-org/mason-lspconfig.nvim",
 		dependencies = {
@@ -90,13 +94,14 @@ require("lazy").setup({
 	"wellle/targets.vim",
 	{
 		"lewis6991/gitsigns.nvim",
+		event = "VeryLazy",
 		config = function()
 			require("gitsigns_config")
 		end,
 	},
-	"tpope/vim-fugitive",
-	"tpope/vim-rhubarb",
-	"tpope/vim-repeat",
+	{ "tpope/vim-fugitive", event = "VeryLazy" },
+	{ "tpope/vim-rhubarb", event = "VeryLazy" },
+	{ "tpope/vim-repeat", event = "VeryLazy" },
 	"tpope/vim-surround",
 	{
 		"tpope/vim-unimpaired",
@@ -105,9 +110,8 @@ require("lazy").setup({
 			{ "]q", ":cnext<cr>zz", "Next quickfix item, redrawn at the top" },
 		},
 		event = "VeryLazy",
-		lazy = false,
 	},
-	"dhruvasagar/vim-table-mode",
+	{ "dhruvasagar/vim-table-mode", event = "VeryLazy" },
 	{
 		"allaman/emoji.nvim",
 		dependencies = {
@@ -122,10 +126,11 @@ require("lazy").setup({
 			require("fzf-lua").register_ui_select()
 		end,
 	},
-	"konfekt/vim-DetectSpellLang",
+	{ "konfekt/vim-DetectSpellLang", event = "VeryLazy" },
 	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
+		event = "VeryLazy",
 		opts = {
 			extensions = { "fzf", require("lualine_qf") },
 			options = {

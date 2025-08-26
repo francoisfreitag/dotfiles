@@ -102,7 +102,11 @@ require("lazy").setup({
 	{ "tpope/vim-fugitive", event = "VeryLazy" },
 	{ "tpope/vim-rhubarb", event = "VeryLazy" },
 	{ "tpope/vim-repeat", event = "VeryLazy" },
-	"tpope/vim-surround",
+	{
+		"kylechui/nvim-surround",
+		event = "VeryLazy",
+		config = true,
+	},
 	{
 		"tpope/vim-unimpaired",
 		keys = {

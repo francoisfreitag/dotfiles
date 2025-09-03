@@ -5,6 +5,7 @@
     name:
       - aerc
       - alacritty
+      - avahi  # Printer discovery.
       - blueman
       - bluez
       - brightnessctl
@@ -54,6 +55,7 @@
       - network-manager-applet
       - notmuch-runtime
       - noto-fonts-emoji
+      - nss-mdns  # Local resolution for printers.
       - openssh
       - otf-font-awesome  # Waybar icons
       - p7zip
@@ -203,3 +205,17 @@
     name: NetworkManager
     state: started
     enabled: yes
+
+# https://wiki.archlinux.org/title/Avahi#Hostname_resolution
+- name: Enable avahi-daemon
+  become: yes
+  systemd_service:
+    name: avahi-daemon.socket
+    enabled: yes
+
+- name: Setup nss-mdns as the authoritative for the .local domain
+  become: yes
+  lineinfile:
+    line: "hosts: mymachines mdns_minimal [NOTFOUND=return] resolve [!UNAVAIL=return] files myhostname dns"
+    regexp: '^hosts: '
+    path: /etc/nsswitch.conf

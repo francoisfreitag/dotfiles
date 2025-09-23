@@ -66,6 +66,7 @@ require("lazy").setup({
 		event = "VeryLazy",
 		config = function()
 			require("fzf")
+			require("fzf-lua").register_ui_select()
 		end,
 	},
 	{

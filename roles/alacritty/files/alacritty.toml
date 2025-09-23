@@ -4,7 +4,7 @@ import = [
 ]
 
 [font]
-size = 20
+size = 10
 
 [font.normal]
 family = "Fira Code Nerd Font"

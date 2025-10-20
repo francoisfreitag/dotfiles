@@ -17,7 +17,6 @@
       - deepin-icon-theme
       - direnv
       - dunst
-      - evince
       - file-roller
       - firefox-developer-edition
       - fuzzel
@@ -60,6 +59,7 @@
       - otf-font-awesome  # Waybar icons
       - p7zip
       - pacman-contrib
+      - papers
       - pavucontrol
       - pipewire
       - pipewire-pulse

@@ -98,8 +98,6 @@ require("lazy").setup({
 			require("conform_config")
 		end,
 	},
-	"romainl/vim-cool",
-	"wellle/targets.vim",
 	{
 		"lewis6991/gitsigns.nvim",
 		event = "VeryLazy",

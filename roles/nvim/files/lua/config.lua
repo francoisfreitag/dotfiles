@@ -1,5 +1,6 @@
 vim.g.mapleader = " "
 vim.keymap.set("n", "<Leader>a", ":grep! -w <cword><cr>")
+vim.keymap.set("n", "<Leader><Leader>", ":nohlsearch<cr>")
 vim.keymap.set("c", "grr", "grep!")
 vim.keymap.set("n", "gK", function()
 	vim.diagnostic.config({ virtual_lines = not vim.diagnostic.config().virtual_lines })

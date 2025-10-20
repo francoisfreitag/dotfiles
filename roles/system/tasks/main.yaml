@@ -75,6 +75,7 @@
       - reflector
       - ripgrep
       - rsync
+      - sane-airscan
       - signal-desktop
       - simple-scan
       - slurp

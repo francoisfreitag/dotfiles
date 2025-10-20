@@ -196,5 +196,6 @@ augroup vimrc
     autocmd BufNewFile,BufRead .envrc setlocal filetype=sh
     autocmd BufNewFile,BufRead *.rst setlocal spell suffixesadd=.rst
     autocmd BufNewFile,BufRead *.md setlocal spell
+    autocmd BufWritePre /tmp/* setlocal noundofile
 augroup END
 ]])

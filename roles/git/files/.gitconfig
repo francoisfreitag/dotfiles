@@ -42,7 +42,7 @@
 
 [diff]
 	colorMoved = default
-	tool = vimdiff
+	tool = nvimdiff
 
 [init]
 	templatedir = ~/.git_templates

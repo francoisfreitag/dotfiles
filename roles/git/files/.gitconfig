@@ -10,7 +10,6 @@
 	cp = cherry-pick
 	df = diff
 	ds = diff --staged
-	lg = log -p
 	pr = pull --rebase
 	lol = log --graph --decorate --pretty=oneline --abbrev-commit
 	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all

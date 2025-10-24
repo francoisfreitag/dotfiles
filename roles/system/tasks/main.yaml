@@ -15,6 +15,7 @@
       - dbus-broker
       - deepin-gtk-theme
       - deepin-icon-theme
+      - difftastic
       - direnv
       - dunst
       - file-roller

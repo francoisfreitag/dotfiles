@@ -10,6 +10,9 @@
 	cp = cherry-pick
 	df = diff
 	ds = diff --staged
+	dlog = -c diff.external='difft --display=inline' log --ext-diff
+	dshow = -c diff.external='difft --display=inline' show --ext-diff
+	ddiff = -c diff.external='difft --display=inline' diff
 	pr = pull --rebase
 	lol = log --graph --decorate --pretty=oneline --abbrev-commit
 	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all

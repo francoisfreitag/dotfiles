@@ -3,7 +3,6 @@ require("install_lazy")
 require("lazy").setup({
 	{
 		"nvim-treesitter/nvim-treesitter",
-		event = "VeryLazy",
 		config = function()
 			require("treesitter")
 		end,

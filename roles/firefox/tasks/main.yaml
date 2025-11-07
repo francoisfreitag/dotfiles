@@ -2,6 +2,7 @@
 - name: Read firefox profile directory
   command: "python {{ role_path }}/files/scripts/find_firefox_profile.py"
   register: firefox_profile
+  changed_when: false
 
 - name: Create preferences directory
   file:

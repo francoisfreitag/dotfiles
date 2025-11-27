@@ -3,9 +3,13 @@ vim.keymap.set("n", "<Leader>b", "Obreakpoint()<esc>")
 local snapshot_query = vim.treesitter.query.parse(
 	"python",
 	[[
-	(call
-		function: (identifier) @funcname
-		(#eq? @funcname "snapshot"))
+		[
+			(call
+				function: (identifier) @funcname
+				(#eq? @funcname "snapshot"))
+			((identifier) @idname
+				(#eq? @idname "snapshot"))
+		]
 	]]
 )
 

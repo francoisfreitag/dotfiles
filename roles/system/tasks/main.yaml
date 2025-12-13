@@ -116,10 +116,17 @@
       [Resolve]
       DNS=10.64.0.1
       DNSSEC=allow-downgrade
-    dest: /etc/systemd/resolved.conf.d/freitafr.conf
+    dest: /etc/systemd/resolved.conf.d/mullvad.conf
     mode: 0644
     owner: root
     group: root
+
+# TODO: Remove after machines are up to date
+- name: Configure systemd-resolved
+  become: yes
+  file:
+    path: /etc/systemd/resolved.conf.d/freitafr.conf
+    state: absent
 
 - name: Enable systemd-resolved
   become: yes

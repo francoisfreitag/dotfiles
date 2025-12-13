@@ -7,7 +7,7 @@ passwordeval "secret-tool lookup name mail@franek.fr"
 auth on
 tls on
 tls_trust_file	/etc/ssl/certs/ca-certificates.crt
-logfile /home/freitafr/.config/msmtp/msmtp.log
+logfile ~/.config/msmtp/msmtp.log
 tls_starttls off
 
 account francois.freitag@inclusion.gouv.fr
@@ -19,5 +19,5 @@ passwordeval "secret-tool lookup name francois.freitag@inclusion.gouv.fr"
 auth on
 tls on
 tls_trust_file	/etc/ssl/certs/ca-certificates.crt
-logfile /home/freitafr/.config/msmtp/msmtp.log
+logfile ~/.config/msmtp/msmtp.log
 tls_starttls off

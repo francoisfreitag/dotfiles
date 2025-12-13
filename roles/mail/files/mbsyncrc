@@ -9,8 +9,8 @@ CertificateFile /etc/ssl/certs/ca-certificates.crt
 
 MaildirStore mail@franek.fr-local
 Subfolders Verbatim
-Path /home/freitafr/.local/share/mail/mail@franek.fr/
-Inbox /home/freitafr/.local/share/mail/mail@franek.fr/INBOX
+Path ~/.local/share/mail/mail@franek.fr/
+Inbox ~/.local/share/mail/mail@franek.fr/INBOX
 
 Channel mail@franek.fr
 Expunge Both
@@ -34,8 +34,8 @@ CertificateFile /etc/ssl/certs/ca-certificates.crt
 
 MaildirStore francois.freitag@inclusion.gouv.fr-local
 Subfolders Verbatim
-Path /home/freitafr/.local/share/mail/francois.freitag@inclusion.gouv.fr/
-Inbox /home/freitafr/.local/share/mail/francois.freitag@inclusion.gouv.fr/INBOX
+Path ~/.local/share/mail/francois.freitag@inclusion.gouv.fr/
+Inbox ~/.local/share/mail/francois.freitag@inclusion.gouv.fr/INBOX
 
 Channel francois.freitag@inclusion.gouv.fr
 Expunge Both

@@ -18,7 +18,9 @@ def main(config):
 
 
 if __name__ == "__main__":
-    profiles_path = pathlib.Path().home() / ".mozilla" / "firefox" / "profiles.ini"
+    profiles_path = (
+        pathlib.Path().home() / ".config" / "mozilla" / "firefox" / "profiles.ini"
+    )
     config = configparser.ConfigParser()
     config.read(profiles_path)
     print(main(config))

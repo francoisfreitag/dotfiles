@@ -1,4 +1,10 @@
 ---
+- name: Create bin directory
+  file:
+    path: "~/.local"
+    state: directory
+    mode: 0700
+
 - name: Install custom bin
   file:
     src: "{{ role_path }}/files"

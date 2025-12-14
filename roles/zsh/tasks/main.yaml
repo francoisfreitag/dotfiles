@@ -1,4 +1,9 @@
 ---
+- name: Create an empty .zshrc
+  file:
+    path: ~/.zshrc
+    state: touch
+
 - name: Install zsh configuration files
   file:
     src: "{{ role_path }}/files/{{ item }}"

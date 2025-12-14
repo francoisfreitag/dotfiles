@@ -86,7 +86,6 @@
       - tree-sitter
       - tree-sitter-cli
       - ttf-firacode-nerd
-      - tuned
       - udiskie
       - unzip
       - uv
@@ -180,12 +179,6 @@
     path: /etc/login.defs
     regexp: '^UMASK\s+[0-9]{3}$'
 
-- name: Enable tuned
-  become: yes
-  systemd_service:
-    name: tuned
-    enabled: yes
-    state: started
 
 - import_tasks: yay.yaml
 

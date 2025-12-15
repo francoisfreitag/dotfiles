@@ -1,5 +1,5 @@
 [database]
-path=~/.local/share/mail
+path=.local/share/mail
 [user]
 name=François Freitag
 primary_email=mail@franek.fr

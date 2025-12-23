@@ -15,4 +15,5 @@
     - nvim
     - tmux
     - zsh
+    - postgresql
     - firefox

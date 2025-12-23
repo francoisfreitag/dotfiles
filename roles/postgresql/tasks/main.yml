@@ -1,0 +1,13 @@
+---
+- name: Create .psqlrc
+  copy:
+    content: |
+      \set QUIET 1
+      \x auto
+      \set COMP_KEYWORD_CASE upper
+      \set HISTCONTROL ignoredups
+      \pset linestyle unicode
+      \pset null '(null)'
+      \timing on
+      \unset QUIET
+    dest: ~/.psqlrc

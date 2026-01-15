@@ -60,7 +60,6 @@
       - otf-font-awesome  # Waybar icons
       - p7zip
       - pacman-contrib
-      - papers
       - pavucontrol
       - pipewire
       - pipewire-pulse
@@ -98,6 +97,9 @@
       - wf-recorder
       - wireguard-tools
       - wl-clipboard
+      - zathura
+      - zathura-cb
+      - zathura-pdf-mupdf
       - zsh
       - zsh-syntax-highlighting
 

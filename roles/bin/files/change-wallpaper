@@ -7,5 +7,5 @@ WALLPAPER_DIR="$HOME/cloud/Wallpapers"
 
 if [[ -d $WALLPAPER_DIR ]]; then
     WALLPAPER=$(find $WALLPAPER_DIR -type f | shuf -n 1)
-    hyprctl hyprpaper reload ,$WALLPAPER
+    hyprctl hyprpaper wallpaper ,$WALLPAPER
 fi

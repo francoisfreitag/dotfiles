@@ -179,7 +179,6 @@ require("lazy").setup({
 		opts = {
 			transparent_background = true,
 			styles = {
-				comments = {},
 				conditionals = {},
 			},
 		},

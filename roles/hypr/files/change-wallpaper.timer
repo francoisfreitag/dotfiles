@@ -1,0 +1,6 @@
+[Timer]
+OnBootSec=60
+OnCalendar=hourly
+
+[Install]
+WantedBy=graphical-session.target

@@ -43,6 +43,14 @@
     - hyprpaper.conf
     - hyprsunset.conf
 
+- name: Install change-wallpaper service and timer
+  copy:
+    src: "{{ item }}"
+    dest: "~/.config/systemd/user/{{ item }}"
+  loop:
+    - change-wallpaper.service
+    - change-wallpaper.timer
+
 - name: Enable hyprland services
   systemd_service:
     name: "{{ item }}"
@@ -52,3 +60,4 @@
   loop:
     - hyprpaper.service
     - hyprpolkitagent.service
+    - change-wallpaper.timer

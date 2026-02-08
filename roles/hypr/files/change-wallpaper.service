@@ -1,0 +1,9 @@
+[Unit]
+PartOf=graphical-session.target
+Requires=graphical-session.target
+After=graphical-session.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/change-wallpaper
+Slice=session.slice

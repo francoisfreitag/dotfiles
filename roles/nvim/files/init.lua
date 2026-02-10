@@ -82,14 +82,17 @@ require("lazy").setup({
 			{ "<F3>", "<cmd>:e %:h<cr>", desc = "Open oil.nvim in current dir" },
 		},
 		opts = {
-			-- Making Oil the default disables netrw, which spell
-			-- relies on to download dictionaries.
-			default_file_explorer = false,
+			default_file_explorer = true,
 			skip_confirm_for_simple_edits = true,
 			view_options = {
 				show_hidden = true,
 			},
 		},
+		config = function(_, opts)
+			require("oil").setup(opts)
+			-- https://github.com/stevearc/oil.nvim/issues/483#issuecomment-3505222158
+			vim.g.loaded_netrw = nil
+		end,
 		event = "VeryLazy",
 		lazy = false,
 	},

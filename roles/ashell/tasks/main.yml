@@ -1,0 +1,11 @@
+---
+- name: Configuration directory exists
+  file:
+    path: ~/.config/ashell
+    state: directory
+
+- name: Configure
+  file:
+    src: "{{ role_path }}/files/config.toml"
+    dest: ~/.config/ashell/config.toml
+    state: link

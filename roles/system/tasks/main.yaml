@@ -6,6 +6,7 @@
       - aerc
       - alacritty
       - avahi  # Printer discovery.
+      - ashell
       - blueman
       - bluez
       - brightnessctl
@@ -93,7 +94,6 @@
       - xdg-desktop-portal-gtk  # https://wiki.archlinux.org/title/Dark_mode_switching#gsettings
       - xdg-desktop-portal-hyprland
       - w3m  # Weak dependency for aerc default text/html
-      - waybar
       - wf-recorder
       - wireguard-tools
       - wl-clipboard

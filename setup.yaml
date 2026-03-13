@@ -8,9 +8,9 @@
     - dunst
     - swappy
     - hypr
+    - ashell
     - vdirsyncer
     - khal
-    - waybar
     - mail
     - nvim
     - tmux

@@ -1,5 +1,5 @@
 [modules]
-left = ["Workspaces", "WindowTitle"]
+left = ["Workspaces"]
 center = [["Clock"]]
 right = ["SystemInfo", "Tray", ["Privacy", "Settings"]]
 
@@ -10,7 +10,6 @@ shutdown_cmd = "systemctl poweroff"
 [appearance]
 font_name = "Fira Code"
 scale_factor = 1.0
-opacity = 0.9
 
 # https://malpenzibo.github.io/ashell/docs/configuration/appearance/theme
 success_color = "#a6e3a1"

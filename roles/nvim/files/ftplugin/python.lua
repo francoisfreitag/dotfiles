@@ -1,38 +1,38 @@
 vim.keymap.set("n", "<Leader>b", "Obreakpoint()<esc>")
 
-local snapshot_query = vim.treesitter.query.parse(
-	"python",
-	[[
-		[
-			(call
-				function: (identifier) @funcname
-				(#eq? @funcname "snapshot"))
-			((identifier) @idname
-				(#eq? @idname "snapshot"))
-		]
-	]]
-)
-
-local name_kwarg_query = vim.treesitter.query.parse(
-	"python",
-	[[
-		(keyword_argument
-				name: (identifier) @kwname
-				(#eq? @kwname "name"))
-	]]
-)
-
-local function find_node_ancestor(type, node)
-	if not node then
-		return nil
-	end
-	if type == node:type() then
-		return node
-	end
-	return find_node_ancestor(type, node:parent())
-end
-
 local function view_snapshot()
+	local snapshot_query = vim.treesitter.query.parse(
+		"python",
+		[[
+			[
+				(call
+					function: (identifier) @funcname
+					(#eq? @funcname "snapshot"))
+				((identifier) @idname
+					(#eq? @idname "snapshot"))
+			]
+		]]
+	)
+
+	local name_kwarg_query = vim.treesitter.query.parse(
+		"python",
+		[[
+			(keyword_argument
+					name: (identifier) @kwname
+					(#eq? @kwname "name"))
+		]]
+	)
+
+	local function find_node_ancestor(type, node)
+		if not node then
+			return nil
+		end
+		if type == node:type() then
+			return node
+		end
+		return find_node_ancestor(type, node:parent())
+	end
+
 	local node = vim.treesitter.get_node()
 	local parent = find_node_ancestor("assert_statement", node)
 	if not parent then

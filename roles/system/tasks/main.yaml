@@ -6,7 +6,6 @@
       - aerc
       - alacritty
       - avahi  # Printer discovery.
-      - ashell
       - blueman
       - bluez
       - brightnessctl
@@ -183,6 +182,11 @@
 
 
 - import_tasks: yay.yaml
+
+- name: Install AUR packages
+  pacman:
+    name: ashell
+    executable: yay
 
 - name: Enable wayland for Chromium
   copy:

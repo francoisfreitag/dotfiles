@@ -12,6 +12,7 @@
       - chromium
       - cliphist
       - ctags
+      - cups
       - dbus-broker
       - deepin-gtk-theme
       - deepin-icon-theme
@@ -22,6 +23,7 @@
       - firefox-developer-edition
       - fuzzel
       - fzf
+      - ghostscript
       - git
       - git-delta
       - git-zsh-completion
@@ -218,7 +220,7 @@
 - name: Enable avahi-daemon
   become: yes
   systemd_service:
-    name: avahi-daemon.socket
+    name: avahi-daemon.service
     enabled: yes
 
 - name: Setup nss-mdns as the authoritative for the .local domain

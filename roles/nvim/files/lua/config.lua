@@ -6,6 +6,8 @@ vim.keymap.set("n", "gK", function()
 	vim.diagnostic.config({ virtual_lines = not vim.diagnostic.config().virtual_lines })
 end, { desc = "Toggle diagnostic virtual_lines" })
 
+vim.cmd.colorscheme("catppuccin")
+
 -- Force system python to make startup faster and avoid installing pynvim in
 -- each venv.
 vim.g.python3_host_prog = "/usr/bin/python3"

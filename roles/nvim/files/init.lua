@@ -178,20 +178,7 @@ require("lazy").setup({
 			},
 		},
 	},
-	{
-		"catppuccin/nvim",
-		name = "catppuccin",
-		priority = 1000,
-		opts = {
-			transparent_background = true,
-			styles = {
-				conditionals = {},
-			},
-		},
-	},
 })
-vim.o.termguicolors = true
-vim.cmd.colorscheme("catppuccin")
 
 vim.cmd([[
 " Filetype specific settings

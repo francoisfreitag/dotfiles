@@ -1,34 +1,45 @@
 ---
+- name: Check if yay is available
+  stat:
+    path: /usr/bin/yay
+  register: yay
+
+- name: Create temporary build directory
+  tempfile:
+    state: directory
+    suffix: _yay
+  register: yay_build_dir
+  when: not yay.stat.exists
+
 - name: Clone yay repository
   git:
     repo: https://aur.archlinux.org/yay.git
-    dest: ~/.cache/yay
-    update: no
-  register: yay_clone
+    dest: "{{ yay_build_dir.path }}"
+  when: not yay.stat.exists
 
 - name: Install go to build yay
   become: yes
   pacman:
     name: go
-  when: yay_clone.changed
+  when: not yay.stat.exists
 
 - name: Build yay
   command:
     cmd: makepkg --nosign
-    chdir: ~/.cache/yay
-  when: yay_clone.changed
+    chdir: "{{ yay_build_dir.path }}"
+  when: not yay.stat.exists
 
 - name: Install yay
   become: yes
   pacman:
     name: "{{ item }}"
   with_fileglob:
-    - ~/.cache/yay/yay-*.pkg.tar.zst
-  when: yay_clone.changed
+    - "{{ yay_build_dir.path }}/yay-*.pkg.tar.zst"
+  when: not yay.stat.exists
 
 - name: Remove go
   become: yes
   pacman:
     name: go
     state: absent
-  when: yay_clone.changed
+  when: not yay.stat.exists

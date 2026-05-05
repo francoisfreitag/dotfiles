@@ -12,6 +12,7 @@
   loop:
     - init.lua
     - after
+    - colors
     - ftplugin
     - lua
     - spell

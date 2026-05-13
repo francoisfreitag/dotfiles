@@ -3,7 +3,7 @@ source <(fzf --zsh)
 # https://github.com/catppuccin/fzf with the --tmux option.
 export FZF_DEFAULT_OPTS=" \
 --multi \
---tmux"
+--popup=center,100%,50%"
 
 pytest_failed() {
     local TESTS

@@ -37,8 +37,9 @@
     dest: "~/.config/hypr/{{ item }}"
     state: link
   loop:
+    - config
     - hypridle.conf
-    - hyprland.conf
+    - hyprland.lua
     - hyprlock.conf
     - hyprpaper.conf
     - hyprsunset.conf

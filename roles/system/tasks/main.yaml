@@ -111,6 +111,7 @@
       - zathura-pdf-mupdf
       - zsh
       - zsh-syntax-highlighting
+      - zoxide
 
 - name: Create systemd-resolved drop-in configuration directory
   become: yes

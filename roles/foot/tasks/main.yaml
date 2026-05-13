@@ -1,0 +1,14 @@
+---
+- name: Ensure .config exists
+  file:
+    path: "{{ item }}"
+    state: directory
+  loop:
+    - ~/.config
+    - ~/.config/foot
+
+- name: Install foot theme
+  file:
+    src: "{{ role_path }}/files/foot.ini"
+    dest: ~/.config/foot/foot.ini
+    state: link

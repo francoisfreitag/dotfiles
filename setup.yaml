@@ -1,7 +1,7 @@
 - hosts: localhost
   roles:
     - system
-    - alacritty
+    - foot
     - bin
     - git
     - fuzzel

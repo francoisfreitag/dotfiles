@@ -4,7 +4,6 @@
   pacman:
     name:
       - aerc
-      - alacritty
       - avahi  # Printer discovery.
       - blueman
       - bluez
@@ -21,6 +20,8 @@
       - dunst
       - file-roller
       - firefox-developer-edition
+      - foot
+      - foot-terminfo
       - fuzzel
       - fzf
       - ghostscript

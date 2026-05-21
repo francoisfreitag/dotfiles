@@ -238,3 +238,9 @@
     line: "hosts: mymachines mdns_minimal [NOTFOUND=return] resolve [!UNAVAIL=return] files myhostname dns"
     regexp: '^hosts: '
     path: /etc/nsswitch.conf
+
+- name: Install mimeapps.list
+  file:
+    src: "{{ role_path }}/files/mimeapps.list"
+    dest: "~/.config/mimeapps.list"
+    state: link

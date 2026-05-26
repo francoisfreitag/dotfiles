@@ -20,7 +20,12 @@ hl.window_rule({
 	no_focus = true,
 })
 
-hl.window_rule({ match = { class = "foot" }, workspace = "1", border_size = 1, rounding = 0 })
+hl.window_rule({ match = { initial_title = "foot" }, workspace = "1", border_size = 1, rounding = 0 })
+hl.window_rule({
+	match = { initial_title = "File picker" },
+	float = true,
+	size = { "monitor_w * 0.9", "monitor_h * 0.8" },
+})
 hl.window_rule({ match = { class = "firefox-developer-edition" }, workspace = "2" })
 hl.window_rule({ match = { title = "Meet –.*$" }, idle_inhibit = "focus" })
 hl.window_rule({ match = { title = "Dev Standup –.*$" }, idle_inhibit = "focus" })

@@ -1,0 +1,20 @@
+- name: Create XDG config directory
+  file:
+    path: "~/{{ item }}"
+    state: directory
+  loop:
+    - .config
+    - .config/xdg-desktop-portal
+    - .config/xdg-desktop-portal-termfilechooser
+
+- name: Configure xdg-portal-termfilechooser
+  file:
+    src: "{{ role_path }}/files/termfilechooser-config"
+    dest: "~/.config/xdg-desktop-portal-termfilechooser/config"
+    state: link
+
+- name: Set the XDG file picker to yazi
+  file:
+    src: "{{ role_path }}/files/portals.conf"
+    dest: "~/.config/xdg-desktop-portal/portals.conf"
+    state: link

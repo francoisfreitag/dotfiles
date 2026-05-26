@@ -106,6 +106,7 @@
       - wf-recorder
       - wireguard-tools
       - wl-clipboard
+      - yazi
       - zathura
       - zathura-cb
       - zathura-pdf-mupdf
@@ -196,7 +197,9 @@
 
 - name: Install AUR packages
   pacman:
-    name: ashell
+    name:
+      - ashell
+      - xdg-desktop-portal-termfilechooser-hunkyburrito-git
     executable: yay
 
 - name: Enable wayland for Chromium

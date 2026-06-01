@@ -11,11 +11,11 @@ logfile ~/.config/msmtp/msmtp.log
 tls_starttls off
 
 account francois.freitag@inclusion.gouv.fr
-host smtp.gmail.com
+host smtp.numerique.gouv.fr
 port 465
 from francois.freitag@inclusion.gouv.fr
 user francois.freitag@inclusion.gouv.fr
-passwordeval "secret-tool lookup name francois.freitag@inclusion.gouv.fr"
+passwordeval "secret-tool lookup name francois.freitag@inclusion.gouv.fr@numerique.gouv.fr"
 auth on
 tls on
 tls_trust_file	/etc/ssl/certs/ca-certificates.crt

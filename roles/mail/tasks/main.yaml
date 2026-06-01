@@ -27,6 +27,7 @@
   loop:
     - mail@franek.fr
     - francois.freitag@inclusion.gouv.fr
+    - francois.freitag+lasuite@inclusion.gouv.fr
 
 - name: Configure mbsync
   file:

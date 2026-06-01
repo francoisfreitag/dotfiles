@@ -24,10 +24,10 @@ ExpireUnread no
 # End profile
 
 IMAPStore francois.freitag@inclusion.gouv.fr-remote
-Host imap.gmail.com
+Host imap.numerique.gouv.fr
 Port 993
 User francois.freitag@inclusion.gouv.fr
-PassCmd "secret-tool lookup name francois.freitag@inclusion.gouv.fr"
+PassCmd "secret-tool lookup name francois.freitag@inclusion.gouv.fr@numerique.gouv.fr"
 AuthMechs LOGIN
 TLSType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
@@ -41,7 +41,7 @@ Channel francois.freitag@inclusion.gouv.fr
 Expunge Both
 Far :francois.freitag@inclusion.gouv.fr-remote:
 Near :francois.freitag@inclusion.gouv.fr-local:
-Patterns * !"[Gmail]/Tous les messages"
+Patterns * !"[Gmail]*"
 Create Both
 SyncState *
 MaxMessages 0

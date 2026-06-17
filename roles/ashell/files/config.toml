@@ -1,11 +1,14 @@
 [modules]
-left = ["Workspaces"]
-center = [["Clock"]]
-right = ["SystemInfo", "Tray", ["Privacy", "Settings"]]
+left = [["Workspaces"], ["WindowTitle"]]
+center = [["Tempo", "Notifications"], ["Privacy"]]
+right = [["SystemInfo"], ["Tray"], ["Settings"]]
 
 [settings]
 indicators = ["IdleInhibitor", "Audio", "Bluetooth", "Network", "Vpn", "Battery"]
 shutdown_cmd = "systemctl poweroff"
+
+[window_title]
+truncate_title_after_length = 120
 
 [appearance]
 font_name = "Fira Code"

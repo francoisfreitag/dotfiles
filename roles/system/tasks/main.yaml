@@ -17,7 +17,6 @@
       - deepin-icon-theme
       - difftastic
       - direnv
-      - dunst
       - file-roller
       - firefox-developer-edition
       - foot
@@ -113,6 +112,13 @@
       - zsh
       - zsh-syntax-highlighting
       - zoxide
+
+- name: Remove unused packages
+  become: yes
+  pacman:
+    state: absent
+    name:
+      - dunst
 
 - name: Create systemd-resolved drop-in configuration directory
   become: yes

@@ -4,7 +4,6 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd(uwsm("hypridle"))
 	hl.exec_cmd(uwsm("hyprsunset"))
 	hl.exec_cmd(uwsm("udiskie --no-automount --smart-tray"))
-	hl.exec_cmd(uwsm("dunst"))
 	hl.exec_cmd(uwsm("nextcloud --background"))
 	hl.exec_cmd(uwsm("wl-paste --watch cliphist -max-items 20 store"))
 

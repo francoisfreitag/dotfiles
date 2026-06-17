@@ -2,6 +2,9 @@ local conform = require("conform")
 conform.setup({
 	formatters_by_ft = {
 		htmldjango = { "djlint" },
+		javascript = { "eslint", "prettier" },
+		typescript = { "eslint", "prettier" },
+		svelte = { "eslint", "prettier" },
 		lua = { "stylua" },
 		python = function(bufnr)
 			if os.getenv("NO_FORMAT") then

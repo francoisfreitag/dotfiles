@@ -13,8 +13,6 @@
       - ctags
       - cups
       - dbus-broker
-      - deepin-gtk-theme
-      - deepin-icon-theme
       - difftastic
       - direnv
       - file-roller
@@ -97,7 +95,6 @@
       - uv
       - uwsm
       - vdirsyncer
-      - xdg-desktop-portal-gtk  # https://wiki.archlinux.org/title/Dark_mode_switching#gsettings
       - xdg-desktop-portal-hyprland
       - w3m  # Weak dependency for aerc default text/html
       - wf-recorder
@@ -116,6 +113,8 @@
   pacman:
     state: absent
     name:
+      - deepin-gtk-theme
+      - deepin-icon-theme
       - dunst
       - grim
       - slurp

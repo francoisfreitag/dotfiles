@@ -14,8 +14,7 @@ hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
 hl.bind(mainMod .. " + C", hl.dsp.exec_cmd(uwsm("cliphist list | fuzzel --dmenu | cliphist decode | wl-copy")))
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd(uwsm("hyprlock")))
 hl.bind(mainMod .. " + escape", hl.dsp.exec_cmd(uwsm("systemctl sleep")))
-hl.bind("PRINT", hl.dsp.exec_cmd(uwsm("sh -c 'grim -c -t png - | swappy -f -'")))
-hl.bind("SHIFT + PRINT", hl.dsp.exec_cmd(uwsm("sh -c 'grim -g \"$(slurp)\" -c -t png - | swappy -f -'")))
+hl.bind("PRINT", hl.dsp.exec_cmd(uwsm("flameshot screen --edit")))
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))

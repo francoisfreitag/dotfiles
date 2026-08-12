@@ -6,7 +6,7 @@ hl.config({
 	},
 })
 hl.permission({
-	binary = "/usr/bin/grim",
+	binary = "/usr/bin/flameshot",
 	type = "screencopy",
 	mode = "allow",
 })

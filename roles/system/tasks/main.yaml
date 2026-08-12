@@ -19,6 +19,7 @@
       - direnv
       - file-roller
       - firefox-developer-edition
+      - flameshot
       - foot
       - foot-terminfo
       - fuzzel
@@ -29,7 +30,6 @@
       - git-zsh-completion
       - github-cli
       - greetd-agreety
-      - grim
       - grml-zsh-config
       - hunspell
       - hunspell-fr
@@ -80,8 +80,6 @@
       - sane-airscan
       - signal-desktop
       - simple-scan
-      - slurp
-      - swappy
       - telegram-desktop
       - tmux
       - tree-sitter
@@ -119,6 +117,9 @@
     state: absent
     name:
       - dunst
+      - grim
+      - slurp
+      - swappy
 
 - name: Create systemd-resolved drop-in configuration directory
   become: yes

@@ -30,7 +30,7 @@
       - greetd-agreety
       - grml-zsh-config
       - hunspell
-      - hunspell-fr
+      - hunspell-fr-comprehensive
       - hypridle
       - hyprland
       - hyprlock
@@ -117,6 +117,7 @@
       - deepin-icon-theme
       - dunst
       - grim
+      - hunspell-fr
       - slurp
       - swappy
 

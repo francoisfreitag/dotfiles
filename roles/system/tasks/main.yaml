@@ -64,7 +64,6 @@
       - pipewire
       - pipewire-pulse
       - pwgen
-      - python-aiohttp-oauthlib  # Google calendars sync
       - python-psutil  # Used by ansible to manage dconf.
       - python-pynvim
       - pyright
@@ -118,6 +117,7 @@
       - dunst
       - grim
       - hunspell-fr
+      - python-aiohttp-oauthlib  # Google calendars sync
       - slurp
       - swappy
 

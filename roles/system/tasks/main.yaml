@@ -28,6 +28,7 @@
       - git-zsh-completion
       - github-cli
       - greetd-agreety
+      - grim
       - grml-zsh-config
       - hunspell
       - hunspell-fr-comprehensive
@@ -115,7 +116,6 @@
       - deepin-gtk-theme
       - deepin-icon-theme
       - dunst
-      - grim
       - hunspell-fr
       - python-aiohttp-oauthlib  # Google calendars sync
       - slurp

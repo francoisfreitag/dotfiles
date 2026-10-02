@@ -9,3 +9,10 @@
     src: "{{ role_path }}/files/config.toml"
     dest: ~/.config/ashell/config.toml
     state: link
+
+- name: Enable systemd unit
+  systemd_service:
+    name: ashell
+    state: started
+    enabled: true
+    scope: user

@@ -1,6 +1,5 @@
 hl.on("hyprland.start", function()
 	local uwsm = require("config.utils").uwsm
-	hl.exec_cmd(uwsm("ashell"))
 	hl.exec_cmd(uwsm("hypridle"))
 	hl.exec_cmd(uwsm("hyprsunset"))
 	hl.exec_cmd(uwsm("udiskie --no-automount --smart-tray"))

@@ -1,11 +1,27 @@
 [modules]
-left = [["Workspaces"], ["WindowTitle"]]
-center = [["Tempo", "Notifications"], ["Privacy"]]
+left = ["Workspaces"]
+center = [["Tempo", "Notifications"], ["NextMeeting"], ["Privacy"]]
 right = [["SystemInfo"], ["Tray"], ["Settings"]]
 
 [settings]
 indicators = ["IdleInhibitor", "Audio", "Bluetooth", "Network", "Vpn", "Battery"]
 shutdown_cmd = "systemctl poweroff"
+
+[[CustomModule]]
+name = "NextMeeting"
+type = "Button"
+command = "~/.local/bin/ashell-next-meeting action"
+listen_cmd = """
+while true; do
+	~/.local/bin/ashell-next-meeting monitor
+	sleep 300
+done
+"""
+icon = ""
+alert = "UPCOMING"
+icons.'STARTED' = "󰻗"
+icons.'UPCOMING' = "󱙭"
+icons.'EMPTY' = ""
 
 [window_title]
 truncate_title_after_length = 120

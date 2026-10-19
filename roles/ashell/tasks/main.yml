@@ -16,3 +16,9 @@
     state: started
     enabled: true
     scope: user
+
+- name: Install NextMeeting script
+  file:
+    src: "{{ role_path }}/files/ashell_next_meeting"
+    dest: ~/.local/bin/ashell-next-meeting
+    state: link

@@ -12,6 +12,8 @@ def main(test_command, branch, ignore):
     current_branch = clean_output(
         subprocess.check_output(["git", "rev-parse", "--abbrev-ref", "HEAD"])
     )
+    commit_line = ""
+    success = True
     try:
         commits = subprocess.check_output(
             ["git", "log", "%s..HEAD" % branch, '--format="%H"', "--reverse"]
@@ -32,8 +34,12 @@ def main(test_command, branch, ignore):
 
             _exec(test_command)
             prefix = "\n"
+    except Exception:
+        success = False
     finally:
         subprocess.check_call(["git", "checkout", current_branch])
+        if not success:
+            print(f"Failed on commit:\n{commit_line}")
 
 
 if __name__ == "__main__":

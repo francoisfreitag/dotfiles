@@ -34,5 +34,6 @@ hl.window_rule({ match = { class = "org.telegram.desktop" }, workspace = "4" })
 hl.window_rule({ match = { class = "signal" }, workspace = "4" })
 hl.window_rule({ match = { class = "SoliumInfernum" }, workspace = "5", fullscreen = true })
 hl.window_rule({ match = { class = "org.keepassxc.KeePassXC" }, workspace = "10", no_screen_share = true })
+hl.window_rule({ match = { title = "Yazi: Desktop" }, no_screen_share = true })
 
 hl.layer_rule({ match = { namespace = "launcher" }, blur = true, dim_around = true })

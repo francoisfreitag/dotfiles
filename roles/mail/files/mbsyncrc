@@ -41,7 +41,7 @@ Channel francois.freitag@inclusion.gouv.fr
 Expunge Both
 Far :francois.freitag@inclusion.gouv.fr-remote:
 Near :francois.freitag@inclusion.gouv.fr-local:
-Patterns * !"[Gmail]*"
+Patterns *
 Create Both
 SyncState *
 MaxMessages 0

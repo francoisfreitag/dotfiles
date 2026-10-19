@@ -126,7 +126,7 @@ vim.keymap.set("n", "]q", ":cnext<cr>zz")
 vim.cmd([[
 " Filetype specific settings
 augroup vimrc
-    autocmd BufNewFile,BufRead neomutt-* setlocal tw=0 spell
+    autocmd BufNewFile,BufRead aerc-compose-*.eml setlocal tw=0 spell digraph
     autocmd BufNewFile,BufRead .envrc setlocal filetype=sh
     autocmd BufNewFile,BufRead *.rst setlocal spell suffixesadd=.rst
     autocmd BufNewFile,BufRead *.md setlocal spell

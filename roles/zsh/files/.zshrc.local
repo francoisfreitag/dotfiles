@@ -1,6 +1,7 @@
 export EDITOR=/usr/bin/nvim
 alias vim=nvim
 alias rg='rg --hidden'
+alias k="khal list --format '{title:<40} {start-time}–{end-time} {location:>50}'"
 
 export PATH="$(systemd-path user-binaries):$PATH"
 

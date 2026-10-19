@@ -19,20 +19,21 @@ type = "filesystem"
 path = "~/.local/share/vdirsyncer/calendars/nextcloud.franek.fr/"
 fileext = ".ics"
 
-[pair google_calendar]
-a = "google_inclusion_remote"
-b = "google_inclusion_local"
+[pair inclusion_calendar]
+a = "inclusion_remote"
+b = "inclusion_local"
 collections = ["from a"]
 conflict_resolution = ["command", "nvim", "-d"]
 metadata = ["color", "displayname"]
 
-[storage google_inclusion_remote]
-type = "google_calendar"
-token_file = "~/.local/share/vdirsyncer/inclusion_gouv_fr_token"
-client_id.fetch = ["command", "secret-tool", "lookup", "name", "vdirsyncer.google.username"]
-client_secret.fetch = ["command", "secret-tool", "lookup", "name", "vdirsyncer.google.password"]
+[storage inclusion_remote]
+type = "caldav"
 
-[storage google_inclusion_local]
+url = "https://messagerie.numerique.gouv.fr/dav/caldav/Y2FsOi8vMC8zMTcy"
+username.fetch = ["command", "secret-tool", "lookup", "name", "vdirsyncer.inclusion.username"]
+password.fetch = ["command", "secret-tool", "lookup", "name", "vdirsyncer.inclusion.password"]
+
+[storage inclusion_local]
 type = "filesystem"
 path = "~/.local/share/vdirsyncer/calendars/inclusion.gouv.fr/"
 fileext = ".ics"

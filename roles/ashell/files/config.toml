@@ -22,11 +22,13 @@ icons.'EMPTY' = ""
 truncate_title_after_length = 120
 
 [appearance]
-font_name = "Fira Code"
+font_name = "FiraCode Nerd Font"
 scale_factor = 1.0
 
-# https://malpenzibo.github.io/ashell/docs/configuration/appearance/theme
+# https://malpenzibo.github.io/ashell/docs/configuration/appearance/theme#catppuccin-mocha
 success_color = "#a6e3a1"
+warning_color = "#f9e2af"
+danger_color = "#f38ba8"
 text_color = "#cdd6f4"
 
 workspace_colors = [ "#fab387", "#b4befe", "#cba6f7" ]
@@ -35,15 +37,7 @@ workspace_colors = [ "#fab387", "#b4befe", "#cba6f7" ]
 base = "#fab387"
 text = "#1e1e2e"
 
-[appearance.danger_color]
-base = "#f38ba8"
-weak = "#f9e2af"
-
 [appearance.background_color]
 base = "#1e1e2e"
 weak = "#313244"
 strong = "#45475a"
-
-[appearance.secondary_color]
-base = "#11111b"
-strong = "#1b1b25"

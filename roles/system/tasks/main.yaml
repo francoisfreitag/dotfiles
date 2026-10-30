@@ -8,6 +8,7 @@
       - blueman
       - bluez
       - brightnessctl
+      - ccid
       - chromium
       - cliphist
       - ctags
@@ -54,6 +55,7 @@
       - nextcloud-client
       - neovim
       - network-manager-applet
+      - nitrokey-udev-rules
       - notmuch-runtime
       - noto-fonts-emoji
       - nss-mdns  # Local resolution for printers.
@@ -248,6 +250,12 @@
     line: "hosts: mymachines mdns_minimal [NOTFOUND=return] resolve [!UNAVAIL=return] files myhostname dns"
     regexp: '^hosts: '
     path: /etc/nsswitch.conf
+
+- name: Enable pcscd for NitroKey
+  become: yes
+  systemd_service:
+    name: pcscd.socket
+    enabled: yes
 
 - name: Install mimeapps.list
   file:

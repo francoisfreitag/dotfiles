@@ -1,0 +1,30 @@
+---
+- name: Create directories
+  file:
+    path: "{{ item }}"
+    state: directory
+  loop:
+    - ~/.config/pimsync
+    - ~/.local/share/pimsync/calendars/nextcloud.franek.fr
+    - ~/.local/share/pimsync/calendars/inclusion.gouv.fr
+    - ~/.local/share/pimsync/status
+
+- name: Configure pimsync
+  file:
+    src: "{{ role_path }}/files/config"
+    dest: ~/.config/pimsync/pimsync.conf
+    state: link
+
+
+- name: Add pimsync.service
+  file:
+    src: "{{ role_path }}/files/pimsync.service"
+    dest: ~/.config/systemd/user/pimsync.service
+    state: link
+
+- name: Activate pimsync
+  systemd_service:
+    name: pimsync
+    scope: user
+    enabled: yes
+    state: started

@@ -1,0 +1,11 @@
+[Unit]
+Description=Synchronise calendars
+Documentation=man:pimsync
+
+[Service]
+ExecStart=/usr/bin/pimsync daemon
+Restart=no
+Slice=background.slice
+
+[Install]
+WantedBy=sync.target

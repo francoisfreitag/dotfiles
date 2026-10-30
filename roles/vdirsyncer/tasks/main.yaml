@@ -1,18 +1,17 @@
 ---
-- name: Create configuration directory
-  file:
-    path: ~/.config/vdirsyncer
-    state: directory
-
-- name: Configure vdirsyncer
-  file:
-    src: "{{ role_path }}/files/config"
-    dest: ~/.config/vdirsyncer/config
-    state: link
-
-- name: Activate vdirsyncer
+- name: Deactivate vdirsyncer
   systemd_service:
     name: vdirsyncer.timer
     scope: user
-    enabled: yes
-    state: started
+    enabled: no
+    state: stopped
+
+- name: Remove vdirsyncer config
+  file:
+    path: ~/.config/vdirsyncer/config
+    state: absent
+
+- name: Remove configuration directory
+  file:
+    path: ~/.config/vdirsyncer
+    state: absent

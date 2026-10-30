@@ -64,6 +64,7 @@
       - p7zip
       - pacman-contrib
       - pavucontrol
+      - pimsync
       - pipewire
       - pipewire-pulse
       - pwgen

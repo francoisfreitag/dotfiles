@@ -1,0 +1,47 @@
+status_path "~/.local/share/pimsync/status/"
+
+pair nextcloud_calendar {
+	storage_a nextcloud_remote
+	storage_b nextcloud_local
+	collections all
+	conflict_resolution cmd nvim -d
+}
+
+storage nextcloud_remote {
+	type caldav
+	url https://nextcloud.franek.fr/remote.php/caldav/
+	username {
+		cmd secret-tool lookup name vdirsyncer.username
+	}
+	password {
+		cmd secret-tool lookup name vdirsyncer.password
+	}
+}
+
+storage nextcloud_local {
+	type vdir/icalendar
+	path ~/.local/share/pimsync/calendars/nextcloud.franek.fr/
+}
+
+pair inclusion_calendar {
+	storage_a inclusion_remote
+	storage_b inclusion_local
+	collections all
+	conflict_resolution cmd nvim -d
+}
+
+storage inclusion_remote {
+	type caldav
+	url https://messagerie.numerique.gouv.fr/dav/caldav/Y2FsOi8vMC8zMTcy
+	username {
+		cmd secret-tool lookup name vdirsyncer.inclusion.username
+	}
+	password {
+		cmd secret-tool lookup name vdirsyncer.inclusion.password
+	}
+}
+
+storage inclusion_local {
+	type vdir/icalendar
+	path ~/.local/share/pimsync/calendars/inclusion.gouv.fr/
+}

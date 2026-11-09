@@ -1,11 +1,11 @@
 [calendars]
-    [[nextcloud]]
-    path = ~/.local/share/pimsync/calendars/nextcloud.franek.fr/*
-    type = discover
+[[nextcloud]]
+path = ~/.local/share/pimsync/calendars/nextcloud.franek.fr/*
+type = discover
 
-    [[work]]
-    path = ~/.local/share/pimsync/calendars/inclusion.gouv.fr/Y2FsOi8vMC8zMTcy/*
-    type = discover
+[[work]]
+path = ~/.local/share/pimsync/calendars/inclusion.gouv.fr/Y2FsOi8vMC8zMTcy/*
+type = discover
 
 [locale]
 timeformat = %H:%M

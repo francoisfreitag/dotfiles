@@ -4,8 +4,7 @@ path = ~/.local/share/pimsync/calendars/nextcloud.franek.fr/*
 type = discover
 
 [[work]]
-path = ~/.local/share/pimsync/calendars/inclusion.gouv.fr/Y2FsOi8vMC8zMTcy/*
-type = discover
+path = ~/.local/share/pimsync/calendars/inclusion.gouv.fr/Y2FsOi8vMC8zMTcy/
 
 [locale]
 timeformat = %H:%M

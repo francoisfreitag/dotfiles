@@ -3,6 +3,10 @@ left = ["Workspaces"]
 center = [["Tempo", "Notifications"], ["NextMeeting"], ["Privacy"]]
 right = [["SystemInfo"], ["Tray"], ["Settings"]]
 
+[notifications]
+toast = false
+grouped = true
+
 [settings]
 indicators = ["IdleInhibitor", "Audio", "Bluetooth", "Network", "Vpn", "Battery"]
 shutdown_cmd = "systemctl poweroff"
